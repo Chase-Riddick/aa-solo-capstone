@@ -21,26 +21,24 @@ class Catch(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
     # relationships
-    user = db.relationship("User", back_populates="brews")
+    user = db.relationship("User", back_populates="catches")
     subposts = db.relationship("Subpost", back_populates="catch")
-    condition = db.relationship("Condition", back_populates="catch")
+    condition = db.relationship("Condition", back_populates="catch", uselist=False)
 
     def to_dict(self, **kwargs):
-
         out = {
-            "id": self.id,
-            "title": self.title,
-            "description": self.description,
-            "pdf_url": self.pdf_url,
-            "price": self.price,
-            "for_sale": self.for_sale,
-            "user_id": self.user_id,
-            "created_at": self.created_at,
-            "updated_at": self.updated_at
+            'id': self.id,
+            'user_id': self.user_id,
+            'img_url': self.img_url,
+            'fish': self.fish,
+            'description': self.description,
+            'length': self.length,
+            'width': self.width,
+            'bait': self.bait,
+            'lure': self.lure,
+            'long': self.long,
+            'lat': self.lat,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at,
         }
-
-        for key, collection in kwargs.items():
-            # might neeed to import the to_dict methods for the associated models
-            out[key] = [ele.to_dict() for ele in collection]
-
         return out
