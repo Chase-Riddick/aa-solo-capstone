@@ -1,1 +1,33 @@
 /* TODO Add site wide styles */
+
+* {
+    box-sizing: border-box;
+}
+
+.catches {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 1000px;
+}
+
+.catch-card {
+    width: 200px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid black;
+    margin: 15px;
+}
+
+.card-image {
+    width: 100%;
+    height: fit-content;
+    object-fit: fill;
+}
+
+.card-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

@@ -1,5 +1,6 @@
 from .db import db
 from datetime import datetime
+from .condition import Condition
 
 
 class Catch(db.Model):
@@ -33,7 +34,7 @@ class Catch(db.Model):
             'fish': self.fish,
             'description': self.description,
             'length': self.length,
-            'width': self.width,
+            'weight': self.weight,
             'bait': self.bait,
             'lure': self.lure,
             'long': self.long,
@@ -41,4 +42,10 @@ class Catch(db.Model):
             'created_at': self.created_at,
             'updated_at': self.updated_at,
         }
+
+        for key, collection in kwargs.items():
+            # might neeed to import the to_dict methods for the associated models
+            if key == 'condition': out[key] = collection.to_dict()
+            else: out[key] = [ele.to_dict() for ele in collection]
+
         return out
