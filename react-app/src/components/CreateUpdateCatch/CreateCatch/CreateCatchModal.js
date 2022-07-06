@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Modal } from '../../../context/Modal';
-import CreateCatch from '.';
+import CreateCatchForm from '.';
 
 export default function CreateCatchModal () {
     const [showModal, setShowModal] = useState(false)
@@ -10,7 +10,7 @@ export default function CreateCatchModal () {
         <button className='button' onClick={() => setShowModal(true)}>Share a New Catch</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-                <CreateCatch />
+                <CreateCatchForm setShowModal={setShowModal}/>
             </Modal>
         )}
         </>

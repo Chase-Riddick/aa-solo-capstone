@@ -14,8 +14,7 @@
 
 .catch-card {
     width: 200px;
-    border-radius: 10px;
-    cursor: pointer;
+    border-radius: 2px;
     border: 2px solid black;
     margin: 15px;
 }

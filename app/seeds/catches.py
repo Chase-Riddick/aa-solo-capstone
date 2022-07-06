@@ -11,7 +11,7 @@ def seed_catches():
             length = 18.0,
             weight = 1.5,
             bait = 'Live Bait',
-            long = 22.2751,
+            long = -122.2751,
             lat = 46.5583),
 
         Catch(
@@ -22,7 +22,7 @@ def seed_catches():
             length = 26.0,
             weight = 14,
             lure = "Hotspot Apex Salmon Killer.",
-            long = 22.2752,
+            long = -122.2752,
             lat = 46.5583),
 
         Catch(
@@ -33,7 +33,7 @@ def seed_catches():
             length = 31.0,
             weight = 16.0,
             lure = "Hotspot Apex Salmon Killer.",
-            long = 22.2753,
+            long = -122.2753,
             lat = 46.5585),
 
         Catch(
@@ -44,7 +44,7 @@ def seed_catches():
             length = 13,
             weight = 2.0,
             lure = "Red and shiny, found it in the garage..",
-            long = 22.2751,
+            long = -122.2751,
             lat = 46.5584),
 
         Catch(
@@ -55,7 +55,7 @@ def seed_catches():
             length = 30.0,
             weight = 7.0,
             lure = "Yellow Rooster-tail.",
-            long = 22.2751,
+            long = -122.2751,
             lat = 46.5585),
 
         Catch(
@@ -66,7 +66,7 @@ def seed_catches():
             length = 17.0,
             weight = 3.2,
             lure = "Yellow Rooster-tail.",
-            long = 22.2750,
+            long = -122.2750,
             lat = 46.5584),
 
         Catch(
@@ -76,7 +76,7 @@ def seed_catches():
             description = "Got it out in mid-river today!",
             length = 38.0,
             weight = 23.0,
-            long = 22.2756,
+            long = -122.2756,
             lat = 46.5584),
 
         Catch(
@@ -87,7 +87,7 @@ def seed_catches():
             length = 150.0,
             weight = 200.0,
             bait = 'A small child (mangled, but survived the incident)',
-            long = 22.2758,
+            long = -122.2758,
             lat = 46.5584),
 
         Catch(
@@ -97,7 +97,7 @@ def seed_catches():
             length = 30.0,
             weight = 15.0,
             lure = "Red and blue - creates a good contrast.",
-            long = 22.2752,
+            long = -122.2752,
             lat = 46.5583),
 
         Catch(
@@ -108,7 +108,7 @@ def seed_catches():
             length = 6.0,
             weight = 0.2,
             lure = "Acme Castmaster.",
-            long = 22.2753,
+            long = -122.2753,
             lat = 46.5582),
 
         Catch(
@@ -120,7 +120,7 @@ def seed_catches():
             weight = 4.5,
             bait = 'Live Bait',
             lure = "Hotspot Apex Salmon Killer.",
-            long = 22.2756,
+            long = -122.2756,
             lat = 46.5585),
 
         Catch(
@@ -131,7 +131,7 @@ def seed_catches():
             length = 13.0,
             weight = 2.0,
             bait = 'Earthworm',
-            long = 22.2749,
+            long = -122.2749,
             lat = 46.5585),
         ]
     )
