@@ -7,14 +7,14 @@ def seed_users():
         username='Demo',
         email='demo@aa.io',
         password='password',
-        image_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.45.13.png',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.45.13.png',
         ),
 
         User(
         username='JeffSple',
         email='JeffSple@aa.io',
         password='password',
-        image_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
         ),
 
         User(
@@ -57,7 +57,7 @@ def seed_users():
         username='George',
         email='George@aa.io',
         password='password',
-        image_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
         ),
         ]
     )

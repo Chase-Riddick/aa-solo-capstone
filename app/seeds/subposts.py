@@ -23,8 +23,8 @@ def seed_subposts():
 
             Subpost(
                 content='quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-                user_id=9,
-                catch_id=13,
+                user_id=7,
+                catch_id=4,
             ),
 
             Subpost(
@@ -60,13 +60,13 @@ def seed_subposts():
             Subpost(
                 content='Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
                 user_id=3,
-                catch_id=14,
+                catch_id=12,
             ),
 
             Subpost(
                 content='Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque.',
                 user_id=6,
-                catch_id=15,
+                catch_id=12,
             ),
 
             Subpost(

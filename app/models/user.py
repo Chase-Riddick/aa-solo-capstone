@@ -12,7 +12,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    img_url = db.Column(db.Text, nullable=False, default='https://localcatches.s3.us-west-2.amazonaws.com/default-user-img.png')
+    img_url = db.Column(db.String(255), default='https://localcatches.s3.us-west-2.amazonaws.com/default-user-img.png')
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
