@@ -15,7 +15,7 @@ class Subpost(db.Model):
     user = db.relationship('User', back_populates='subposts')
     catch = db.relationship('Catch', back_populates='subposts')
 
-    def to_dict(self):
+    def to_dict(self, **kwargs):
         out = {
             'id': self.id,
             'content': self.content,

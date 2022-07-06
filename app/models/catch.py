@@ -12,7 +12,7 @@ class Catch(db.Model):
     fish = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(255), nullable=True)
     length = db.Column(db.Float, nullable=False)
-    width = db.Column(db.Float, nullable=False)
+    weight = db.Column(db.Float, nullable=False)
     bait = db.Column(db.String(80), nullable=True)
     lure = db.Column(db.String(80), nullable=True)
     long = db.Column(db.Float, nullable=False)
