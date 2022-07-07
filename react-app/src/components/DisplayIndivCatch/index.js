@@ -1,3 +1,4 @@
+import SubpostsSection from "../Subposts/SubpostsSection"
 
 export default function DisplayIndivCatch ({indivCatch}) {
     return (
@@ -14,6 +15,7 @@ export default function DisplayIndivCatch ({indivCatch}) {
         <p>{indivCatch.lure}</p>
         <p>{indivCatch.long}</p>
         <p>{indivCatch.lat}</p>
+        <SubpostsSection catch_id={indivCatch.id} subposts={indivCatch.subposts} />
         </>
     )
 }

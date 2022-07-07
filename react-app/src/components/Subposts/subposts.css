@@ -1,0 +1,18 @@
+.subpost-card {
+    border: black 1px solid;
+    padding-right: 5px;
+}
+
+.subpost-section {
+    display: flex;
+    flex-direction: column;
+    border: black 1px solid;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.section-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

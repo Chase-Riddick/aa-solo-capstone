@@ -18,6 +18,7 @@ class CreateCatch(FlaskForm):
 
 
 class UpdateCatch(FlaskForm):
+    id = IntegerField("id", validators=[DataRequired()])
     fish = StringField('fish', validators=[DataRequired()])
     description = StringField('description', validators=[DataRequired()])
     length = FloatField('length', validators=[DataRequired()])

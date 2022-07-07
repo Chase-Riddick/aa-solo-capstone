@@ -51,6 +51,9 @@ export const createCatch = (payload) => async (dispatch) => {
 
   const form = new FormData();
 
+  console.log('****************************')
+  console.log(id)
+
   form.append('id', id);
   form.append('img', img);
   form.append('fish', fish);

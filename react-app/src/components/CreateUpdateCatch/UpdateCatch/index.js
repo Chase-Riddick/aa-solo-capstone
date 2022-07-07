@@ -54,8 +54,6 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
       return;
     }
 
-
-
     const payload = {
         id: indivCatch.id,
         img,
@@ -68,6 +66,9 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         long,
         lat,
     };
+
+    console.log('****************************')
+    console.log(payload)
 
     let data= await dispatch(createCatch(payload));
     if (data && data.errors) {
