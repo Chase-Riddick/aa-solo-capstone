@@ -1,22 +1,18 @@
 from flask_wtf import FlaskForm
-from wtforms import FileField, IntegerField, StringField, BooleanField, FloatField, TextAreaField, Field
+from wtforms import IntegerField, StringField, TextAreaField
 from wtforms import validators
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 import re
 
+
 class CreateSubpost(FlaskForm):
-    pass
-    # title = StringField('title', validators=[DataRequired()])
-    # description = TextAreaField('description', validators=[DataRequired()])
-    # price = FloatField('price', validators=[DataRequired()])
-    # brew_tags = DictField("brew_tags")
-    # user_id = IntegerField("user_id", validators=[DataRequired()])
+    content = TextAreaField("content", validators=[DataRequired(message="To leave a subpost, you've got to write something."), Length(min=1, max=255, message="Your review must be 255 characters or less.")])
+    user_id = IntegerField("user_id", validators=[DataRequired()])
+    catch_id = IntegerField("catch_id", validators=[DataRequired()])
 
 
 class UpdateSubpost(FlaskForm):
-    pass
-    # id = IntegerField("id")
-    # title = StringField('title', validators=[DataRequired()])
-    # description = TextAreaField('description', validators=[DataRequired()])
-    # price = FloatField('price', validators=[DataRequired()])
-    # brew_tags = DictField("brew_tags")
+    id = IntegerField("id")
+    content = StringField("content", validators=[DataRequired(message="To leave a subpost, you've got to write something."), Length(min=1, max=255, message="Your review must be 255 characters or less.")])
+    user_id = IntegerField("user_id", validators=[DataRequired()])
+    catch_id = IntegerField("catch_id", validators=[DataRequired()])

@@ -63,6 +63,7 @@ def upload(image):
 def format_errors(validation_errors):
     """
     Simple function that turns the WTForms validation errors into a simple list
+    This was created by a member in Group 3 Project.
     """
     errorMessages = []
     for field in validation_errors:

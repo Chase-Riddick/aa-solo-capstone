@@ -51,9 +51,6 @@ export const createCatch = (payload) => async (dispatch) => {
 
   const form = new FormData();
 
-  console.log('****************************')
-  console.log(id)
-
   form.append('id', id);
   form.append('img', img);
   form.append('fish', fish);
@@ -64,9 +61,6 @@ export const createCatch = (payload) => async (dispatch) => {
   form.append('lure', lure);
   form.append('long', long);
   form.append('lat', lat);
-
-
-
 
   const response = await fetch('/api/catches', {
     method: "PUT",
@@ -86,6 +80,7 @@ if (response.ok) {
 }
 
 export const updateCatch = (payload) => async (dispatch) => {
+
   const {
     img,
     fish,
@@ -98,8 +93,6 @@ export const updateCatch = (payload) => async (dispatch) => {
     lat,
     user_id
   } = payload
-  console.log("*******************************************")
-  console.log(img)
 
   const form = new FormData();
 
@@ -114,24 +107,46 @@ export const updateCatch = (payload) => async (dispatch) => {
   form.append('lat', lat);
   form.append('user_id', user_id);
 
-
-
   const response = await fetch('/api/catches', {
     method: "POST",
     body: form
   });
 
-  // const data = await response.json();
-  // console.log(data)
-if (response.ok) {
+  if (response.ok) {
   const data = await response.json();
-  if (data.errors) {
-    return data;
-  }
-
-  dispatch(update(data));
-  return data
+    if (data.errors) {
+      return data;
+    }
+    dispatch(update(data));
+    return data
 }
+}
+
+export const addSubpostToCatch = (payload) => async (dispatch) => {
+  const {
+    catch_id,
+    content,
+    user_id,
+  } = payload
+
+  const form = new FormData();
+  form.append('catch_id', catch_id)
+  form.append('content', content)
+  form.append('user_id', user_id)
+
+  const response = await fetch('/api/subposts', {
+    method: "POST",
+    body: form
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    if (data.errors) {
+      return data;
+    }
+
+    dispatch(update(data));
+  }
 }
 
 
