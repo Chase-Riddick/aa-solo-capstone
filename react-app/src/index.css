@@ -4,6 +4,19 @@
     box-sizing: border-box;
 }
 
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+.main-content {
+    width: 60%;
+    margin-bottom: 400px;
+}
+
 .catches {
     display: flex;
     flex-direction: column;

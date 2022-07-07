@@ -1,0 +1,11 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    border: black 1px solid;
+    gap: 30px;
+    width: 100%;
+
+}

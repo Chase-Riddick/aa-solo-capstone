@@ -9,7 +9,6 @@ export default function DisplayCatchesCollection(){
 
     return (
         <>
-            <h2>DisplayCatchesCollection</h2>
             <CreateCatchModal/>
 
             <div className='catches container'>
