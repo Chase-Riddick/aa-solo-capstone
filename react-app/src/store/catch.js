@@ -130,13 +130,11 @@ export const createCatch = (payload) => async (dispatch) => {
 }
 
 export const deleteCatch = (catchId) => async dispatch => {
-  console.log('***********A*************')
   const response = await fetch(`/api/catches/${catchId}`, {
     method: "DELETE"
   })
   if (response.ok) {
     const data = await response.json()
-    console.log('***********B*************')
     console.log(data)
     if(data.errors){
       return data;

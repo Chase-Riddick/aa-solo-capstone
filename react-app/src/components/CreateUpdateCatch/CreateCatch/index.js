@@ -1,7 +1,6 @@
 import React from 'react'
-import { useHistory, useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState} from 'react'
+import { useState} from 'react'
 import { createCatch } from '../../../store/catch';
 import '../../../form.css'
 
@@ -27,8 +26,8 @@ export default function CreateCatchForm ({setShowModal}) {
   const updateWeight = (e) => setWeight(e.target.value);
   const updateBait = (e) => setBait(e.target.value);
   const updateLure = (e) => setLure(e.target.value);
-  const updateLong = (e) => setLong(e.target.value);
-  const updateLat = (e) => setLat(e.target.value);
+  // const updateLong = (e) => setLong(e.target.value);
+  // const updateLat = (e) => setLat(e.target.value);
 
 // ***** This function isn't working. *****
 //   const updateImg = (e) => {
@@ -122,7 +121,6 @@ export default function CreateCatchForm ({setShowModal}) {
       <input
         type="text"
         placeholder="What did you catch?"
-        required
         className='input'
         value={fish}
         onChange={updateFish} />
@@ -130,7 +128,6 @@ export default function CreateCatchForm ({setShowModal}) {
       <input
         type="text"
         placeholder="Description"
-        required
         className='input'
         value={description}
         onChange={updateDescription} />
@@ -144,7 +141,6 @@ export default function CreateCatchForm ({setShowModal}) {
         min="0.0"
         max="500"
         onWheel={e => e.currentTarget.blur()}
-        required
         className='input'
         onChange={updateWeight} />
 
@@ -157,7 +153,6 @@ export default function CreateCatchForm ({setShowModal}) {
         min="2.0"
         max="240"
         onWheel={e => e.currentTarget.blur()}
-        required
         className='input'
         onChange={updateLength} />
 

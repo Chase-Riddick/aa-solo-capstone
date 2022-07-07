@@ -26,14 +26,15 @@ def post_subpost():
 
         updated_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(target_catch_id)
         return updated_single_catch.to_dict(condition = updated_single_catch.condition, subposts = updated_single_catch.subposts)
-    return {'errors': format_errors(form.errors)}, 401
+    return {'errors': format_errors(form.errors)}
 
 @login_required
 @subpost_routes.route("", methods=["PUT"])
 def put_subpost():
     form = UpdateSubpost()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print('*************!!!******************')
+    print(form.data)
     if form.validate_on_submit():
         target_catch_id = form.data["catch_id"]
         subpost = Subpost.query.get(form.data['id'])
@@ -42,7 +43,8 @@ def put_subpost():
 
         updated_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(target_catch_id)
         return updated_single_catch.to_dict(condition = updated_single_catch.condition, subposts = updated_single_catch.subposts)
-    return {'errors': format_errors(form.errors)}, 401
+    print(format_errors(form.errors))
+    return {'errors': format_errors(form.errors)}
 
 @login_required
 @subpost_routes.route('/<int:id>', methods=["DELETE"])

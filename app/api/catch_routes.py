@@ -47,13 +47,12 @@ def put_catch():
 
         updated_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(target_catch.id)
         return updated_single_catch.to_dict(condition = updated_single_catch.condition, subposts = updated_single_catch.subposts)
-    return {'errors': format_errors(form.errors)}, 401
+    return {'errors': format_errors(form.errors)}
 
 
 @login_required
 @catch_routes.route("", methods=["POST"])
 def post_catch():
-    print('********************* This Hits A *********************')
     img = request.files["img"]
     print('********************* This Hits B1 *********************')
     img_url = upload(img)
@@ -87,7 +86,7 @@ def post_catch():
         print('********************* This Hits E *********************')
         new_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(new_catch.id)
         return new_single_catch.to_dict(condition = new_single_catch.condition, subposts=new_single_catch.subposts)
-    return {'errors': format_errors(form.errors)}, 401
+    return {'errors': format_errors(form.errors)}
 
 
 @login_required

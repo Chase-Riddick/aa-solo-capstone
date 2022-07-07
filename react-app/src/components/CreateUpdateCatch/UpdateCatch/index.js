@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState} from 'react'
+import { useState} from 'react'
 import { updateCatch, deleteCatch } from '../../../store/catch';
 import '../../../form.css'
 
@@ -67,10 +67,9 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         lat,
     };
 
-    console.log('****************************')
-    console.log(payload)
 
-    let data= await dispatch(updateCatch(payload));
+
+    let data = await dispatch(updateCatch(payload));
     if (data && data.errors) {
         let modified_error_messages = []
         data.errors.forEach(error => {
@@ -79,6 +78,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         });
 
         setErrors(modified_error_messages)
+
 
     } else {
         setFish("");
@@ -97,7 +97,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
     e.preventDefault();
     setErrors([]);
 
-    let data = dispatch(deleteCatch(indivCatch.id));
+    let data = await (deleteCatch(indivCatch.id));
     if (data && data.errors) {
         let modified_error_messages = []
         data.errors.forEach(error => {

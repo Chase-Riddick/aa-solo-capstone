@@ -13,12 +13,12 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
 
       const updateContent = (e) => setContent(e.target.value);
 
-      const handleCancelClick = (e) => {
-        e.preventDefault();
-        setContent("")
-        setErrors([])
-        setShowSubpostUpdate(false)
-      };
+    //   const handleCancelClick = (e) => {
+    //     e.preventDefault();
+    //     setContent("")
+    //     setErrors([])
+    //     setShowSubpostUpdate(false)
+    //   };
 
       const handleSubmit = async (e) => {
         e.preventDefault();
@@ -31,7 +31,7 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
             content,
         };
 
-        let data = dispatch(updateSubpostOnCatch(payload));
+        let data = await dispatch(updateSubpostOnCatch(payload));
         if (data && data.errors) {
             let modified_error_messages = []
             data.errors.forEach(error => {
@@ -39,6 +39,8 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
                 modified_error_messages.push(splitError[1])
             });
             setErrors(modified_error_messages)
+            console.log('**********************');
+            console.log(errors);
         } else {
             e.preventDefault();
             setContent("")
@@ -51,7 +53,7 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
         e.preventDefault();
         setErrors([]);
 
-        let data = dispatch(deleteSubpostOnCatch(subpost.id));
+        let data = await dispatch(deleteSubpostOnCatch(subpost.id));
         if (data && data.errors) {
             let modified_error_messages = []
             data.errors.forEach(error => {
