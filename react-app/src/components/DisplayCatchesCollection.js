@@ -5,6 +5,8 @@ import UpdateCatchModal from './CreateUpdateCatch/UpdateCatch/UpdateCatchModal';
 
 export default function DisplayCatchesCollection(){
     const catches = Object.values(useSelector(state => state.catches));
+    const sessionUser = useSelector(state => state.session.user);
+
     return (
         <>
             <h2>DisplayCatchesCollection</h2>
@@ -22,7 +24,9 @@ export default function DisplayCatchesCollection(){
 
                         <div className='card-buttons'>
                         <DisplayIndivCatchModal indivCatch={indivCatch}/>
+                        {sessionUser && sessionUser?.id == indivCatch.user_id &
                         <UpdateCatchModal indivCatch={indivCatch}/>
+                        }
                         </div>
 
                         </div>

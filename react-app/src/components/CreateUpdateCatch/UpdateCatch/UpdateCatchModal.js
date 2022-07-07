@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from '../../../context/Modal';
-import UpdateCatch from '.';
+import UpdateCatchForm from '.';
 
 export default function UpdateCatchModal ({indivCatch}) {
     const [showModal, setShowModal] = useState(false)
@@ -9,7 +9,7 @@ export default function UpdateCatchModal ({indivCatch}) {
         <button className='button' onClick={() => setShowModal(true)}>Update Details</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-                <UpdateCatch indivCatch={indivCatch}/>
+                <UpdateCatchForm indivCatch={indivCatch} setShowModal={setShowModal}/>
             </Modal>
         )}
         </>

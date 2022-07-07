@@ -5,9 +5,8 @@ import { useEffect, useState} from 'react'
 import { createCatch } from '../../../store/catch';
 import '../../../form.css'
 
-export default function CreateCatchForm ({showModal}) {
+export default function CreateCatchForm ({setShowModal}) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const sessionUser = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
 
@@ -38,7 +37,15 @@ export default function CreateCatchForm ({showModal}) {
 
   const handleCancelClick = (e) => {
     e.preventDefault();
-    history.push(`/`)
+    setFish("")
+    setDescription("")
+    setLength("")
+    setWeight("")
+    setBait("")
+    setLure("")
+    setLong(-122.2751)
+    setLat(46.5583)
+    setShowModal(false)
 
   };
 
@@ -46,21 +53,11 @@ export default function CreateCatchForm ({showModal}) {
     e.preventDefault();
     const errors = [];
 
-    // if (title.description < 3 || title.length > 255) {
-    //   errors.push('Title length must be at least 3 and less than 255');
-    // }
-
-    // if (!tags.length) {
-    //   errors.push('Must select at least one tag');
-    // }
-
     if (errors.length) {
       setErrors([...errors]);
       return;
     }
 
-    console.log("*******************************************")
-    console.log(img)
 
     const payload = {
         img,
@@ -86,15 +83,15 @@ export default function CreateCatchForm ({showModal}) {
         setErrors(modified_error_messages)
 
     } else {
-        updateFish("")
-        updateDescription("")
-        updateLength("")
-        updateWeight("")
-        updateBait("")
-        updateLure("")
-        updateLong(-122.2751)
-        updateLat(46.5583)
-        showModal(false)
+        setFish("")
+        setDescription("")
+        setLength("")
+        setWeight("")
+        setBait("")
+        setLure("")
+        setLong(-122.2751)
+        setLat(46.5583)
+        setShowModal(false)
     }
   }
 

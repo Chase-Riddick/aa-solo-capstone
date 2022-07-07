@@ -18,9 +18,11 @@ class CreateCatch(FlaskForm):
 
 
 class UpdateCatch(FlaskForm):
-    pass
-    # id = IntegerField("id")
-    # title = StringField('title', validators=[DataRequired()])
-    # description = TextAreaField('description', validators=[DataRequired()])
-    # price = FloatField('price', validators=[DataRequired()])
-    # brew_tags = DictField("brew_tags")
+    fish = StringField('fish', validators=[DataRequired()])
+    description = StringField('description', validators=[DataRequired()])
+    length = FloatField('length', validators=[DataRequired()])
+    weight = FloatField('weight', validators=[DataRequired()])
+    bait = StringField('bait', validators=[DataRequired()])
+    lure = StringField('lure', validators=[DataRequired()])
+    long = FloatField('long', validators=[DataRequired()])
+    lat = FloatField('lat', validators=[DataRequired()])
