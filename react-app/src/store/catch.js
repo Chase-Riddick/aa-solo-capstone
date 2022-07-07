@@ -43,6 +43,8 @@ if (response.ok) {
 }
 
 export const updateCatch = (payload) => async (dispatch) => {
+  console.log("**********************A***********************")
+  console.log(payload)
   const {
     id,
     img,
@@ -57,9 +59,11 @@ export const updateCatch = (payload) => async (dispatch) => {
   } = payload
 
   const form = new FormData();
+  console.log("***********************B**********************")
+  console.log(img)
 
   form.append('id', id);
-  form.append('img', img);
+  if (img !== null) {form.append('img', img)};
   form.append('fish', fish);
   form.append('description', description);
   form.append('length', length);
@@ -68,6 +72,10 @@ export const updateCatch = (payload) => async (dispatch) => {
   form.append('lure', lure);
   form.append('long', long);
   form.append('lat', lat);
+
+  console.log("***********************C**********************")
+  console.log(form)
+  console.log(form.img)
 
   const response = await fetch('/api/catches', {
     method: "PUT",

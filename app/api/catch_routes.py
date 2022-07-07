@@ -17,19 +17,26 @@ def get_catches():
 @login_required
 @catch_routes.route("", methods=["PUT"])
 def put_catch():
+    print('******************A************')
+
+
 
     # AWS Upload
     img = None
     img_url = None
 
-    if request.files["img"]:
+
+    if request.files:
         img = request.files["img"]
         img_url = upload(img)
 
     form = UpdateCatch()
+    print('******************A************')
+    print(form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
 #
     if form.validate_on_submit():
+        print('******************B************')
         target_catch = Catch.query.get(form.data['id'])
         target_catch.fish = form.data['fish']
         target_catch.description = form.data['description']
@@ -39,8 +46,9 @@ def put_catch():
         target_catch.lure = form.data['lure']
         target_catch.long = form.data['long']
         target_catch.lat = form.data['lat']
-        if img_url:
+        if img_url != None:
             target_catch.img_url = img_url
+            print("*******C********")
 
         db.session.commit()
 
@@ -54,14 +62,13 @@ def put_catch():
 @catch_routes.route("", methods=["POST"])
 def post_catch():
     img = request.files["img"]
-    print('********************* This Hits B1 *********************')
     img_url = upload(img)
-    print('********************* This Hits B2 *********************')
+
     form = CreateCatch()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('********************* This Hits C *********************')
+
     if form.validate_on_submit():
-        print('********************* This Hits D1 *********************')
+
         new_catch = Catch(
             img_url = img_url,
             fish = form.data['fish'],
@@ -74,16 +81,16 @@ def post_catch():
             lat = form.data['lat'],
             user_id = form.data['user_id'],
         )
-        print('********************* This Hits D2 *********************')
+
         db.session.add(new_catch)
         db.session.commit()
-        print('********************* This Hits D3 *********************')
+
         new_condition = Condition(
             catch_id = new_catch.id
         )
         db.session.add(new_condition)
         db.session.commit()
-        print('********************* This Hits E *********************')
+
         new_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(new_catch.id)
         return new_single_catch.to_dict(condition = new_single_catch.condition, subposts=new_single_catch.subposts)
     return {'errors': format_errors(form.errors)}
