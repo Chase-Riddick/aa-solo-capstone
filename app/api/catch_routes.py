@@ -91,6 +91,9 @@ def post_catch():
 
 
 @login_required
-@catch_routes.route("", methods=["DELETE"])
-def delete_catch():
-    pass
+@catch_routes.route('/<int:id>', methods=["DELETE"])
+def delete_catch(id):
+        target_catch = Catch.query.get(id)
+        db.session.delete(target_catch)
+        db.session.commit()
+        return {'id': id}

@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useState} from 'react'
 
+import { updateSubpostOnCatch, deleteSubpostOnCatch } from '../../store/catch';
+
 export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
       const dispatch = useDispatch();
       const sessionUser = useSelector(state => state.session.user);
 
-      const [content, setContent] = useState(review?.content);
+      const [content, setContent] = useState(subpost?.content);
       const [errors, setErrors] = useState([]);
 
 
@@ -24,12 +26,12 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
 
         const payload = {
             id: subpost.id,
-            user_id:subpost.user_id,
-            catch_id: review.catch_id,
+            user_id: subpost.user_id,
+            catch_id: subpost.catch_id,
             content,
         };
 
-        let data = await dispatch(functionName(payload));
+        let data = dispatch(updateSubpostOnCatch(payload));
         if (data && data.errors) {
             let modified_error_messages = []
             data.errors.forEach(error => {
@@ -49,11 +51,19 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
         e.preventDefault();
         setErrors([]);
 
-        let deleteFeedback = await dispatch(deleteReview(review.id, review.brew_id)).catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-          });
-    }
+        let data = dispatch(deleteSubpostOnCatch(subpost.id));
+        if (data && data.errors) {
+            let modified_error_messages = []
+            data.errors.forEach(error => {
+                let splitError = error.split(": ")
+                modified_error_messages.push(splitError[1])
+            });
+            setErrors(modified_error_messages)
+        } else {
+            setShowSubpostUpdate(false)
+        }
+}
+
 
 
     return (
@@ -64,12 +74,11 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>}
 
-        <div className='review-content-display'>
+        <div className='subpost-content-display'>
 
           <textarea
           value={content}
-          // required
-          className='input review-textarea'
+          className='input subpost-textarea'
           onChange={updateContent} />
           </div>
           <div className='button-row'>
@@ -80,106 +89,3 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
     </div>
     )
 }
-
-
-// import React from 'react'
-// import { useSelector, useDispatch } from 'react-redux';
-// import { useEffect, useState} from 'react'
-// import { updateReviewOnBrew, deleteReview } from '../../../store/brew';
-// import StarsRating from 'react-star-rate';
-// import './reviews.css';
-
-
-// function EditReview({review, setReviewEdit}) {
-//       const dispatch = useDispatch();
-//       const sessionUser = useSelector(state => state.session.user);
-
-//       const [content, setContent] = useState(review?.content);
-//       const [rating, setRating] = useState(review?.rating);
-//       const [errors, setErrors] = useState([]);
-
-
-//       const updateContent = (e) => setContent(e.target.value);
-//       const updateRating = (e) => setRating(e.target.value);
-
-//       const handleCancelClick = (e) => {
-//         e.preventDefault();
-//         setRating("")
-//         setContent("")
-//         setErrors([])
-//         setReviewEdit(false)
-//       };
-
-//       const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         setErrors([]);
-
-//         const payload = {
-//             id: review.id,
-//             brew_id: review.brew_id,
-//             content,
-//             rating,
-//             user_id:review.user_id,
-//         };
-
-//         let data = await dispatch(updateReviewOnBrew(payload));
-//         if (data && data.errors) {
-//             let modified_error_messages = []
-//             data.errors.forEach(error => {
-//                 let splitError = error.split(": ")
-//                 modified_error_messages.push(splitError[1])
-//             });
-//             setErrors(modified_error_messages)
-//         } else {
-//             setRating("")
-//             setContent("")
-//             setErrors([])
-//             setReviewEdit(false)
-//         }
-//     }
-
-//     const handleDelete = async (e) => {
-//         e.preventDefault();
-//         setErrors([]);
-
-//         let deleteFeedback = await dispatch(deleteReview(review.id, review.brew_id)).catch(async (res) => {
-//           const data = await res.json();
-//           if (data && data.errors) setErrors(data.errors);
-//           });
-//     }
-
-//   return (
-//       <div>
-//         <form className='' onSubmit={handleSubmit}>
-
-//         {errors.length > 0 && <ul className='errors'>
-//                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-//                 </ul>}
-//         <div className='review-content-display'>
-//           <div>
-//               <StarsRating
-//                   classNamePrefix="star-rating"
-//                   allowHalf={false}
-//                   value={rating}
-//                   onChange={value => {
-//                   setRating(value);
-//               }}/>
-//           </div>
-
-
-//           <textarea
-//           value={content}
-//           // required
-//           className='input review-textarea'
-//           onChange={updateContent} />
-//           </div>
-//           <div className='button-row'>
-//             <button className="purple button" type="submit">Submit Edit</button>
-//             <button className="red button" type="button" onClick={handleDelete}>Delete Review</button>
-//           </div>
-//       </form>
-//     </div>
-//   )
-// }
-
-// export default EditReview

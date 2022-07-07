@@ -23,8 +23,8 @@ class Catch(db.Model):
 
     # relationships
     user = db.relationship("User", back_populates="catches")
-    subposts = db.relationship("Subpost", back_populates="catch")
-    condition = db.relationship("Condition", back_populates="catch", uselist=False)
+    subposts = db.relationship("Subpost", back_populates="catch", cascade="delete, all")
+    condition = db.relationship("Condition", back_populates="catch", uselist=False, cascade="delete, all")
 
     def to_dict(self, **kwargs):
         out = {

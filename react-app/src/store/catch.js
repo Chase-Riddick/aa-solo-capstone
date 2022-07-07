@@ -2,10 +2,10 @@
 const GET_CATCHES = 'catches/GET_CATCHES'
 const CREATE_CATCH = 'catches/CREATE_CATCH'
 const UPDATE_CATCH = 'catches/UPDATE_CATCH'
+const DELETE_CATCH = 'catches/DELETE_CATCH'
 
 // Thunk Actions
-
-const create = (indivCatch) => ({
+const creation = (indivCatch) => ({
   type: CREATE_CATCH,
   indivCatch
 });
@@ -15,13 +15,19 @@ const getAll = (catches) => ({
     catches
   });
 
-const update = (indivCatch) => ({
+const modification = (indivCatch) => ({
   type: UPDATE_CATCH,
   indivCatch
 });
 
+const deletion = (catchId) => ({
+  type: DELETE_CATCH,
+  catchId
+})
 
-// Thunk Action Creators
+
+
+// ****** CATCHES THUNK ACTION CREATORS ******
 
 export const getAllCatches = () => async (dispatch) => {
 const response = await fetch('/api/catches');
@@ -32,10 +38,11 @@ if (response.ok) {
     return data.errors;
     }
     dispatch(getAll(data));
+    return null
 }
 }
 
-export const createCatch = (payload) => async (dispatch) => {
+export const updateCatch = (payload) => async (dispatch) => {
   const {
     id,
     img,
@@ -74,12 +81,12 @@ if (response.ok) {
     return data;
   }
 
-  dispatch(update(data));
-  return data
+  dispatch(modification(data));
+  return null
 }
 }
 
-export const updateCatch = (payload) => async (dispatch) => {
+export const createCatch = (payload) => async (dispatch) => {
 
   const {
     img,
@@ -117,10 +124,30 @@ export const updateCatch = (payload) => async (dispatch) => {
     if (data.errors) {
       return data;
     }
-    dispatch(update(data));
-    return data
+    dispatch(creation(data));
+    return null
 }
 }
+
+export const deleteCatch = (catchId) => async dispatch => {
+  console.log('***********A*************')
+  const response = await fetch(`/api/catches/${catchId}`, {
+    method: "DELETE"
+  })
+  if (response.ok) {
+    const data = await response.json()
+    console.log('***********B*************')
+    console.log(data)
+    if(data.errors){
+      return data;
+    } else {
+      dispatch(deletion(data['id']))
+      return null
+    }
+  }
+}
+
+// ****** SUBPOSTS THUNK ACTION CREATORS ******
 
 export const addSubpostToCatch = (payload) => async (dispatch) => {
   const {
@@ -130,9 +157,9 @@ export const addSubpostToCatch = (payload) => async (dispatch) => {
   } = payload
 
   const form = new FormData();
-  form.append('catch_id', catch_id)
-  form.append('content', content)
-  form.append('user_id', user_id)
+  form.append('catch_id', catch_id);
+  form.append('content', content);
+  form.append('user_id', user_id);
 
   const response = await fetch('/api/subposts', {
     method: "POST",
@@ -145,7 +172,54 @@ export const addSubpostToCatch = (payload) => async (dispatch) => {
       return data;
     }
 
-    dispatch(update(data));
+    dispatch(modification(data));
+    return null
+  }
+}
+
+export const updateSubpostOnCatch = (payload) => async (dispatch) => {
+  const {
+    id,
+    user_id,
+    catch_id,
+    content,
+  } = payload
+
+  const form = new FormData();
+  form.append('id', id);
+  form.append('user_id', user_id);
+  form.append('catch_id', catch_id);
+  form.append('content', content);
+
+
+  const response = await fetch('/api/subposts', {
+    method: "PUT",
+    body: form
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    if (data.errors) {
+      return data;
+    }
+
+    dispatch(modification(data));
+    return null
+  }
+}
+
+export const deleteSubpostOnCatch  = (subpostId) => async dispatch => {
+  const response = await fetch(`/api/subposts/${subpostId}`, {
+    method: "DELETE"
+  })
+  if (response.ok) {
+    const data = await response.json();
+    if (data.errors) {
+      return data;
+    }
+
+    dispatch(modification(data));
+    return null
   }
 }
 
@@ -155,13 +229,17 @@ const initialState = {  };
 
 export default function reducer(state = initialState, action) {
     switch (action.type) {
-      case CREATE_CATCH:
-        return {...state, [action.indivCatch.id] : action.indivCatch }
       case GET_CATCHES:
         const catches = action.catches
         return {...state, ...catches}
+      case CREATE_CATCH:
+        return {...state, [action.indivCatch.id] : action.indivCatch }
       case UPDATE_CATCH:
         return {...state, [action.indivCatch.id] : action.indivCatch }
+      case DELETE_CATCH:
+        let newState = {...state}
+        delete newState[action.catchId]
+        return newState
       default:
         return state;
     }

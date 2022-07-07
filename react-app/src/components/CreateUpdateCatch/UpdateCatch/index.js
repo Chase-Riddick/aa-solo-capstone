@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState} from 'react'
-import { createCatch } from '../../../store/catch';
+import { updateCatch, deleteCatch } from '../../../store/catch';
 import '../../../form.css'
 
 export default function UpdateCatchForm ({indivCatch, setShowModal}) {
@@ -70,7 +70,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
     console.log('****************************')
     console.log(payload)
 
-    let data= await dispatch(createCatch(payload));
+    let data= await dispatch(updateCatch(payload));
     if (data && data.errors) {
         let modified_error_messages = []
         data.errors.forEach(error => {
@@ -92,6 +92,23 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         setShowModal(false);
     }
   }
+
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    setErrors([]);
+
+    let data = dispatch(deleteCatch(indivCatch.id));
+    if (data && data.errors) {
+        let modified_error_messages = []
+        data.errors.forEach(error => {
+            let splitError = error.split(": ")
+            modified_error_messages.push(splitError[1])
+        });
+        setErrors(modified_error_messages)
+    } else {
+      setShowModal(false);
+    }
+}
 
 
   return (
@@ -175,6 +192,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
       <button className='button' type="submit">Submit Edit</button>
       <button className='button' type="button" onClick={handleCancelClick}>Cancel</button>
+      <button className="button" type="button" onClick={handleDelete}>Delete Catch Post</button>
     </form>
   </div>
   )

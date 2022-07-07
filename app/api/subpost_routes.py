@@ -45,7 +45,7 @@ def put_subpost():
     return {'errors': format_errors(form.errors)}, 401
 
 @login_required
-@subpost_routes.route("", methods=["DELETE"])
+@subpost_routes.route('/<int:id>', methods=["DELETE"])
 def delete_subpost(id):
     subpost = Subpost.query.get(id)
     target_catch_id = subpost.catch_id

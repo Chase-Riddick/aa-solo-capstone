@@ -34,3 +34,9 @@ class Condition(db.Model):
             'updated_at': self.updated_at,
         }
         return out
+
+
+
+
+# from sqlalchemy.orm import backref
+# catch = db.relationship("Catch", backref=backref("condition", cascade="all, delete-orphan"))
