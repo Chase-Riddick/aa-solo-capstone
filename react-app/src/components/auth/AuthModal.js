@@ -4,13 +4,13 @@ import { Modal } from '../../context/Modal';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 
-export default function CreateCatchModal ({ authType }) {
+export default function AuthModal ({ authType }) {
     const [showSignUpModal, setShowSignUpModal] = useState(false)
     const [showLoginModal, setShowLoginModal] = useState(false)
     return (
         <div>
-        {authType && authType === 'signup' &&
-        <button className='button' onClick={() => setShowLoginModal(true)}>Share a New Catch</button>}
+        {authType && authType === 'login' &&
+        <button className='button' onClick={() => setShowLoginModal(true)}>Login</button>}
         {showLoginModal && (
             <Modal onClose={() => setShowLoginModal(false)}>
                 <LoginForm setShowLoginModal={setShowLoginModal}/>
