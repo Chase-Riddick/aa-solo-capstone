@@ -14,7 +14,13 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      console.log(data)
+      let modified_error_messages = []
+            data.forEach(error => {
+                let splitError = error.split(": ")
+                modified_error_messages.push(splitError[1])
+            });
+      setErrors(modified_error_messages)
     } else{
       setShowLoginModal(false)
     }
@@ -40,9 +46,11 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
   return (
     <form onSubmit={onLogin}>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+
+        {errors.length > 0 && <ul className='errors'>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>}
+
       </div>
       <div>
         <label htmlFor='email'>Email</label>
