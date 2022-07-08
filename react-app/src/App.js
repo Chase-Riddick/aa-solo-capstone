@@ -7,6 +7,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
 import DisplayCatchesCollection from './components/DisplayCatchesCollection';
 import Footer from './components/Footer';
+import About from './components/About';
+import SplashPage from './components/Splash';
 
 import { authenticate } from './store/session';
 import { getAllCatches } from './store/catch';
@@ -44,7 +46,13 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
+          <SplashPage/>
+        </Route>
+        <Route path='/catches' exact={true} >
           <DisplayCatchesCollection />
+        </Route>
+        <Route path='/about' exact={true} >
+          <About/>
         </Route>
       </Switch>
       </div>
