@@ -104,7 +104,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
         ></input>
       </div>
       <button className='button' type='submit'>Sign Up</button>
-      <button className='button' onClick={handleSwitch}  type='submit'>Login</button>
+      <button className='button' onClick={handleSwitch}>Login</button>
     </form>
   );
 };

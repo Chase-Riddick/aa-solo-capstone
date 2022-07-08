@@ -26,6 +26,22 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
     }
   };
 
+  const onLoginDemo = async (e) => {
+    e.preventDefault();
+    const data = await dispatch(login('demo@aa.io','password'));
+    if (data) {
+      console.log(data)
+      let modified_error_messages = []
+            data.forEach(error => {
+                let splitError = error.split(": ")
+                modified_error_messages.push(splitError[1])
+            });
+      setErrors(modified_error_messages)
+    } else{
+      setShowLoginModal(false)
+    }
+  };
+
   const handleSwitch = (e) => {
     setShowLoginModal(false)
     setShowSignUpModal(true)
@@ -72,7 +88,8 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
           onChange={updatePassword}
         />
         <button className='button' type='submit'>Login</button>
-        <button className='button' onClick={handleSwitch}  type='submit'>Sign Up</button>
+        <button className='button' onClick={onLoginDemo}>Demo User</button>
+        <button className='button' onClick={handleSwitch}>Sign Up</button>
       </div>
     </form>
   );
