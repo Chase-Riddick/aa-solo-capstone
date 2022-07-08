@@ -17,9 +17,7 @@ export default function DisplayCatchesCollection(){
                     <div key={indivCatch.id} className='catch-card'>
                         <img className="card-image" src={indivCatch?.img_url} alt="" />
 
-                        <div className='card-row'>
-
-                        <p>{indivCatch.fish}</p>
+                        <div className='card-fish-name'>{indivCatch.fish}</div>
 
                         <div className='card-buttons'>
                         <DisplayIndivCatchModal indivCatch={indivCatch}/>
@@ -29,7 +27,7 @@ export default function DisplayCatchesCollection(){
                         </div>
 
                         </div>
-                    </div>
+
                 );
             })}
             </div>

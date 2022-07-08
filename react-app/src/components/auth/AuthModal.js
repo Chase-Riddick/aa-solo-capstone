@@ -13,14 +13,14 @@ export default function AuthModal ({ authType }) {
         <button className='button' onClick={() => setShowLoginModal(true)}>Login</button>}
         {showLoginModal && (
             <Modal onClose={() => setShowLoginModal(false)}>
-                <LoginForm setShowLoginModal={setShowLoginModal}/>
+                <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
             </Modal>
         )}
         {authType && authType === 'signup' &&
         <button className='button' onClick={() => setShowSignUpModal(true)}>Sign Up</button>}
         {showSignUpModal && (
             <Modal onClose={() => setShowSignUpModal(false)}>
-                <SignUpForm setShowSignUpModal={setShowSignUpModal}/>
+                <SignUpForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
             </Modal>
         )}
         </div>

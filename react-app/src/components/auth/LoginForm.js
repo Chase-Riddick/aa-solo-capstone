@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
-const LoginForm = ({setShowLoginModal}) => {
+const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +15,14 @@ const LoginForm = ({setShowLoginModal}) => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
+    } else{
+      setShowLoginModal(false)
     }
+  };
+
+  const handleSwitch = (e) => {
+    setShowLoginModal(false)
+    setShowSignUpModal(true)
   };
 
   const updateEmail = (e) => {
@@ -56,7 +63,8 @@ const LoginForm = ({setShowLoginModal}) => {
           value={password}
           onChange={updatePassword}
         />
-        <button type='submit'>Login</button>
+        <button className='button' type='submit'>Login</button>
+        <button className='button' onClick={handleSwitch}  type='submit'>Sign Up</button>
       </div>
     </form>
   );
