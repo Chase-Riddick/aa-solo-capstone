@@ -5,3 +5,7 @@
     height: 300px;
     align-items: center;
 }
+
+.splash-vid:hover {
+    border: rgb(180, 23, 23) 5px solid;
+}

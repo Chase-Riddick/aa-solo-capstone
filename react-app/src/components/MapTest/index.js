@@ -1,35 +1,59 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useLoadScript }from "@react-google-maps/api";
+import React from "react"
+import { compose, withProps } from "recompose"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
-import Map from "./Map"
-import { getMapAPIKey } from "../../store/map";
 
-export default function Home ()  {
-    const dispatch = useDispatch();
-    // const key = useSelector(state => state.map)
-    // const mapAPIKey = useSelector(state => state.map)
-    // googleMapsApiKey: mapAPIKey?.mapAPIKey,
-    // id: 'google-map-script',
-    //libraries: ["places"]
-     const { isLoaded } = useLoadScript({
-        // googleMapsApiKey: ,
-        });
+{/* <MapWithAMarker
+  googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
+  loadingElement={<div style={{ height: `100%` }} />}
+  containerElement={<div style={{ height: `400px` }} />}
+  mapElement={<div style={{ height: `100%` }} />}
+/> */}
 
-    //  useEffect(() => {
-    //     dispatch(getMapAPIKey());
-    //   }, [dispatch]);
+const MyMapComponent = compose(
+  withProps({
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfQUfetiFlIWMxEuXalSMUtkkghhJspE&v=3.exp&libraries=geometry,drawing,places",
+    loadingElement: <div style={{ height: `100%` }} />,
+    containerElement: <div style={{ height: `400px` }} />,
+    mapElement: <div style={{ height: `100%` }} />,
+  }),
+  withScriptjs,
+  withGoogleMap
+)((props) =>
+  <GoogleMap
+    defaultZoom={8}
+    defaultCenter={{ lat: -34.397, lng: 150.644 }}
+  >
+    {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} onClick={props.onMarkerClick} />}
+  </GoogleMap>
+)
 
-    //   if (!mapAPIKey) {
-    //     return null;
-    //   }
+export default class Maps extends React.PureComponent {
+  state = {
+    isMarkerShown: false,
+  }
 
+  componentDidMount() {
+    this.delayedShowMarker()
+  }
+
+  delayedShowMarker = () => {
+    setTimeout(() => {
+      this.setState({ isMarkerShown: true })
+    }, 3000)
+  }
+
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false })
+    this.delayedShowMarker()
+  }
+
+  render() {
     return (
-        <div>
-            {/* {isLoaded && (
-                <h3>Map Home Component</h3>
-            )} */}
-
-        </div>
+      <MyMapComponent
+        isMarkerShown={this.state.isMarkerShown}
+        onMarkerClick={this.handleMarkerClick}
+      />
     )
+  }
 }

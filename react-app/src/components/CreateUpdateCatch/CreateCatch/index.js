@@ -58,6 +58,22 @@ export default function CreateCatchForm ({setShowModal}) {
     }
 
 
+    //Testing Weather API Fetch
+    const getWeather = async () => {
+      console.log('This also hit')
+      const response = await fetch('https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=London&dt=2022-07-06');
+      console.log('This also hit too')
+      if (response.ok) {
+          const data = await response.json();
+          console.log('-----------------------------------------')
+          console.log(data)
+          }
+      }
+
+      console.log('This hit')
+    getWeather();
+
+
     const payload = {
         img,
         fish,
