@@ -8,14 +8,12 @@ import { getMapAPIKey } from "../../store/map";
 export default function Home ()  {
     const dispatch = useDispatch();
     // const key = useSelector(state => state.map)
-
-    //  const mapAPIKey = useSelector(state => state.map)
-
+    // const mapAPIKey = useSelector(state => state.map)
+    // googleMapsApiKey: mapAPIKey?.mapAPIKey,
+    // id: 'google-map-script',
+    //libraries: ["places"]
      const { isLoaded } = useLoadScript({
-        id: 'google-map-script',
-        // googleMapsApiKey: mapAPIKey?.mapAPIKey,
-        googleMapsApiKey: 'AIzaSyBJfQUfetiFlIWMxEuXalSMUtkkghhJspE',
-        libraries: ["places"]
+        // googleMapsApiKey: ,
         });
 
     //  useEffect(() => {
@@ -28,9 +26,9 @@ export default function Home ()  {
 
     return (
         <div>
-            {isLoaded && (
+            {/* {isLoaded && (
                 <h3>Map Home Component</h3>
-            )}
+            )} */}
 
         </div>
     )

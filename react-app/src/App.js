@@ -27,15 +27,18 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getAllCatches());
+      await dispatch(getMapAPIKey());
       setLoaded(true);
     })();
   }, [dispatch]);
 
   //Clarify utility of below.
-  useEffect(() => {
-    dispatch(getAllCatches());
-    dispatch(getMapAPIKey());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   (async() => {
+  //   await dispatch(getAllCatches());
+  //   await dispatch(getMapAPIKey());
+  // }), [dispatch]);
 
 
   if (!loaded || !catches || !mapAPIKey) {
