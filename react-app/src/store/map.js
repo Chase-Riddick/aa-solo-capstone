@@ -1,5 +1,5 @@
 //Thunk Descriptor
-const LOAD_KEY = 'map/load_key'
+const LOAD_KEY = 'map/LOAD_KEY'
 
 // Thunk Action
 const loadKey = (key) => {
@@ -10,11 +10,8 @@ const loadKey = (key) => {
 }
 
 // Thunk Action Creator
-export const getKey = () => async (dispatch) => {
-
-    const res = await fetch('/api/map/key', {
-        method: 'POST'
-    });
+export const getMapAPIKey = () => async (dispatch) => {
+    const res = await fetch('/api/map/key');
 
     if (res.ok) {
         const data = await res.json()
@@ -23,12 +20,12 @@ export const getKey = () => async (dispatch) => {
 
 }
 
-const initialState = {key: null}
+const initialState = {mapAPIKey: null}
 
 export default function reducer (state = initialState, action) {
     switch(action.type){
         case LOAD_KEY:
-            return {key: action.payload}
+            return {mapAPIKey: action.payload}
         default:
             return state
     }

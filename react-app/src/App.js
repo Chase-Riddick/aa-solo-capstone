@@ -13,6 +13,7 @@ import Home from './components/MapTest';
 
 import { authenticate } from './store/session';
 import { getAllCatches } from './store/catch';
+import { getMapAPIKey} from './store/map';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +21,7 @@ function App() {
 
   //Clarify utility of below.
   const catches = useSelector(state => state.catches)
+  const mapAPIKey = useSelector(state => state.map)
   const id = useSelector(state => state.session.id)
 
   useEffect(() => {
@@ -32,9 +34,11 @@ function App() {
   //Clarify utility of below.
   useEffect(() => {
     dispatch(getAllCatches());
+    dispatch(getMapAPIKey());
   }, [dispatch]);
 
-  if (!loaded || !catches) {
+
+  if (!loaded || !catches || !mapAPIKey) {
     return null;
   }
 
