@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { useState } from "react";
 import SubpostUpdate from "./SubpostUpdate";
 
-export default function SubpostCard ({subpost}) {
+export default function SubpostCard ({subpost, user}) {
     const sessionUser = useSelector(state => state.session.user);
     const [showSubpostUpdate, setShowSubpostUpdate] = useState(false);
 
@@ -13,7 +13,11 @@ export default function SubpostCard ({subpost}) {
             <div className="subpost-content"><p>{subpost.content}</p></div>}
 
             <div className='section-row'>
-                <p>User Id:{subpost.user_id}</p>
+
+            <div className='user-line'>
+                            <img className='user-img-token' src={user.image_url}></img>
+                        <div className='username-display'>{user.username}</div></div>
+
                 {sessionUser && sessionUser.id == subpost.user_id &&
                 <button className='button' onClick={() => setShowSubpostUpdate(!showSubpostUpdate)}>{!showSubpostUpdate ? 'Edit' : 'Cancel'}</button>
                 }

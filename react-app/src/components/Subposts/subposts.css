@@ -1,14 +1,17 @@
 .subpost-card {
-    border: black 1px solid;
-    padding-right: 5px;
+    /* border: black 1px solid; */
+    box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+
 }
 
 .subpost-section {
     display: flex;
     flex-direction: column;
-    border: black 1px solid;
     padding: 10px;
     overflow-y: scroll;
+    gap: 10px
+;
 }
 
 .section-row {
@@ -23,5 +26,7 @@
     width:100%;
     margin-right: 10px;
     border: none;
+    font-family: 'Work Sans';
+    font-size: 20px;
     border-bottom: 1px solid black;
 }

@@ -6,6 +6,7 @@ import SubpostCard from "./SubpostCard";
 import SubpostCreateForm from "./SubpostCreateForm";
 
 export default function SubpostsSection ({ catch_id, subposts }) {
+    const users = useSelector(state => state.user);
     const sessionUser = useSelector(state => state.session.user);
     const [showCreateSubpostield, setShowCreateField] = useState(false);
 
@@ -24,7 +25,7 @@ export default function SubpostsSection ({ catch_id, subposts }) {
             }
             {subposts.map((subpost) => {
                 return (
-                    <SubpostCard subpost={subpost} />
+                    <SubpostCard subpost={subpost} user={users[subpost.user_id]} />
                 )
             })}
         </div>

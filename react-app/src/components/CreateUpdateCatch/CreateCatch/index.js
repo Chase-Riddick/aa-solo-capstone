@@ -3,13 +3,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState} from 'react'
 import { createCatch } from '../../../store/catch';
 import '../../../form.css'
+import DateTimePicker from 'react-datetime-picker';
 
 export default function CreateCatchForm ({setShowModal}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
 
-
+  const [catchTime, setCatchTime] = useState(new Date());
   const [img, setImage] = useState(null);
   const [fish, setFish] = useState("");
   const [description, setDescription] = useState("");
@@ -29,10 +30,10 @@ export default function CreateCatchForm ({setShowModal}) {
   // const updateLong = (e) => setLong(e.target.value);
   // const updateLat = (e) => setLat(e.target.value);
 
-// ***** This function isn't working. *****
-//   const updateImg = (e) => {
-//     setImage(e.target.files[0])
-//   }
+  //Variables used for setting and restricting date inputs to within one week.
+  const currentDate = new Date();
+  let oneWeekAgo = new Date();
+  oneWeekAgo.setDate(currentDate.getDate() - 6);
 
   const handleCancelClick = (e) => {
     e.preventDefault();
@@ -68,13 +69,23 @@ export default function CreateCatchForm ({setShowModal}) {
           console.log('-----------------------------------------')
           console.log(data)
           }
-      }
+    }
 
-      console.log('This hit')
+    let catchTimeYear = `${catchTime.getFullYear()}`
+    let catchTimeMonth = `${catchTime.getMonth()}`
+    if (catchTimeMonth.length < 2) catchTimeMonth = '0' + catchTimeMonth;
+    let catchTimeDate = `${catchTime.getDate()}`
+    if (catchTimeDate.length < 2) catchTimeDate = '0' + catchTimeDate;
+    let test = `${catchTimeYear}-${catchTimeMonth}-${catchTimeDate}`
+    console.log(test)
+    console.log(catchTime)
+    console.log('*********************')
+    console.log('This hit')
     getWeather();
 
 
     const payload = {
+        catch_time: catchTime,
         img,
         fish,
         description,
@@ -121,9 +132,20 @@ export default function CreateCatchForm ({setShowModal}) {
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>}
 
-    <label htmlFor="image">
-        Fish Picture
-    </label>
+    <input
+        type="text"
+        placeholder="What did you catch?"
+        className='input'
+        value={fish}
+        onChange={updateFish} />
+
+    <div>
+      <DateTimePicker className='datetime-picker'required minDate={oneWeekAgo} maxDate={currentDate} onChange={setCatchTime} value={catchTime} />
+    </div>
+
+     <label htmlFor="image">
+          Fish Picture
+     </label>
 
      <input
         type="file"
@@ -133,13 +155,6 @@ export default function CreateCatchForm ({setShowModal}) {
         className='input'
         name='image'
         onChange={(e) => setImage(e.target.files[0])} />
-
-      <input
-        type="text"
-        placeholder="What did you catch?"
-        className='input'
-        value={fish}
-        onChange={updateFish} />
 
       <input
         type="text"

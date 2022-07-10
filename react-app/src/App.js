@@ -13,7 +13,8 @@ import Home from './components/MapTest';
 
 import { authenticate } from './store/session';
 import { getAllCatches } from './store/catch';
-import { getMapAPIKey} from './store/map';
+import { getMapAPIKey } from './store/map';
+import { getAllUsers } from './store/user';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -29,6 +30,7 @@ function App() {
       await dispatch(authenticate());
       await dispatch(getAllCatches());
       await dispatch(getMapAPIKey());
+      await dispatch(getAllUsers());
       setLoaded(true);
     })();
   }, [dispatch]);

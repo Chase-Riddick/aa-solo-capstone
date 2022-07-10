@@ -1,3 +1,5 @@
+from cgi import print_environ
+import imp
 from flask import Blueprint, jsonify, session, request
 from sqlalchemy import null
 from app.models import db, User, Catch, Subpost, Condition
@@ -5,6 +7,7 @@ from app.forms.catch_form import CreateCatch, UpdateCatch
 from app.utils import upload, format_errors
 from flask_login import login_required
 from sqlalchemy.orm import joinedload
+import requests
 
 catch_routes = Blueprint('catches', __name__)
 
@@ -48,9 +51,19 @@ def put_catch():
         target_catch.lat = form.data['lat']
         if img_url != None:
             target_catch.img_url = img_url
-            print("*******C********")
 
         db.session.commit()
+
+    #         const getWeather = async () => {
+    #   console.log('This also hit')
+    #   const response = await fetch('https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=London&dt=2022-07-06');
+    #   console.log('This also hit too')
+    #   if (response.ok) {
+    #       const data = await response.json();
+    #       console.log('-----------------------------------------')
+    #       console.log(data)
+    #       }
+    # }
 
 
         updated_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(target_catch.id)
@@ -90,6 +103,10 @@ def post_catch():
         )
         db.session.add(new_condition)
         db.session.commit()
+
+        res = requests.get('https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=London&dt=2022-07-06')
+        print("************************")
+        print(res.text)
 
         new_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(new_catch.id)
         return new_single_catch.to_dict(condition = new_single_catch.condition, subposts=new_single_catch.subposts)

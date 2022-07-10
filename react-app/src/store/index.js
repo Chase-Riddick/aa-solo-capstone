@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import session from './session'
 import catches from './catch'
 import map from './map'
+import user from './user';
 
 const rootReducer = combineReducers({
   session,
   catches,
   map,
+  user,
 });
 
 

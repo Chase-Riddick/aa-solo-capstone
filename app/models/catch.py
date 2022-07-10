@@ -1,3 +1,4 @@
+from warnings import catch_warnings
 from .db import db
 from datetime import datetime
 from .condition import Condition
@@ -9,6 +10,7 @@ class Catch(db.Model):
     # columns
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    catch_time = db.Column(db.DateTime, nullable=False, default=datetime.now())
     img_url = db.Column(db.Text)
     fish = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(255), nullable=True)

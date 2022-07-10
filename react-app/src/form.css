@@ -20,3 +20,12 @@ input {
 .errors > * {
     color: #D03341;
 }
+
+.datetime-picker {
+    padding: 3px;
+    padding-bottom: 8px;
+}
+
+.datetime-picker > * {
+    margin: 1px;
+}

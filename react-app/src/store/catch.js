@@ -97,6 +97,7 @@ if (response.ok) {
 export const createCatch = (payload) => async (dispatch) => {
 
   const {
+    catch_time,
     img,
     fish,
     description,
@@ -110,7 +111,7 @@ export const createCatch = (payload) => async (dispatch) => {
   } = payload
 
   const form = new FormData();
-
+  form.append('catch_time', catch_time);
   form.append('img', img);
   form.append('fish', fish);
   form.append('description', description);

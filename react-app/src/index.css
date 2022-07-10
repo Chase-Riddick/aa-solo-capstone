@@ -1,5 +1,8 @@
 * {
     box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
 }
 
 a {
@@ -47,7 +50,7 @@ body {
 
 .catch-card {
     width: 200px;
-    border-radius: 2px;
+    border-radius: 5px;
     border: 2px solid black;
     margin: 15px;
 }
@@ -85,4 +88,24 @@ body {
     display: flex;
     justify-content: center;
     font-size: 18px;
+}
+
+.user-img-token {
+    height: 30px;
+    width: 30px;
+    border-radius: 25px;
+    object-fit: contain;
+}
+
+.user-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
+
+.username-display {
+    font-size: 18px;
+    font-weight: 700;
 }
