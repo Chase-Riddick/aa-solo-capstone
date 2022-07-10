@@ -1,0 +1,33 @@
+.display-catch-container {
+    display: flex;
+    height: 600px;
+    width: 100%;
+}
+
+.modal-img-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    /* max-height: 300px; */
+}
+
+.display-catch-left {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    overflow-y: scroll;
+}
+
+.display-catch-right {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.indivCatch-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /*magic*/
+}
