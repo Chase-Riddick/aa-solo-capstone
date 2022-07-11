@@ -1,5 +1,3 @@
-from cgi import print_environ
-import imp
 from flask import Blueprint, jsonify, session, request
 from sqlalchemy import null
 from app.models import db, User, Catch, Subpost, Condition
@@ -14,6 +12,7 @@ catch_routes = Blueprint('catches', __name__)
 
 @catch_routes.route("", methods=["GET"])
 def get_catches():
+    print('!!!!!!!!This hits!!!!!!!!!!')
     catches = Catch.query.options(joinedload('condition'), joinedload('subposts')).all()
     return {catch.id: catch.to_dict(condition = catch.condition, subposts = catch.subposts) for catch in catches}
 
@@ -101,6 +100,7 @@ def post_catch():
         new_condition = Condition(
             catch_id = new_catch.id
         )
+
         db.session.add(new_condition)
         db.session.commit()
 

@@ -10,7 +10,7 @@ class Catch(db.Model):
     # columns
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    catch_time = db.Column(db.DateTime, nullable=False, default=datetime.now())
+    catch_time = db.Column(db.String(80), nullable=False)
     img_url = db.Column(db.Text)
     fish = db.Column(db.String(80), nullable=False)
     description = db.Column(db.String(255), nullable=True)
@@ -32,6 +32,7 @@ class Catch(db.Model):
         out = {
             'id': self.id,
             'user_id': self.user_id,
+            'catch_time': self.catch_time,
             'img_url': self.img_url,
             'fish': self.fish,
             'description': self.description,

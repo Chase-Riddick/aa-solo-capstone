@@ -7,6 +7,7 @@ export default function SplashPage () {
     const currentDate = new Date();
     let oneWeekAgo = new Date();
     oneWeekAgo.setDate(currentDate.getDate() - 6);
+    console.log(oneWeekAgo.getHours())
 
     return (
         <div className='splash-page-container'>

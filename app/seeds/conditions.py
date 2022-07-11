@@ -1,5 +1,7 @@
 from app.models import db, Condition
 
+
+
 def seed_conditions():
     db.session.add_all(
         [
