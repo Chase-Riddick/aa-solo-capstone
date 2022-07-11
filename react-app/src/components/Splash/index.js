@@ -12,7 +12,7 @@ export default function SplashPage () {
     return (
         <div className='splash-page-container'>
             <h1>Splash Page</h1>
-
+            <p>This is a message!</p>
         </div>
     )
 }
