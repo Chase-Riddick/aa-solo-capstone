@@ -96,15 +96,6 @@ if (response.ok) {
 
 export const createCatch = (payload) => async (dispatch) => {
 
-      // condition_text,
-        // condition_icon,
-        // temp,
-        // wind,
-        // precip,
-        // cloud,
-        // humdity,
-        // pressure,
-        // catch_time: catchTime,
 
   const {
     catch_time,
@@ -120,16 +111,10 @@ export const createCatch = (payload) => async (dispatch) => {
     user_id
   } = payload
 
+  console.log('*******This hit!*********')
+  console.log(payload)
+
   const form = new FormData();
-        // form.append(condition_text,
-        // form.append(condition_icon,
-        // form.append(temp,
-        // form.append(wind,
-        // form.append(precip,
-        // form.append(cloud,
-        // form.append(humdity,
-        // form.append(pressure,
-        // form.append(catch_time: catchTime,
   form.append('catch_time', catch_time);
   form.append('img', img);
   form.append('fish', fish);

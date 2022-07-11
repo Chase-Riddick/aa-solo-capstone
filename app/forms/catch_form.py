@@ -15,6 +15,7 @@ class CreateCatch(FlaskForm):
     long = FloatField('long', validators=[DataRequired(message="Position Data is needed.")])
     lat = FloatField('lat', validators=[DataRequired(message="Position Data is needed.")])
     user_id = IntegerField("user_id", validators=[DataRequired()])
+    catch_time = StringField("catch_time", validators=[DataRequired()])
 
 
 class UpdateCatch(FlaskForm):

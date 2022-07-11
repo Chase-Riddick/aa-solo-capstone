@@ -11,50 +11,50 @@ def seed_users():
         ),
 
         User(
-        username='JeffSple',
+        username='Jeff Spleils',
         email='JeffSple@aa.io',
         password='password',
         img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
         ),
 
         User(
-        username='FishinBob',
+        username='Bog Angleton',
         email='FishinBob@aa.io',
         password='password',
         ),
 
         User(
-        username='Lucy',
+        username='Lucy GoodLuck',
         email='Lucy@aa.io',
         password='password',
         ),
 
         User(
-        username='NWRambing',
+        username='Sam Fisher',
         email='NWrambing@aa.io',
         password='password',
         ),
 
         User(
-        username='Samatha',
+        username='Samatha Smith',
         email='Samatha@aa.io',
         password='password',
         ),
 
         User(
-        username='Hookitin22',
+        username='Jay Hook',
         email='Hookitin22@aa.io',
         password='password',
         ),
 
         User(
-        username='AcmeAngler',
+        username='Ryan Reel',
         email='AcmeAngler@aa.io',
         password='password',
         ),
 
         User(
-        username='George',
+        username='George Gearyy',
         email='George@aa.io',
         password='password',
         img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',

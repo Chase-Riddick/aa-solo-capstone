@@ -59,52 +59,44 @@ export default function CreateCatchForm ({setShowModal}) {
     }
 
 
-    //Testing Weather API Fetch
+    //Formatting Catch Time
 
-    let catchTimeHour = `${catchTime.getHours}`
+    let catchTimeHour = `${catchTime.getHours()}`
     let catchTimeYear = `${catchTime.getFullYear()}`
     let catchTimeMonth = `${catchTime.getMonth()}`
     if (catchTimeMonth.length < 2) catchTimeMonth = '0' + catchTimeMonth;
     let catchTimeDate = `${catchTime.getDate()}`
     if (catchTimeDate.length < 2) catchTimeDate = '0' + catchTimeDate;
-    let test = `${catchTimeYear}-${catchTimeMonth}-${catchTimeDate}`
-    console.log(test)
-    console.log(catchTime)
-    console.log('*********************')
-    console.log('This hit')
-    console.log(catchTimeHour)
+    let catchTimeFormatted = `${catchTimeYear}-${catchTimeMonth}-${catchTimeDate}-${catchTimeHour}`
 
 
-    const getWeather = async () => {
-      console.log('This also hit')
-      const response = await fetch(`https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=46.5584,-122.2758&dt=2022-07-06`);
-      console.log('This also hit too')
-      if (response.ok) {
-          const data = await response.json();
-          console.log('-----------------------------------------')
-          let hourinfo = data.forecast.forecastday[0].hour[3]
-          console.log(hourinfo)
-          let conditionInfo = {}
 
-          const condition_text = hourinfo.condition.text
-          const condition_icon = hourinfo.condition.icon
-          const temp = hourinfo.temp_f
-          const wind = hourinfo.wind_mph
-          const precip = hourinfo.precip_in
-          const cloud = hourinfo.cloud
-          const humdity = hourinfo.humidity
-          const pressure = hourinfo.pressure_in
+    // const getWeather = async () => {
+    //   console.log('This also hit')
+    //   const response = await fetch(`https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=46.5584,-122.2758&dt=2022-07-06`);
+    //   console.log('This also hit too')
+    //   if (response.ok) {
+    //       const data = await response.json();
+    //       console.log('-----------------------------------------')
+    //       let hourinfo = data.forecast.forecastday[0].hour[3]
+    //       console.log(hourinfo)
+    //       let conditionInfo = {}
 
-          console.log(conditionInfo)
-          }
-    }
+    //       const condition_text = hourinfo.condition.text
+    //       const condition_icon = hourinfo.condition.icon
+    //       const temp = hourinfo.temp_f
+    //       const wind = hourinfo.wind_mph
+    //       const precip = hourinfo.precip_in
+    //       const cloud = hourinfo.cloud
+    //       const humdity = hourinfo.humidity
+    //       const pressure = hourinfo.pressure_in
 
+    //       console.log(conditionInfo)
+    //       }
+    // }
 
-    getWeather();
-
-
-    const payload = {
-        // condition_text,
+    // getWeather();
+    // condition_text,
         // condition_icon,
         // temp,
         // wind,
@@ -112,7 +104,11 @@ export default function CreateCatchForm ({setShowModal}) {
         // cloud,
         // humdity,
         // pressure,
-        // catch_time: catchTime,
+        //
+
+
+    const payload = {
+        catch_time: catchTimeFormatted,
         img,
         fish,
         description,

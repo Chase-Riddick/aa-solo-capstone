@@ -48,7 +48,10 @@ class Catch(db.Model):
 
         for key, collection in kwargs.items():
             # might neeed to import the to_dict methods for the associated models
-            if key == 'condition': out[key] = collection.to_dict()
+            if key == 'condition':
+                print("------------------------------")
+                print(key, collection)
+                out[key] = collection.to_dict()
             else: out[key] = [ele.to_dict() for ele in collection]
 
         return out

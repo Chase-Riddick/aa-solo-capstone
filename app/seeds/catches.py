@@ -5,7 +5,7 @@ def seed_catches():
         [
         Catch(
             user_id = 2,
-            catch_time = '2022-07-06-8',
+            catch_time = '2022-07-09-8',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch1-img.png',
             fish = "Westslope Cutthroat Trout",
             description = "Decent sized, healthy-looking trout.",
@@ -17,7 +17,7 @@ def seed_catches():
 
         Catch(
             user_id = 3,
-            catch_time = '2022-07-01-10',
+            catch_time = '2022-07-10-10',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch2-img.png',
             fish = "Chinoonk Salmon",
             description = "A doozy! Hooked it after just 20 minutes.",
@@ -29,7 +29,7 @@ def seed_catches():
 
         Catch(
             user_id = 4,
-            catch_time = '2022-07-03-16',
+            catch_time = '2022-07-08-16',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch3-img.png',
             fish = "Chinook Salmon",
             description = "My first fish this year!!!",
@@ -41,7 +41,7 @@ def seed_catches():
 
         Catch(
             user_id = 5,
-            catch_time = '2022-07-06-6',
+            catch_time = '2022-07-08-6',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch4-img.png',
             fish = "Cutthroat Trout",
             description = "Got in on the lake today. Got three more later on. What a great day!",
@@ -53,7 +53,7 @@ def seed_catches():
 
         Catch(
             user_id = 6,
-            catch_time = '2022-07-07-10',
+            catch_time = '2022-07-10-10',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch5-img.png',
             fish = "Rainbow Trout?",
             description = "Just hooked this gorgeous fish along the river.",
@@ -65,7 +65,7 @@ def seed_catches():
 
         Catch(
             user_id = 6,
-            catch_time = '2022-07-10-11',
+            catch_time = '2022-07-09-11',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch6-img.png',
             fish = "Rainbow Trout",
             description = "Just got this one too!",
@@ -77,7 +77,7 @@ def seed_catches():
 
         Catch(
             user_id = 7,
-            catch_time = '2022-07-10-7',
+            catch_time = '2022-07-08-7',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch7-img.png',
             fish = "Coho",
             description = "Got it out in mid-river today!",
@@ -88,7 +88,7 @@ def seed_catches():
 
         Catch(
             user_id = 8,
-            catch_time = '2022-07-05-12',
+            catch_time = '2022-07-08-12',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch8-img.png',
             fish = "Not sure",
             description = "A monster.",
@@ -100,7 +100,7 @@ def seed_catches():
 
         Catch(
             user_id = 9,
-            catch_time = '2022-06-29-8',
+            catch_time = '2022-07-10-8',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch9-img.png',
             fish = "Coho Salmon",
             length = 30.0,
@@ -111,7 +111,7 @@ def seed_catches():
 
         Catch(
             user_id = 2,
-            catch_time = '2022-07-01-11',
+            catch_time = '2022-07-10-11',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch10-img.png',
             fish = "Rainbow Trout",
             description = "A little luck today.",
@@ -123,7 +123,7 @@ def seed_catches():
 
         Catch(
             user_id = 4,
-            catch_time = '2022-07-07-3',
+            catch_time = '2022-07-08-4',
             img_url = 'https://localcatches.s3.us-west-2.amazonaws.com/catch11-img.png',
             fish = "Chinook Salmon",
             description = "Decent sized, healthy-looking trout.",

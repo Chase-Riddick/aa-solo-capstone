@@ -22,10 +22,12 @@ class Condition(db.Model):
     # relationships
     catch = db.relationship("Catch", back_populates="condition")
 
-    def to_dict(self, **kwargs):
+    def to_dict(self):
         out = {
             'id': self.id,
             'catch_id': self.catch_id,
+            'condition_text': self.condition_text,
+            'condition_icon': self.condition_icon,
             'temp': self.temp,
             'wind': self.wind,
             'precip': self.precip,

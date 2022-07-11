@@ -60,6 +60,42 @@ export default function DisplayIndivCatch ({ indivCatch, user }) {
 
                 </div>
 
+                <div same-line-description>
+                <h4>Condition:</h4>
+                <p>{indivCatch.condition.condition_text}</p>
+                <img src={indivCatch.condition.condition_text}></img>
+                </div>
+
+                <div same-line-description>
+                <h4>Temperature:</h4>
+                <p>{indivCatch.condition.temp}℉</p>
+                </div>
+
+                <div same-line-description>
+                <h4>Cloud:</h4>
+                <p>{indivCatch.condition.cloud}%</p>
+                </div>
+
+                <div same-line-description>
+                <h4>Humidity:</h4>
+                <p>{indivCatch.condition.humidity}%</p>
+                </div>
+
+                <div same-line-description>
+                <h4>Precipitation:</h4>
+                <p>{indivCatch.condition.precipitation}`(in)`</p>
+                </div>
+
+                <div same-line-description>
+                <h4>Pressure:</h4>
+                <p>{indivCatch.condition.pressure}(in)</p>
+                </div>
+
+                <div same-line-description>
+                <h4>Wind:</h4>
+                <p>{indivCatch.condition.wind}mph</p>
+                </div>
+
                 {/* <p>{indivCatch.long}</p>
                 <p>{indivCatch.lat}</p> */}
                 </div>
