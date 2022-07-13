@@ -16,7 +16,7 @@
     padding-bottom: 40px;
     justify-content: center;
     gap: 150px;
-    background-color: rgb(202, 202, 198);
+    background-color: rgb(25, 35, 35);
     align-items: center;
     padding: 15px 0px;
 }
@@ -34,7 +34,7 @@
     font-size: 18px;
     padding: 0px;
     margin: 0;
-    color: black;
+    color: rgb(255, 243, 243);
     border-bottom: black 1px solid;
 }
 
@@ -42,12 +42,12 @@
     font-size: 18px;
     padding: 0px;
     margin: 0;
-    color: black;
+    color: rgb(218, 208, 208);
 }
 
 .footerlink {
     text-decoration-color: transparent;
-    color: black;
+    color: rgb(218, 208, 208);
     transition: all 500ms;
     padding: 0px;
     font-size: 16px;

@@ -63,13 +63,15 @@ export default function CreateCatchForm ({setShowModal}) {
 
     let catchTimeHour = `${catchTime.getHours()}`
     let catchTimeYear = `${catchTime.getFullYear()}`
-    let catchTimeMonth = `${catchTime.getMonth()}`
+    let catchTimeMonth = `${catchTime.getMonth() + 1}`
     if (catchTimeMonth.length < 2) catchTimeMonth = '0' + catchTimeMonth;
+    console.log('-----------------')
+    console.log(catchTimeMonth)
     let catchTimeDate = `${catchTime.getDate()}`
     if (catchTimeDate.length < 2) catchTimeDate = '0' + catchTimeDate;
     let catchTimeFormatted = `${catchTimeYear}-${catchTimeMonth}-${catchTimeDate}-${catchTimeHour}`
-
-
+    console.log('-----------------')
+    console.log(catchTimeFormatted)
 
     // const getWeather = async () => {
     //   console.log('This also hit')

@@ -1,13 +1,14 @@
 import React from "react"
 import { compose, withProps } from "../../../../node_modules/recompose"
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "../../../../node_modules/react-google-maps"
+import '../Search/search.css'
 
 const MyMapComponent = compose(
   withProps({
     googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyBJfQUfetiFlIWMxEuXalSMUtkkghhJspE&v=3.exp&libraries=geometry,drawing,places",
-    loadingElement: <div style={{ height: `100%` }} />,
-    containerElement: <div style={{ height: `400px` }} />,
-    mapElement: <div style={{ height: `100%` }} />,
+    loadingElement: <div style={{ height: `90%` }} />,
+    containerElement: <div style={{ height: `90%` }} />,
+    mapElement: <div style={{ height: `90%` }} />,
   }),
   withScriptjs,
   withGoogleMap
@@ -44,6 +45,9 @@ export default class Maps extends React.PureComponent {
     return (
       <MyMapComponent
         isMarkerShown={this.state.isMarkerShown}
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div className="map-container" />}
+        mapElement={<div style={{ height: `300px` }} />}
         onMarkerClick={this.handleMarkerClick}
       />
     )

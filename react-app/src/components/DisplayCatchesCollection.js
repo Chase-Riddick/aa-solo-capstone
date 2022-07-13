@@ -9,10 +9,7 @@ export default function DisplayCatchesCollection(){
     const sessionUser = useSelector(state => state.session.user);
     console.log(users)
     return (
-        <>
-            <CreateCatchModal/>
-
-            <div className='catches container'>
+            <div className='catches-container'>
                 {catches.map((indivCatch) => {
                 return (
                     <div key={indivCatch.id} className='catch-card'>
@@ -36,6 +33,5 @@ export default function DisplayCatchesCollection(){
                 );
             })}
             </div>
-        </>
     )
 }

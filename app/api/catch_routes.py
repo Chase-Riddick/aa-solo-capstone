@@ -96,6 +96,8 @@ def post_catch():
             catch_time_split = catch_time.split("-")
             catch_year = catch_time_split[0]
             catch_month = catch_time_split[1]
+            print(catch_month)
+            print('------------------------')
             catch_date = catch_time_split[2]
             catch_hour = catch_time_split[3]
             res = requests.get(f"https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=46.5584,-122.2758&dt={catch_year}-{catch_month}-{catch_date}")
@@ -130,10 +132,6 @@ def post_catch():
 
         db.session.add(new_condition)
         db.session.commit()
-
-        # res = requests.get('https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=London&dt=2022-07-06')
-        # print("************************")
-        # print(res.text)
 
         new_single_catch = Catch.query.options(joinedload('condition'), joinedload('subposts')).get(new_catch.id)
         return new_single_catch.to_dict(condition = new_single_catch.condition, subposts=new_single_catch.subposts)

@@ -1,6 +1,6 @@
 import './splash.css'
 import React, { useState } from 'react';
-import DateTimePicker from 'react-datetime-picker';
+import SearchBar from './SearchBar';
 
 export default function SplashPage () {
     const [value, onChange] = useState(new Date());
@@ -11,8 +11,13 @@ export default function SplashPage () {
 
     return (
         <div className='splash-page-container'>
-            <h1>Splash Page</h1>
-            <p>This is a message!</p>
+            <div className='title-heading'>
+            <div><h1 className='title'>Local Catch</h1></div>
+            <div><h3 className='subtitle'>Share your catches,  find fishes, be a part of a community.</h3></div>
+            <SearchBar/>
+            </div>
+            {/* <div className='fish'>
+            </div> */}
         </div>
     )
 }

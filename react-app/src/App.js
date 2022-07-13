@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import About from './components/About';
 import SplashPage from './components/Splash';
 import Home from './components/MapTest';
+import SearchPage from './components/Search/SearchPage';
 
 import { authenticate } from './store/session';
 import { getAllCatches } from './store/catch';
@@ -66,6 +67,9 @@ function App() {
         </Route>
         <Route path='/map' exact={true} >
           <Home />
+        </Route>
+        <Route path='/search' exact={true} >
+          <SearchPage />
         </Route>
       </Switch>
       </div>

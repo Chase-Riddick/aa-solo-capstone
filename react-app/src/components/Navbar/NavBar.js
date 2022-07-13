@@ -11,12 +11,21 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   return (
     <nav className='navbar'>
+      <div>
+      <NavLink to='/' exact={true} activeClassName='active'>
+        <button className='button'>About</button>
+        </NavLink>
+      </div>
 
-        <div>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            <button className='button'>Home</button>
-          </NavLink>
+      <NavLink to='/' exact={true} activeClassName='active'>
+        <div className='logo-box'>
+          <div className='logo' />
+          <div className='logo-text-box'>
+            <h4 className='logo-text-main'>LocalCatch</h4>
+            <h4 className='logo-text-sub'>A Lewis County Share Platform</h4>
+          </div>
         </div>
+        </NavLink>
 
         {!sessionUser &&
         <>

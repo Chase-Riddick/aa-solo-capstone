@@ -1,11 +1,44 @@
 .splash-page-container {
+    padding-top: 50px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
     width: 100%;
-    height: 300px;
+    height: 100vh;
     align-items: center;
+    background-image: url("../../images/preview16.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 100px;
 }
 
-.splash-vid:hover {
-    border: rgb(180, 23, 23) 5px solid;
+.fish {
+    background-image: url("../../images/fish.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 300px;
+    /* position: absolute; */
+    /* bottom: 0;
+    left: 0;
+    z-index: 10; */
+}
+
+.title {
+    font-size: 80px;
+}
+
+
+.title-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 650px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 400;
 }
