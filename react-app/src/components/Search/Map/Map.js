@@ -74,6 +74,13 @@ const Map = ({
     const mapRef = useRef();
     const onLoad = useCallback(map => (mapRef.current = map), [])
 
+    const trackNewCenter = async () => {
+        const lat = mapRef.current?.getCenter().lat()
+        const lng = mapRef.current?.getCenter().lng()
+        const zoom = mapRef.current?.getZoom()
+
+
+    }
 
     return (
         <>
@@ -115,6 +122,7 @@ const Map = ({
 
                     </MarkerClusterer>
                     )};
+
 
             </GoogleMap>
             </div>
