@@ -9,8 +9,9 @@ import DisplayCatchesCollection from './components/DisplayCatchesCollection';
 import Footer from './components/Footer';
 import About from './components/About';
 import SplashPage from './components/Splash';
-import Home from './components/MapTest';
+// import Home from './components/MapTest';
 import SearchPage from './components/Search/SearchPage';
+// import MapContainer from './components/Map';
 
 import { authenticate } from './store/session';
 import { getAllCatches } from './store/catch';
@@ -64,9 +65,6 @@ function App() {
         </Route>
         <Route path='/about' exact={true} >
           <About/>
-        </Route>
-        <Route path='/map' exact={true} >
-          <Home />
         </Route>
         <Route path='/search' exact={true} >
           <SearchPage />

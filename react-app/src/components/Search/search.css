@@ -1,6 +1,6 @@
 .search-page {
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: flex;
     flex-direction: row;
 }
@@ -8,16 +8,19 @@
 .search-results {
     width: 100%;
     height: 100%;
+    /* box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.2);
+    padding: 5px; */
 }
 
 .map-element{
-    padding: 20px;
+    background-color: rgba(242, 242, 242, 0.981);
+    padding: 15px;
     /* justify-content: center; */
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 .map-container {
-	height: calc(100vh - 85px);
+	height: 100%;
 	width: 50vw;
 }

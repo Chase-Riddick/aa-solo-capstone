@@ -3,9 +3,9 @@ import DisplayIndivCatchModal from './DisplayIndivCatch/IndivCatchModal'
 import CreateCatchModal from './CreateUpdateCatch/CreateCatch/CreateCatchModal';
 import UpdateCatchModal from './CreateUpdateCatch/UpdateCatch/UpdateCatchModal';
 
-export default function DisplayCatchesCollection(){
+export default function DisplayCatchesCollection({catches}){
     const users = useSelector(state => state.user);
-    const catches = Object.values(useSelector(state => state.catches));
+    // const catches = Object.values(useSelector(state => state.catches));
     const sessionUser = useSelector(state => state.session.user);
     console.log(users)
     return (
