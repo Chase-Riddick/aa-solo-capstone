@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import Map from './Map/Map';
 import SearchBar from './SearchBar';
 import CreateCatchModal from '../CreateUpdateCatch/CreateCatch/CreateCatchModal';
 import CreateCatchForm from '../CreateUpdateCatch/CreateCatch';
@@ -10,6 +11,7 @@ import './splash.css'
 
 
 export default function SplashPage () {
+    const key = useSelector(state => state.map.mapAPIKey)
     const sessionUser = useSelector(state => state.session.user);
 
     return (
@@ -21,6 +23,7 @@ export default function SplashPage () {
             <NavLink to='/share' exact={true} activeClassName='active'>
             <button className='button'>Share a Catch</button>
             </NavLink>
+            <Map apiKey={key}/>
             </div>
             </div>
         </div>

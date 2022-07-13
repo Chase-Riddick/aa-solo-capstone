@@ -1,20 +1,16 @@
-import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react'
+import React, { useState, useMemo, useRef, useCallback  } from 'react'
+import { useHistory } from 'react-router-dom';
 
 import { GoogleMap, useLoadScript, Marker, MarkerClusterer, InfoWindow } from '@react-google-maps/api';
 
-import ChooseLocations from './ChooseLocations';
+import SplashLocations from './SplashLocations';
 import './map.css'
 
 const libraries = ['places']
 
-function Maps ({
-         apiKey,
-         searchLocation,
-         setSearchLocation,
-         areaParam,
-         setAreaParam,
-         setPlaceName,
-}) {
+function Maps ({apiKey}) {
+    const [searchLocation, setSearchLocation] = useState();
+
 
     const { isLoaded } = useLoadScript({
         id: 'google-map-script',
@@ -29,13 +25,6 @@ function Maps ({
             {isLoaded && (
                 <Map searchLocation={searchLocation}
                 setSearchLocation={setSearchLocation}
-                areaParam={areaParam}
-                setAreaParam={setAreaParam}
-                setPlaceName={setPlaceName}
-                // catchArr={catchArr}
-                // setCatchArr={setCatchArr}
-                // catchLatLngArr={catchLatLngArr}
-                // setCatchLatLngArr={setCatchLatLngArr}
                 />
 
             )}
@@ -51,16 +40,8 @@ const containerStyle = {
 const Map = ({
         searchLocation,
         setSearchLocation,
-        areaParam,
-        setAreaParam,
-        setPlaceName,
-        // catchArr,
-        // setCatchArr,
-        // catchLatLngArr,
-        // setCatchLatLngArr,
 }) => {
-
-
+    const history = useHistory();
     const center = useMemo(() => ({lat: 46.5, lng: -122.5}), []);
 
     const options = useMemo(() => ({
@@ -69,7 +50,7 @@ const Map = ({
     }), []);
 
 
-    // const [selectedMarker, setSelectedMarker] = useState(null)
+    const [selectedMarker, setSelectedMarker] = useState(null)
     const mapRef = useRef();
     const onLoad = useCallback(map => (mapRef.current = map), [])
 
@@ -85,41 +66,34 @@ const Map = ({
         <>
             <div>
 
-                 <ChooseLocations setPlaceName={setPlaceName} setSearchLocation={(position) => {
+                 <SplashLocations setSearchLocation={(position) => {
                     setSearchLocation(position);
                     mapRef.current?.panTo(position);
                     console.log("!!!!!!!!!!!!!!!!");
                     console.log(searchLocation)
 
                     let ne = mapRef.current?.getBounds().getNorthEast();
+                    console.log(ne)
                     let sw = mapRef.current?.getBounds().getSouthWest();
+                    console.log(sw)
                     let zoom = mapRef.current?.getZoom();
 
-                    setAreaParam(`neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}&zoom=${zoom}`);
-                    console.log(areaParam);
-
+                    history.push(`search/neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}`)
+                    // setAreaParam(`neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}`);
                 }} />
             </div>
 
-            <div className='map-container'>
-                <div className='map'>
+        <div className='hidden-map'>
             <GoogleMap
+                hidden={true}
                 mapContainerStyle={containerStyle}
                 center={center}
                 zoom={10}
                 onLoad={onLoad}
                 onCenterChanged={trackNewCenter}
                 options={options}
-            >
-                {searchLocation &&  (
-
-                    <Marker position={searchLocation} />
-                    )};
-
-
-            </GoogleMap>
-            </div>
-            </div>
+            />
+        </div>
         </>
     )
 }

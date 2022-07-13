@@ -70,8 +70,7 @@ export function getAreaCatches (param, items) {
     console.log(swLat)
     let swLng = parseFloat(paramSplit[3].split('=')[1])
 
-    console.log(swLng)
-    let zoom = parseFloat(paramSplit[4].split('=')[1])
+
 
     let itemValues = Object.values(items);
 

@@ -13,7 +13,7 @@ import {
 import "@reach/combobox/styles.css";
 import './map.css'
 
-export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
+export default function SplashLocations ({ setSearchLocation }) {
     const {
         ready,
         value,
@@ -23,11 +23,14 @@ export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
     } = usePlacesAutocomplete()
 
     const handleSelect = async (address) => {
+        console.log(address)
         setValue(address, false)
-        setPlaceName(address)
         clearSuggestions()
+
         const results = await getGeocode({ address })
+        console.log(results )
         const { lat, lng } = await getLatLng(results[0])
+        console.log({ lat, lng })
         setSearchLocation({ lat, lng })
         const zoom = 10
     }

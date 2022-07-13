@@ -2,16 +2,25 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState} from 'react'
-import { createCatch } from '../../../store/catch';
-import '../../../form.css'
-import './createCatch.css'
 import DateTimePicker from 'react-datetime-picker';
+
+import ChooseLocationMap from './CreateMap/ChooseLocationMap';
+import { createCatch } from '../../../store/catch';
+import '../../../form.css';
+import './createCatch.css';
 
 export default function CreateCatchForm ({setShowModal}) {
   const history = useHistory();
   const dispatch = useDispatch();
+  const key = useSelector(state => state.map.mapAPIKey)
   const sessionUser = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
+
+  const [ searchLocation, setSearchLocation ] = useState();
+  const [ areaParam, setAreaParam ] = useState('');
+  const [placeName, setPlaceName] = useState('');
+  // const [ catchArr, setCatchArr ] = useState(catches ? catches : []);
+  // const [ catchLatLngArr, setCatchLatLngArr ] = useState();
 
   const [catchTime, setCatchTime] = useState(new Date());
   const [img, setImage] = useState(null);
@@ -75,7 +84,8 @@ export default function CreateCatchForm ({setShowModal}) {
     let catchTimeFormatted = `${catchTimeYear}-${catchTimeMonth}-${catchTimeDate}-${catchTimeHour}`
     console.log('-----------------')
     console.log(catchTimeFormatted)
-
+    console.log('--------c--------')
+    console.log(searchLocation)
 
     const payload = {
         catch_time: catchTimeFormatted,
@@ -86,8 +96,8 @@ export default function CreateCatchForm ({setShowModal}) {
         weight,
         bait,
         lure,
-        long,
-        lat,
+        long: searchLocation.lng,
+        lat: searchLocation.lat,
         user_id: sessionUser.id
     };
 
@@ -131,6 +141,13 @@ export default function CreateCatchForm ({setShowModal}) {
         className='input'
         value={fish}
         onChange={updateFish} />
+
+    <input
+        type="text"
+        className='input'
+        value={placeName}
+        required
+        />
 
     <div>
       <DateTimePicker className='datetime-picker'required minDate={oneWeekAgo} maxDate={currentDate} onChange={setCatchTime} value={catchTime} />
@@ -198,7 +215,16 @@ export default function CreateCatchForm ({setShowModal}) {
       <button className='button' type="button" onClick={handleCancelClick}>Cancel</button>
     </form>
   </div>
-  <div className='location-select'></div>
+
+  <div className='location-select'>
+  <ChooseLocationMap apiKey={key}
+                searchLocation={searchLocation}
+                setSearchLocation={setSearchLocation}
+                areaParam={areaParam}
+                setAreaParam={setAreaParam}
+                setPlaceName={setPlaceName}
+                />
+  </div>
   </div>
   )
 }

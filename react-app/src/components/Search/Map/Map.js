@@ -1,4 +1,5 @@
-import React, { useState, useMemo, useRef, useCallback, useEffect } from 'react'
+import React, { useState, useMemo, useRef, useCallback  } from 'react'
+import { useHistory } from 'react-router-dom';
 
 import { GoogleMap, useLoadScript, Marker, MarkerClusterer, InfoWindow } from '@react-google-maps/api';
 
@@ -60,9 +61,8 @@ const Map = ({
         catchLatLngArr,
         setCatchLatLngArr,
 }) => {
-
-
-    const center = useMemo(() => ({lat: 46.5, lng: -122.5}), []);
+    const history = useHistory();
+    const center = useMemo(() => (searchLocation), []);
 
     const options = useMemo(() => ({
         disabledDefault: true,
@@ -96,9 +96,8 @@ const Map = ({
                     let sw = mapRef.current?.getBounds().getSouthWest();
                     let zoom = mapRef.current?.getZoom();
 
-                    setAreaParam(`neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}&zoom=${zoom}`);
-                    console.log(areaParam);
-
+                    history.push(`neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}`)
+                    setAreaParam(`neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}`);
                 }} />
             </div>
 

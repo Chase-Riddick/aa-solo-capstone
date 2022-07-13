@@ -10,7 +10,6 @@ import Footer from './components/Footer';
 import About from './components/About';
 import SplashPage from './components/Splash';
 import CreateCatchForm from './components/CreateUpdateCatch/CreateCatch';
-// import Home from './components/MapTest';
 import SearchPage from './components/Search/SearchPage';
 // import MapContainer from './components/Map';
 
@@ -68,7 +67,7 @@ function App() {
         <Route path='/about' exact={true} >
           <About/>
         </Route>
-        <Route path='/search' exact={true} >
+        <Route path='/search/:searchParam' exact={true} >
           <SearchPage />
         </Route>
         <Route path='/share' exact={true} >
