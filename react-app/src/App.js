@@ -9,6 +9,7 @@ import DisplayCatchesCollection from './components/DisplayCatchesCollection';
 import Footer from './components/Footer';
 import About from './components/About';
 import SplashPage from './components/Splash';
+import CreateCatchForm from './components/CreateUpdateCatch/CreateCatch';
 // import Home from './components/MapTest';
 import SearchPage from './components/Search/SearchPage';
 // import MapContainer from './components/Map';
@@ -51,6 +52,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    {/* <div className='body'> */}
       <NavBar />
       <div className='main-content'>
       <Switch>
@@ -69,9 +71,13 @@ function App() {
         <Route path='/search' exact={true} >
           <SearchPage />
         </Route>
+        <Route path='/share' exact={true} >
+          <CreateCatchForm />
+        </Route>
       </Switch>
       </div>
       <Footer />
+      {/* </div> */}
     </BrowserRouter>
   );
 }

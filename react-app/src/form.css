@@ -1,3 +1,16 @@
+.buttom-row-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.buttom-row-buttons-main {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+
 input {
     width: 100%;
     margin: 5px 0;

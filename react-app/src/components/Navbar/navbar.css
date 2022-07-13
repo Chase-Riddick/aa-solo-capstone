@@ -1,3 +1,9 @@
+.entry-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+
 .navbar {
     display: flex;
     flex-direction: row;

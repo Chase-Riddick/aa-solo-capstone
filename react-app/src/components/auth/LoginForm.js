@@ -87,9 +87,14 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
           value={password}
           onChange={updatePassword}
         />
+        <div className='buttom-row-buttons'>
+          <div className='buttom-row-buttons-main' >
         <button className='button' type='submit'>Login</button>
         <button className='button' onClick={onLoginDemo}>Demo User</button>
-        <button className='button' onClick={handleSwitch}>Sign Up</button>
+        <button className='button' onClick={handleSwitch}>Don't have an account? Sign Up</button>
+        </div>
+        <div onClick={() => setShowLoginModal(false)}>No Thanks</div>
+        </div>
       </div>
     </form>
   );

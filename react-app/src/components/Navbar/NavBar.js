@@ -12,7 +12,7 @@ const NavBar = () => {
   return (
     <nav className='navbar'>
       <div>
-      <NavLink to='/' exact={true} activeClassName='active'>
+      <NavLink to='/about' exact={true} activeClassName='active'>
         <button className='button'>About</button>
         </NavLink>
       </div>
@@ -29,16 +29,27 @@ const NavBar = () => {
 
         {!sessionUser &&
         <>
+        <div className='entry-buttons'>
         <div>
          <AuthModal authType={'login'} />
          </div>
          <div>
          <AuthModal authType={'signup'} />
          </div>
+         </div>
          </>
         }
 
-        {sessionUser && <LogoutButton />}
+        {sessionUser &&
+        <>
+        <div className='entry-buttons'>
+        <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
+        <button className='button'>My Catches</button>
+        </NavLink>
+        <LogoutButton />
+        </div>
+        </>
+        }
 
     </nav>
   );

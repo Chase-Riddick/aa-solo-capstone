@@ -103,8 +103,13 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
           required={true}
         ></input>
       </div>
-      <button className='button' type='submit'>Sign Up</button>
-      <button className='button' onClick={handleSwitch}>Login</button>
+      <div className='buttom-row-buttons'>
+      <div className='buttom-row-buttons-main' >
+      <button className='button' type='submit'> Submit Sign Up</button>
+      <button className='button' onClick={handleSwitch}>Already have an account? Login</button>
+      </div>
+      <div onClick={() => setShowSignUpModal(false)}>No Thanks</div>
+      </div>
     </form>
   );
 };

@@ -1,11 +1,14 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { useState} from 'react'
 import { createCatch } from '../../../store/catch';
 import '../../../form.css'
+import './createCatch.css'
 import DateTimePicker from 'react-datetime-picker';
 
 export default function CreateCatchForm ({setShowModal}) {
+  const history = useHistory();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
@@ -73,41 +76,6 @@ export default function CreateCatchForm ({setShowModal}) {
     console.log('-----------------')
     console.log(catchTimeFormatted)
 
-    // const getWeather = async () => {
-    //   console.log('This also hit')
-    //   const response = await fetch(`https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=46.5584,-122.2758&dt=2022-07-06`);
-    //   console.log('This also hit too')
-    //   if (response.ok) {
-    //       const data = await response.json();
-    //       console.log('-----------------------------------------')
-    //       let hourinfo = data.forecast.forecastday[0].hour[3]
-    //       console.log(hourinfo)
-    //       let conditionInfo = {}
-
-    //       const condition_text = hourinfo.condition.text
-    //       const condition_icon = hourinfo.condition.icon
-    //       const temp = hourinfo.temp_f
-    //       const wind = hourinfo.wind_mph
-    //       const precip = hourinfo.precip_in
-    //       const cloud = hourinfo.cloud
-    //       const humdity = hourinfo.humidity
-    //       const pressure = hourinfo.pressure_in
-
-    //       console.log(conditionInfo)
-    //       }
-    // }
-
-    // getWeather();
-    // condition_text,
-        // condition_icon,
-        // temp,
-        // wind,
-        // precip,
-        // cloud,
-        // humdity,
-        // pressure,
-        //
-
 
     const payload = {
         catch_time: catchTimeFormatted,
@@ -142,14 +110,14 @@ export default function CreateCatchForm ({setShowModal}) {
         setLure("")
         setLong(-122.2751)
         setLat(46.5583)
-        setShowModal(false)
+        history.push(`/users/${sessionUser.id}`)
     }
   }
 
 
   return (
-
-    <div className="create form">
+    <div className='create-catch-page'>
+    <div className="create form create-form">
     <h1>Share your Catch</h1>
     <form className='form' onSubmit={handleSubmit}>
 
@@ -229,6 +197,8 @@ export default function CreateCatchForm ({setShowModal}) {
       <button className='button' type="submit">Submit Post</button>
       <button className='button' type="button" onClick={handleCancelClick}>Cancel</button>
     </form>
+  </div>
+  <div className='location-select'></div>
   </div>
   )
 }
