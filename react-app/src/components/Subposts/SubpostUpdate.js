@@ -84,8 +84,8 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
           onChange={updateContent} />
           </div>
           <div className='button-row'>
-            <button className="button" type="submit">Submit Edit</button>
-            <button className="button" type="button" onClick={handleDelete}>Delete Post</button>
+            <button className="button teal" type="submit">Submit Edit</button>
+            <button className="button teal" type="button" onClick={handleDelete}>Delete Post</button>
           </div>
       </form>
     </div>

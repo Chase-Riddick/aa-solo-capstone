@@ -13,7 +13,7 @@ const NavBar = () => {
     <nav className='navbar'>
       <div>
       <NavLink to='/about' exact={true} activeClassName='active'>
-        <button className='button'>About</button>
+        <button className='button teal'>About</button>
         </NavLink>
       </div>
 
@@ -44,7 +44,7 @@ const NavBar = () => {
         <>
         <div className='entry-buttons'>
         <NavLink to={`/users/${sessionUser.id}`} exact={true} activeClassName='active'>
-        <button className='button'>My Catches</button>
+        <button className='button teal'>My Catches</button>
         </NavLink>
         <LogoutButton />
         </div>

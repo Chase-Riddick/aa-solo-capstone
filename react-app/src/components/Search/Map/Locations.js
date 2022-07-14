@@ -13,6 +13,8 @@ import {
 import "@reach/combobox/styles.css";
 import './map.css'
 
+import '../../Splash/Map/searchbar.css'
+
 export default function Locations ({ setSearchLocation }) {
     const {
         ready,

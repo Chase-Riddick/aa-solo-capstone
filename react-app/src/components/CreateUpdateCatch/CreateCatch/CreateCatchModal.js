@@ -7,7 +7,7 @@ export default function CreateCatchModal () {
     const [showModal, setShowModal] = useState(false)
     return (
         <>
-        <button className='button' onClick={() => setShowModal(true)}>Share a New Catch</button>
+        <button className='button teal' onClick={() => setShowModal(true)}>Share a New Catch</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <CreateCatchForm setShowModal={setShowModal}/>

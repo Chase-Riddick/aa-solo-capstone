@@ -211,8 +211,8 @@ export default function CreateCatchForm ({setShowModal}) {
         value={lure}
         onChange={updateLure} />
 
-      <button className='button' type="submit">Submit Post</button>
-      <button className='button' type="button" onClick={handleCancelClick}>Cancel</button>
+      <button className='button teal' type="submit">Submit Post</button>
+      <button className='button teal' type="button" onClick={handleCancelClick}>Cancel</button>
     </form>
   </div>
 

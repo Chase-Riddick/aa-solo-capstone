@@ -17,7 +17,7 @@ export default function SubpostsSection ({ catch_id, subposts }) {
             <div className='section-row'>
                 <div>Posts: { subposts.length }</div>
                 {sessionUser  &&
-                <button className='button' onClick={() => setShowCreateField(!showCreateSubpostield)}>Add</button>
+                <button className='button teal' onClick={() => setShowCreateField(!showCreateSubpostield)}>Add</button>
                 }
             </div>
             {showCreateSubpostield &&

@@ -12,6 +12,7 @@ import {
 } from "@reach/combobox";
 import "@reach/combobox/styles.css";
 import './map.css'
+import './searchbar.css'
 
 export default function SplashLocations ({ setSearchLocation }) {
     const {
@@ -42,8 +43,8 @@ export default function SplashLocations ({ setSearchLocation }) {
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     disabled={!ready}
-                    className='combobox-search-input'
-                    placeholder='Search a Place'
+                    className='search-input'
+                    placeholder='Search for catches in your area...'
                 />
                 <ComboboxPopover>
                     <ComboboxList>

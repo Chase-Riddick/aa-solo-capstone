@@ -8,7 +8,7 @@ export default function DisplayIndivCatchModal ({ indivCatch, user }) {
 
     return (
         <>
-        <button className='button' onClick={() => setShowModal(true)}>Show Details</button>
+        <button className='button teal' onClick={() => setShowModal(true)}>Show Details</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <DisplayIndivCatch indivCatch={indivCatch} user={user}/>

@@ -6,7 +6,7 @@ export default function UpdateCatchModal ({indivCatch}) {
     const [showModal, setShowModal] = useState(false)
     return (
         <>
-        <button className='button' onClick={() => setShowModal(true)}>Update Details</button>
+        <button className='button teal' onClick={() => setShowModal(true)}>Update Details</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
                 <UpdateCatchForm indivCatch={indivCatch} setShowModal={setShowModal}/>

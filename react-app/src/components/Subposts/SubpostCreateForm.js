@@ -62,8 +62,8 @@ export default function SubpostCreateForm ({catch_id, setShowCreateField}) {
                 className='input subpost-textarea'
                 onChange={updateContent} />
 
-                <button className='button' type="submit">Submit</button>
-                <button className='button' type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className='button teal' type="submit">Submit</button>
+                <button className='button teal' type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
 
         </div>

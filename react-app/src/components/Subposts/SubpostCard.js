@@ -19,7 +19,7 @@ export default function SubpostCard ({subpost, user}) {
                         <div className='username-display'>{user.username}</div></div>
 
                 {sessionUser && sessionUser.id == subpost.user_id &&
-                <button className='button' onClick={() => setShowSubpostUpdate(!showSubpostUpdate)}>{!showSubpostUpdate ? 'Edit' : 'Cancel'}</button>
+                <button className='button teal' onClick={() => setShowSubpostUpdate(!showSubpostUpdate)}>{!showSubpostUpdate ? 'Edit' : 'Cancel'}</button>
                 }
                 </div>
         </div>
