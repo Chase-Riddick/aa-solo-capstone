@@ -74,9 +74,9 @@ function App() {
         <Route path='/share' exact={true} >
           <CreateCatchForm />
         </Route>
-        <ProtectedRoute  path="*">
+        <Route  path="*">
           <NotFound/>
-        </ProtectedRoute>
+        </Route>
 
       </Switch>
       </div>

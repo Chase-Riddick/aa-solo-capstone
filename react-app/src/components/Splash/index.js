@@ -24,7 +24,7 @@ export default function SplashPage () {
             {sessionUser &&
             <NavLink to='/share' exact={true} activeClassName='active'>
             <div className='add-icon-div'>
-              <i class="fa-solid fa-circle-plus create-catch-icon"></i>
+              <i className="fa-solid fa-circle-plus create-catch-icon"></i>
               </div>
             </NavLink>}
             {!sessionUser &&

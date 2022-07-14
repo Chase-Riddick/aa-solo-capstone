@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 import './notFound.css';
 
-function NotFound() {
+export default function NotFound () {
 
   return (
     <div className='not-found-page'>
@@ -15,5 +15,3 @@ function NotFound() {
     </div>
   )
 }
-
-export default NotFound
