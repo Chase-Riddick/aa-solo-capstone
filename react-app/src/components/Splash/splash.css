@@ -7,10 +7,9 @@
     height: 100vh;
     align-items: center;
     background-image: url("../../images/preview16.jpeg");
-    background-size: 100px 100px;
+    /* background-size: 100px 100px; */
     background-size: cover;
     background-repeat: no-repeat;
-    margin-bottom: 100px;
 }
 
 .fish {

@@ -69,7 +69,11 @@ export default function SearchPage () {
                 setCatchLatLngArr={setCatchLatLngArr}
                 />
         </div>
+        <div className="search-page-right">
+        <div className="transistion-bar">aa</div>
+        <div className="section-title">Recent Catches in Locality:</div>
         <DisplayCatchesCollection catches={catchArr} className="search-results" />
+        </div>
         </div>
     )
 }

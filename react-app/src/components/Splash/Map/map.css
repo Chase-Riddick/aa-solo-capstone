@@ -1,15 +1,9 @@
 .map-container {
     display: flex;
-    height: 100vh;
     width: 100%;
 }
 
 .map {
     width: 100%;
-    height: 100vh;
-}
-
-.combobox-search-input {
-    width: 100%;
-    padding: 5px;
+    height: 70vh;
 }

@@ -29,3 +29,9 @@
     width: 70%;
     max-width: 1000px;
 }
+
+@media screen and (max-width: 1000px) {
+    #modal-content {
+        width: 700px;
+    }
+}

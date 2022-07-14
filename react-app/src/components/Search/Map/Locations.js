@@ -41,7 +41,7 @@ export default function Locations ({ setSearchLocation }) {
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     disabled={!ready}
-                    className='combobox-search-input'
+                    className='search-input expanded-width'
                     placeholder='Search a Place'
                 />
                 <ComboboxPopover>
