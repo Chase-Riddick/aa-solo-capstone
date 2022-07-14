@@ -1,0 +1,29 @@
+.not-found-page {
+    background-image: url('../../images/not-found.png');
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: 100vh;
+}
+
+.not-found-message {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 600px;
+    height: 280px;
+    border: black 1px solid;
+    background-color: white;
+    border-radius: 40px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+}
+
+.not-found-message > * {
+    font-size: 30px;
+}

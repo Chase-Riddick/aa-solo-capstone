@@ -11,6 +11,7 @@ import About from './components/About';
 import SplashPage from './components/Splash';
 import CreateCatchForm from './components/CreateUpdateCatch/CreateCatch';
 import SearchPage from './components/Search/SearchPage';
+import NotFound from './components/NotFound/NotFound';
 // import MapContainer from './components/Map';
 
 import { authenticate } from './store/session';
@@ -73,6 +74,10 @@ function App() {
         <Route path='/share' exact={true} >
           <CreateCatchForm />
         </Route>
+        <ProtectedRoute  path="*">
+          <NotFound/>
+        </ProtectedRoute>
+
       </Switch>
       </div>
       <Footer />

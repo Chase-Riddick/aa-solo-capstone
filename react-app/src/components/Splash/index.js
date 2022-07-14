@@ -21,11 +21,17 @@ export default function SplashPage () {
             <div className='splash-actions'>
             <Map apiKey={key}/>
             <div className='subtitle'>or</div>
+            {sessionUser &&
             <NavLink to='/share' exact={true} activeClassName='active'>
             <div className='add-icon-div'>
               <i class="fa-solid fa-circle-plus create-catch-icon"></i>
               </div>
-            </NavLink>
+            </NavLink>}
+            {!sessionUser &&
+            <div className='add-icon-div'>
+            <i class="fa-solid fa-circle-plus create-catch-icon"></i>
+            </div>
+            }
             </div>
             </div>
         </div>
