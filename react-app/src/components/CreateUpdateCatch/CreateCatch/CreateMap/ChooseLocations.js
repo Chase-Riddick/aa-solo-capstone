@@ -40,7 +40,7 @@ export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
                     onChange={e => setValue(e.target.value)}
                     disabled={!ready}
                     className='combobox-search-input'
-                    placeholder='Search a Place'
+                    placeholder='Choose a Location'
                 />
                 <ComboboxPopover>
                     <ComboboxList>

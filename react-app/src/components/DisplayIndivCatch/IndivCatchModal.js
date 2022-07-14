@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+
 import { Modal } from '../../context/Modal';
 import DisplayIndivCatch from '.';
 
@@ -11,7 +12,7 @@ export default function DisplayIndivCatchModal ({ indivCatch, user }) {
         <button className='button teal' onClick={() => setShowModal(true)}>Show Details</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-                <DisplayIndivCatch indivCatch={indivCatch} user={user}/>
+                <DisplayIndivCatch targetCatch={indivCatch} user={user}/>
             </Modal>
         )}
         </>

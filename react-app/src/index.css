@@ -123,6 +123,39 @@ body {
     font-weight: 600;
 }
 
+.button.salmon {
+    border: 3px solid salmon;
+    /* background-color: rgb(149, 205, 186); */
+    color: salmon;
+    font-weight: 800;
+}
+
+.button.edit {
+    border: 3px solid rgb(229, 136, 125);
+    padding: 2px;
+    /* background-color: rgb(149, 205, 186); */
+    color: rgb(229, 136, 125);
+    font-weight: 500;
+}
+
+.button.edit:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgb(229, 136, 125);
+    /* background-color: rgb(158, 207, 190); */
+    color: rgb(229, 136, 125);
+    font-weight: 600;
+    padding: 5px;
+}
+
+.button.salmon:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border: 3px solid salmon;
+    /* background-color: rgb(158, 207, 190); */
+    color: salmon;
+    font-weight: 900;
+    padding: 7px;
+}
+
 .button.teal:hover {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     border: 3px solid rgb(1, 138, 153);

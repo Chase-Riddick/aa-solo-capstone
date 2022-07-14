@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import './subposts.css'
+import '../DisplayIndivCatch/indivCatch.css'
 import SubpostCard from "./SubpostCard";
 import SubpostCreateForm from "./SubpostCreateForm";
 
@@ -13,11 +14,14 @@ export default function SubpostsSection ({ catch_id, subposts }) {
 
     return (
         <div className='subpost-section'>
-            <h3>Comments / Questions</h3>
+            <div className=" sub-section-block">
+            <h1 className="section-header">Dicussion</h1>
             <div className='section-row'>
+            <h3 className="line-header">Comments / Questions</h3>
                 <div>Posts: { subposts.length }</div>
-                {sessionUser  &&
-                <button className='button teal' onClick={() => setShowCreateField(!showCreateSubpostield)}>Add</button>
+            </div>
+            {sessionUser  &&
+                <button className='button salmon' onClick={() => setShowCreateField(!showCreateSubpostield)}>Add to the Dicussion</button>
                 }
             </div>
             {showCreateSubpostield &&

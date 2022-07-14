@@ -1,6 +1,6 @@
 .display-catch-container {
     display: flex;
-    height: 600px;
+    height: 100%;
     width: 100%;
     background-color: whitesmoke;
 }
@@ -23,7 +23,7 @@
 }
 
 .display-catch-left > * {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .display-catch-right {
@@ -52,6 +52,15 @@
     width: 50%;
 }
 
+.fish-name {
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: .08em;
+    text-align: center;
+    width: 100%;
+}
+
 .indivCatch-picture {
     width: 100%;
     height: 100%;
@@ -62,6 +71,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    padding-bottom: 3px;
     /* justify-content: center; */
 }
 
@@ -91,20 +101,27 @@
 }
 
 .line-header {
-    font-size: 22px;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 .sub-section-block {
     background-color: white;
     display: flex;
     flex-direction: column;
-    box-shadow: 0px 0px 5px 3px rgba(227, 222, 222, 0.827);
+    box-shadow: 0px 2px 2px 2px rgba(22, 22, 22, 0.327);
     padding: 5px;
-    margin-left: 1px;
     margin-right: 1px;
 }
 
-@media screen and (max-width: 1050px) {
+.weather-img {
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    width: 30px;
+}
+
+@media screen and (max-width: 1080px) {
     .details-container {
         flex-direction: column;
     }
