@@ -3,8 +3,13 @@ import { useHistory } from 'react-router-dom';
 
 import { GoogleMap, useLoadScript, Marker, MarkerClusterer, InfoWindow } from '@react-google-maps/api';
 
+import DisplayIndivCatchModal from '../../DisplayIndivCatch/IndivCatchModal';
+import MapDisplayCard from '../../CreateUpdateCatch/CreateCatch/CreateMap/MapDisplayCard';
 import Locations from './Locations';
 import './map.css'
+
+
+
 
 const libraries = ['places']
 
@@ -111,17 +116,15 @@ const Map = ({
                 onCenterChanged={trackNewCenter}
                 options={options}
             >
-                {searchLocation && catchArr&& (
+                {searchLocation && catchArr && (
                     <MarkerClusterer>
                         {(clusterer) =>
                         catchArr.map((indivCatch, idx) => (
-                            <Marker label={{backgroundColor: 'white', border: '1px solid black', fontWeight: 'bold', fontSize: '18px', text: `${indivCatch.fish} ${indivCatch.weight}(lbs)` }}
+                            <Marker label={{fontFamily: 'Work', backgroundColor: 'white', border: '1px solid black', fontWeight: 'bold', fontSize: '18px', text: `${indivCatch.fish} - ${indivCatch.weight}(lbs)` }}
                             key={idx} position={{lat: indivCatch.lat, lng: indivCatch.long}} clusterer={clusterer} onClick={() => setSelectedMarker(indivCatch)}>
                                 {(selectedMarker && indivCatch.id === selectedMarker.id) ? (
                                         <InfoWindow>
-                                            <div>
-                                                {indivCatch.fish}
-                                            </div>
+                                            <MapDisplayCard indivCatch={indivCatch}/>
                                         </InfoWindow>
                                     ) : null}
                             </Marker>
