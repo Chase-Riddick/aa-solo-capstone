@@ -111,11 +111,20 @@ const Map = ({
                 onCenterChanged={trackNewCenter}
                 options={options}
             >
-                {searchLocation && catchLatLngArr&& (
+                {searchLocation && catchArr&& (
                     <MarkerClusterer>
                         {(clusterer) =>
-                        catchLatLngArr.map((indivCatchLocation, idx) => (
-                            <Marker key={idx} position={indivCatchLocation} clusterer={clusterer}/>
+                        catchArr.map((indivCatch, idx) => (
+                            <Marker label={{backgroundColor: 'white', border: '1px solid black', fontWeight: 'bold', fontSize: '18px', text: `${indivCatch.fish} ${indivCatch.weight}(lbs)` }}
+                            key={idx} position={{lat: indivCatch.lat, lng: indivCatch.long}} clusterer={clusterer} onClick={() => setSelectedMarker(indivCatch)}>
+                                {(selectedMarker && indivCatch.id === selectedMarker.id) ? (
+                                        <InfoWindow>
+                                            <div>
+                                                {indivCatch.fish}
+                                            </div>
+                                        </InfoWindow>
+                                    ) : null}
+                            </Marker>
                         ))
                         }
 
