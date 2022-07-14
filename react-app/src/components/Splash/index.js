@@ -18,11 +18,14 @@ export default function SplashPage () {
             <div className='title-heading'>
             <div><h1 className='title'>Local Catch</h1></div>
             <div><h3 className='subtitle'>Share your catches,  find fishes, be a part of a community.</h3></div>
-            <div>
-            <NavLink to='/share' exact={true} activeClassName='active'>
-            <button className='button'>Share a Catch</button>
-            </NavLink>
+            <div className='splash-actions'>
             <Map apiKey={key}/>
+            <div className='subtitle'>or</div>
+            <NavLink to='/share' exact={true} activeClassName='active'>
+            <div className='add-icon-div'>
+              <i class="fa-solid fa-circle-plus create-catch-icon"></i>
+              </div>
+            </NavLink>
             </div>
             </div>
         </div>

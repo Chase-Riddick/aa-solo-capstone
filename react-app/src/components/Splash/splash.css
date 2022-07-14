@@ -47,3 +47,17 @@
 .hidden-map {
     display: none;
 }
+
+.create-catch-icon {
+    font-size: 100px;
+    color: salmon;
+    border: black;
+}
+
+.splash-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    /* justify-content: center; */
+    align-items: center;
+}
