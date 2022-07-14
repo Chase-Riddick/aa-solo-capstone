@@ -46,11 +46,19 @@ export default function Locations ({ setSearchLocation }) {
                 />
                 <ComboboxPopover>
                     <ComboboxList>
+                    <div className='list-item-row result-item'>
+                    <ComboboxOption
+                        key={'ChIJ77RIbWo7kVQRydq-d9kYmBg'}
+                        value={'Lewis County, WA, USA'}
+                        className='recommended-place'
+                        /><div className='active-community'>* Active community</div>
+                        </div>
                     {status === 'OK' &&
                     data?.map(({ place_id, description }) => (
                         <ComboboxOption
                             key={place_id}
                             value={description}
+                            className='result-item'
                         />
                     ))}
                     </ComboboxList>

@@ -59,7 +59,15 @@
 .recommended-place {
     color: salmon;
     font-weight: 700;
+    font-family: 'Work';
+    font-size: 18px;
 }
+
+.recommended-place:hover {
+    background-color: whitesmoke;
+    border-bottom: black 1px solid;
+}
+
 
 .list-item-row {
     display: flex;
@@ -71,4 +79,14 @@
 .active-community {
     color: rgb(1, 138, 153);
     font-weight: 900;
+}
+
+.result-item {
+    font-family: 'Work';
+    font-size: 18px;
+}
+
+.result-item:hover {
+    background-color: whitesmoke;
+    border-bottom: black 1px solid;
 }

@@ -120,7 +120,8 @@ const Map = ({
                     <MarkerClusterer>
                         {(clusterer) =>
                         catchArr.map((indivCatch, idx) => (
-                            <Marker label={{fontFamily: 'Work', backgroundColor: 'white', border: '1px solid black', fontWeight: 'bold', fontSize: '18px', text: `${indivCatch.fish} - ${indivCatch.weight}(lbs)` }}
+                            <Marker
+                            // label={{fontFamily: 'Work', backgroundColor: 'white', border: '1px solid black', fontWeight: 'bold', fontSize: '18px', text: `${indivCatch.fish} - ${indivCatch.weight}(lbs)` }}
                             key={idx} position={{lat: indivCatch.lat, lng: indivCatch.long}} clusterer={clusterer} onClick={() => setSelectedMarker(indivCatch)}>
                                 {(selectedMarker && indivCatch.id === selectedMarker.id) ? (
                                         <InfoWindow>

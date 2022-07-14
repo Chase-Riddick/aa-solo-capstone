@@ -48,7 +48,7 @@ export default function SplashLocations ({ setSearchLocation }) {
                 />
                 <ComboboxPopover>
                     <ComboboxList>
-                        <div className='list-item-row'>
+                        <div className='list-item-row result-item'>
                     <ComboboxOption
                         key={'ChIJ77RIbWo7kVQRydq-d9kYmBg'}
                         value={'Lewis County, WA, USA'}
@@ -58,10 +58,10 @@ export default function SplashLocations ({ setSearchLocation }) {
                     {status === 'OK' && data &&
                     data?.map(({ place_id, description }) => (
                         <>
-                        {console.log('---',place_id,'---', description)}
                         <ComboboxOption
                             key={place_id}
                             value={description}
+                            className='result-item'
                         />
                         </>
                     ))
