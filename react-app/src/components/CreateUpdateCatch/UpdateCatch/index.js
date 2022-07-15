@@ -97,7 +97,9 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
     e.preventDefault();
     setErrors([]);
 
-    let data = await (deleteCatch(indivCatch.id));
+    let data = await dispatch(deleteCatch(indivCatch.id));
+    console.log("this hit!!!!!!aa")
+    console.log(data)
     if (data && data.errors) {
         let modified_error_messages = []
         data.errors.forEach(error => {
@@ -187,7 +189,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
       <button className='button teal' type="submit">Submit Edit</button>
       <button className='button teal' type="button" onClick={handleCancelClick}>Cancel</button>
-      <button className='button teal' type="button" onClick={handleDelete}>Delete Catch Post</button>
+      <button className='button teal' type="button" onClick={(e) => {handleDelete(e)}}>Delete Catch Post</button>
     </form>
   </div>
   )

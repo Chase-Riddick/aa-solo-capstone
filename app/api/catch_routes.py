@@ -142,6 +142,7 @@ def post_catch():
 @catch_routes.route('/<int:id>', methods=["DELETE"])
 def delete_catch(id):
         target_catch = Catch.query.get(id)
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         db.session.delete(target_catch)
         db.session.commit()
         return {'id': id}

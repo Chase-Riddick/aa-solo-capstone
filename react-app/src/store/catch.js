@@ -142,13 +142,17 @@ export const createCatch = (payload) => async (dispatch) => {
 }
 }
 
-export const deleteCatch = (catchId) => async dispatch => {
+export const deleteCatch = (catchId) => async (dispatch) => {
+  console.log('-----DeleteThunkA-----')
   const response = await fetch(`/api/catches/${catchId}`, {
     method: "DELETE"
   })
+  console.log('-----DeleteThunkB')
+
   if (response.ok) {
     const data = await response.json()
-    console.log(data)
+
+    console.log(data, 'thiz is data')
     if(data.errors){
       return data;
     } else {
