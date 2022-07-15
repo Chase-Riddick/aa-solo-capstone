@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import DisplayCatchesCollection from './DisplayCatchesCollection';
 import '../index.css'
+import { NavLink } from 'react-router-dom';
+
 
 function User() {
   const sessionUser = useSelector(state => state.session.user);
@@ -12,6 +14,9 @@ function User() {
 
   return (
     <div className='my-catches-page'>
+      <NavLink to='/share' exact={true} activeClassName='active'>
+      <div><button className='button salmon'>Share a New Catch</button></div>
+      </NavLink>
     <DisplayCatchesCollection page={'mycatches'} catches={catches} />
     </div>
   );
