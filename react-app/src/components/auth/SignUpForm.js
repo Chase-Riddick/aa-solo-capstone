@@ -59,15 +59,23 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
   return (
     <form className='auth-modal' onSubmit={onSignUp}>
+      <h1 className='section-title'>Sign Up</h1>
       <div>
-
        {errors.length > 0 && <ul className='errors'>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
           </ul>}
-
       </div>
-      <div>
-        <label>User Name</label>
+
+      <div className='table-row-required'>
+      <h5>Required *</h5>
+      </div>
+
+
+      <div className='table-row'>
+      <div className='table-row-label-block'>
+      <h5 className='table-row-label'>Name </h5>
+      <p className='required'>*</p>
+      </div>
         <input
           type='text'
           name='username'
@@ -75,8 +83,13 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
           value={username}
         ></input>
       </div>
-      <div>
-        <label>Email</label>
+
+
+      <div className='table-row'>
+      <div className='table-row-label-block'>
+      <h5 className='table-row-label'>Email </h5>
+      <p className='required'>*</p>
+      </div>
         <input
           type='text'
           name='email'
@@ -84,8 +97,13 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
           value={email}
         ></input>
       </div>
-      <div>
-        <label>Password</label>
+
+
+      <div className='table-row'>
+      <div className='table-row-label-block'>
+      <h5 className='table-row-label'>Password </h5>
+      <p className='required'>*</p>
+      </div>
         <input
           type='password'
           name='password'
@@ -93,8 +111,13 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
           value={password}
         ></input>
       </div>
-      <div>
-        <label>Repeat Password</label>
+
+
+      <div className='table-row'>
+      <div className='table-row-label-block'>
+      <h5 className='table-row-label'> Repeat Password </h5>
+      <p className='required'>*</p>
+      </div>
         <input
           type='password'
           name='repeat_password'
@@ -103,12 +126,13 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
           required={true}
         ></input>
       </div>
+
       <div className='buttom-row-buttons'>
       <div className='buttom-row-buttons-main' >
       <button className='button teal' type='submit'> Submit Sign Up</button>
       <button className='button teal' onClick={handleSwitch}>Already have an account? Login</button>
       </div>
-      <div className='link' onClick={() => setShowSignUpModal(false)}>No Thanks</div>
+      <div className='close-link' onClick={() => setShowSignUpModal(false)}><a>No Thanks</a></div>
       </div>
     </form>
   );

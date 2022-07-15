@@ -61,15 +61,24 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
   return (
     <form onSubmit={onLogin}>
+      <h1 className='section-title'>Login</h1>
       <div>
 
         {errors.length > 0 && <ul className='errors'>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>}
-
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+
+      <div className='table-row-required'>
+      <h5>Required *</h5>
+    </div>
+
+
+    <div className='table-row'>
+      <div className='table-row-label-block'>
+      <h5 className='table-row-label'>Email </h5>
+      <p className='required'>*</p>
+      </div>
         <input
           name='email'
           type='text'
@@ -78,8 +87,12 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
           onChange={updateEmail}
         />
       </div>
-      <div>
-        <label htmlFor='password'>Password</label>
+
+      <div className='table-row'>
+      <div className='table-row-label-block'>
+      <h5 className='table-row-label'>Password </h5>
+      <p className='required'>*</p>
+      </div>
         <input
           name='password'
           type='password'
@@ -87,15 +100,17 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
           value={password}
           onChange={updatePassword}
         />
+        </div>
+
         <div className='buttom-row-buttons'>
           <div className='buttom-row-buttons-main' >
-        <button className='button' type='submit'>Login</button>
-        <button className='button' onClick={onLoginDemo}>Demo User</button>
-        <button className='button' onClick={handleSwitch}>Don't have an account? Sign Up</button>
+        <button className='button teal' type='submit'>Login</button>
+        <button className='button teal' onClick={onLoginDemo}>Demo User</button>
+        <button className='button teal' onClick={handleSwitch}>Don't have an account? Sign Up</button>
         </div>
-        <div className='close-link' onClick={() => setShowLoginModal(false)}>No Thanks</div>
+        <div className='close-link' onClick={() => setShowLoginModal(false)}><a>No Thanks</a></div>
         </div>
-      </div>
+      {/* </div> */}
     </form>
   );
 };

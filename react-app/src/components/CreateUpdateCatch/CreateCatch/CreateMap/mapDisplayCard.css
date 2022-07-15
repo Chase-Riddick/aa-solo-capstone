@@ -1,0 +1,39 @@
+.map-display-card {
+    width: 150px;
+    height: 150px;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.infobox-img {
+    /* object-fit: cover; */
+    max-width: 150px;
+    max-height: 90px;
+}
+
+.info-box-content {
+    font-family: 'Work Sans';
+    font-weight: 800;
+}
+
+.info-box-content.date {
+    font-family: 'Work Sans';
+    font-weight: 800;
+    width: 100%;
+    text-align: end;
+}
+
+.infobox-fish-name {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.infobox-div {
+    display: column;
+    align-items: center;
+}

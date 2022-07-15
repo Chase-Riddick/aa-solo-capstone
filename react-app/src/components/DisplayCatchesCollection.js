@@ -23,7 +23,7 @@ export default function DisplayCatchesCollection({catches, page}){
 
                         <div className='card-buttons'>
                         <DisplayIndivCatchModal indivCatch={indivCatch} user={users[indivCatch.user_id]}/>
-                        {sessionUser && sessionUser?.id == indivCatch.user_id &&
+                        {sessionUser && sessionUser?.id == indivCatch.user_id && page !== 'search' &&
                         <UpdateCatchModal indivCatch={indivCatch}/>
                         }
                         </div>

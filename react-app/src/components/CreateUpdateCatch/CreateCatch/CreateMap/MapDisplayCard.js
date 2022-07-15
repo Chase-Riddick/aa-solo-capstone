@@ -1,3 +1,5 @@
+import './mapDisplayCard.css'
+
 export default function MapDisplayCard ({indivCatch}) {
     return (
 
@@ -7,11 +9,12 @@ export default function MapDisplayCard ({indivCatch}) {
                     <div className='username-display'>{users[indivCatch.user_id].username}</div>
                     </div>
                     <img className="card-image" src={indivCatch?.img_url} alt="" /> */}
-
-                    <div className='card-fish-name'>{indivCatch.fish}</div>
-                    <div>{indivCatch.weight}</div>
-                    <div>{indivCatch.length}</div>
-                    <div>{indivCatch.catch_time}</div>
+                    <div className='infobox-div'>
+                    <img className='infobox-img' src={indivCatch.img_url}></img>
+                    <div className='infobox-fish-name info-box-content'>{indivCatch.fish}</div>
+                    </div>
+                    {/* <div className='info-box-content'>{`${indivCatch.weight} (lbs) ${indivCatch.length}(in)` }</div> */}
+                    <div className='info-box-content date'>{indivCatch.catch_time}</div>
 
                     {/* <div className='card-buttons'>
                     <DisplayIndivCatchModal indivCatch={indivCatch} user={users[indivCatch.user_id]}/>

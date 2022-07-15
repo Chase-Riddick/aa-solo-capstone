@@ -5,6 +5,7 @@
     align-items: center;
 }
 .buttom-row-buttons-main {
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     gap: 15px;
