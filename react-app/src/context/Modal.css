@@ -31,6 +31,47 @@
     height: 85vh;
 }
 
+
+#modal-content.auth-modal {
+    max-width: 400px;
+    border: black 3px solid;
+}
+
+
+#auth-modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 80%; */
+}
+
+#auth-modal-background {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+#auth-modal-content {
+    position: absolute;
+    background-color: white;
+    border: 0px solid transparent;
+    border-radius: 15px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    padding: 20px 20px;
+    width: 400px;
+    /* min-width: 400px;
+    max-width: 600px; */
+    height: 60vh;
+}
+
 @media screen and (max-width: 1000px) {
     #modal-content {
         width: 700px;

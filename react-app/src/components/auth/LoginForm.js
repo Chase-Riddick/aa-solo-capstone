@@ -93,7 +93,7 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
         <button className='button' onClick={onLoginDemo}>Demo User</button>
         <button className='button' onClick={handleSwitch}>Don't have an account? Sign Up</button>
         </div>
-        <div onClick={() => setShowLoginModal(false)}>No Thanks</div>
+        <div className='close-link' onClick={() => setShowLoginModal(false)}>No Thanks</div>
         </div>
       </div>
     </form>

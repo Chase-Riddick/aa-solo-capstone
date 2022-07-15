@@ -58,7 +58,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
+    <form className='auth-modal' onSubmit={onSignUp}>
       <div>
 
        {errors.length > 0 && <ul className='errors'>

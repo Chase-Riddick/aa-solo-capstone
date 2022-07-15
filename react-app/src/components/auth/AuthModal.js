@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { Modal } from '../../context/Modal';
+import { AthModal } from '../../context/AthModal';
+import './auth.css';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 
@@ -9,19 +10,27 @@ export default function AuthModal ({ authType }) {
     const [showLoginModal, setShowLoginModal] = useState(false)
     return (
         <div>
+        {authType && authType === 'not-logged-in' &&
+        <button className='button-splash-create' onClick={() => setShowLoginModal(true)}><i class="fa-solid fa-circle-plus create-catch-icon"></i></button>}
+            {showLoginModal && (<AthModal  className='auth-modal' onClose={() => setShowLoginModal(false)}>
+                <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
+            </AthModal >
+        )}
+
         {authType && authType === 'login' &&
         <button className='button teal' onClick={() => setShowLoginModal(true)}>Login</button>}
         {showLoginModal && (
-            <Modal onClose={() => setShowLoginModal(false)}>
+            <AthModal  className='auth-modal' onClose={() => setShowLoginModal(false)}>
                 <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
-            </Modal>
+            </AthModal >
         )}
+
         {authType && authType === 'signup' &&
         <button className='button teal' onClick={() => setShowSignUpModal(true)}>Sign Up</button>}
         {showSignUpModal && (
-            <Modal onClose={() => setShowSignUpModal(false)}>
+            <AthModal className='auth-modal' onClose={() => setShowSignUpModal(false)}>
                 <SignUpForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
-            </Modal>
+            </AthModal >
         )}
         </div>
     )

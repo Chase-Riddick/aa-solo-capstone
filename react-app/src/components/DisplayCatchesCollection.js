@@ -3,13 +3,13 @@ import DisplayIndivCatchModal from './DisplayIndivCatch/IndivCatchModal'
 import CreateCatchModal from './CreateUpdateCatch/CreateCatch/CreateCatchModal';
 import UpdateCatchModal from './CreateUpdateCatch/UpdateCatch/UpdateCatchModal';
 
-export default function DisplayCatchesCollection({catches}){
+export default function DisplayCatchesCollection({catches, page}){
     const users = useSelector(state => state.user);
     // const catches = Object.values(useSelector(state => state.catches));
     const sessionUser = useSelector(state => state.session.user);
     console.log(users)
     return (
-            <div className='catches-container'>
+            <div className={page === 'mycatches'? 'mycatches-container' : 'catches-container'}>
                 {catches.map((indivCatch) => {
                 return (
                     <div key={indivCatch.id} className='catch-card'>

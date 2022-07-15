@@ -56,7 +56,7 @@ function App() {
       <NavBar />
       <div className='main-content'>
       <Switch>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/mycatches' exact={true} >
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
@@ -73,6 +73,9 @@ function App() {
         </Route>
         <Route path='/share' exact={true} >
           <CreateCatchForm />
+        </Route>
+        <Route path='/notfound' exact={true} >
+          <NotFound/>
         </Route>
         <Route  path="*">
           <NotFound/>

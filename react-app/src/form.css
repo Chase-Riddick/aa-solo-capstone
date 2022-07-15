@@ -42,3 +42,7 @@ input {
 .datetime-picker > * {
     margin: 1px;
 }
+
+.close-link:hover {
+    cursor: pointer;
+}

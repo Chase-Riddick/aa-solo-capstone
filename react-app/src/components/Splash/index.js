@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Map from './Map/Map';
+import AuthModal from '../auth/AuthModal';
 // import CreateCatchModal from '../CreateUpdateCatch/CreateCatch/CreateCatchModal';
 // import CreateCatchForm from '../CreateUpdateCatch/CreateCatch';
 
@@ -29,7 +30,7 @@ export default function SplashPage () {
             </NavLink>}
             {!sessionUser &&
             <div className='add-icon-div'>
-            <i class="fa-solid fa-circle-plus create-catch-icon"></i>
+                <AuthModal authType={'not-logged-in'} />
             </div>
             }
             </div>

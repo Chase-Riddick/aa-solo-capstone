@@ -120,7 +120,7 @@ export default function CreateCatchForm ({setShowModal}) {
         setLure("")
         setLong(-122.2751)
         setLat(46.5583)
-        history.push(`/users/${sessionUser.id}`)
+        history.push(`/mycatches`)
     }
   }
 

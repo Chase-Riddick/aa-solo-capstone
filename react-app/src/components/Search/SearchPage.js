@@ -82,7 +82,7 @@ export default function SearchPage () {
         paramCheckRes = true;
     } else {
         console.log('this happened')
-        history.push('/')
+        history.push('/notfound')
 
     }
 
@@ -105,7 +105,7 @@ export default function SearchPage () {
             setCatchLatLngArr(res[0]);
             setCatchArr(res[1]);
             } catch (e) {
-                history.push('/')
+                history.push('/notfound')
             }
             // try {
             //     setCatchLatLngArr(res[0]);
@@ -117,6 +117,8 @@ export default function SearchPage () {
         };
     }, [areaParam, searchParam])
 
+    console.log('--------------------------------------------------------------------------------')
+    console.log(catchArr)
 
     if (!key) return null
 
@@ -137,7 +139,12 @@ export default function SearchPage () {
         <div className="search-page-right">
         <div className="transistion-bar">aa</div>
         <div className="section-title">Recent Catches in Locality:</div>
-        <DisplayCatchesCollection catches={catchArr} className="search-results" />
+        {catchArr.length >= 1 &&
+        <DisplayCatchesCollection catches={catchArr} page={'search'} className="search-results" />
+        }
+        {catchArr.length < 1 &&
+        <div className="no-results">Sadly, no one is sharing their catches here. Why not be the first?</div>
+        }
         </div>
         </div>
     )
