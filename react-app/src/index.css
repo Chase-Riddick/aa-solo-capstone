@@ -10,10 +10,10 @@ a {
 	color: unset;
 }
 
-ul,
+/* ul,
 li {
 	list-style: none;
-}
+} */
 
 body {
 	margin: 0;
@@ -134,6 +134,22 @@ body {
     font-weight: 800;
 }
 
+.button.red {
+    border: 3px solid rgb(206, 63, 47);
+    /* background-color: rgb(149, 205, 186); */
+    color: rgb(206, 63, 47);
+    font-weight: 800;
+}
+
+.button.red:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgb(206, 63, 47);
+    /* background-color: rgb(158, 207, 190); */
+    color: rgb(206, 63, 47);
+    font-weight: 900;
+    padding: 7px;
+}
+
 .button.edit {
     border: 3px solid rgb(229, 136, 125);
     padding: 2px;
@@ -172,6 +188,22 @@ body {
 .button-splash-create {
     border: none;
     background-color: transparent;
+}
+
+.button.cancel {
+    border: 3px solid rgb(123, 120, 119);
+    font-weight: 800;
+    padding: 7px;
+    color: rgb(123, 120, 119);
+}
+
+.button.cancel:hover {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    border: 3px solid rgb(206, 63, 47);
+    /* background-color: rgb(158, 207, 190); */
+    color: rgb(206, 63, 47);
+    font-weight: 900;
+    /* padding: 5px; */
 }
 
 

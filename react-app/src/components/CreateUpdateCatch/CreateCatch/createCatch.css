@@ -2,13 +2,22 @@
     display: flex;
     flex-direction: row;
     height: 100vh;
-    padding-bottom: 100px;
+    margin-bottom: 250px;
+    overflow-y: scroll;
 }
 
 .create-form {
     width: 50%;
+    margin-right: 10px;
+    min-width: 400px;
 }
 
 .location-select {
     width: 50%;
 }
+
+
+/* @media screen and (max-width: 1000px) {
+
+    create-form
+} */

@@ -35,6 +35,11 @@ export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
     return (
         <>
             <Combobox onSelect={handleSelect}>
+            <div className='table-row'>
+      <div className='table-row-label-block'>
+      <h5 className='table-row-label location'>Location </h5>
+      <p className='required'>*</p>
+      </div>
                 <ComboboxInput
                     value={value}
                     onChange={e => setValue(e.target.value)}
@@ -42,6 +47,7 @@ export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
                     className='combobox-search-input'
                     placeholder='Choose a Location'
                 />
+                </div>
                 <ComboboxPopover>
                     <ComboboxList>
                     {status === 'OK' &&
