@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Map from './Map/Map';
-import CreateCatchModal from '../CreateUpdateCatch/CreateCatch/CreateCatchModal';
-import CreateCatchForm from '../CreateUpdateCatch/CreateCatch';
+// import CreateCatchModal from '../CreateUpdateCatch/CreateCatch/CreateCatchModal';
+// import CreateCatchForm from '../CreateUpdateCatch/CreateCatch';
 
 import './splash.css'
 
