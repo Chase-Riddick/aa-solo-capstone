@@ -1,4 +1,4 @@
-# Dicey
+# LocalCatch
 
 Inspired by the desgin of Zillow, LocalCatch is share platform that for fishiing enthusiasts and their catches. It provides a space for anglers to post their catches, to talk about it with the local community, and perhaps find when, where and under what conditions they're going to find their next Trophy Fish.
 
@@ -25,5 +25,3 @@ Inspired by the desgin of Zillow, LocalCatch is share platform that for fishiing
 ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-
-<h3>Usage</h3>
