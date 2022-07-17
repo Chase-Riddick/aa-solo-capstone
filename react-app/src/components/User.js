@@ -14,6 +14,8 @@ function User() {
 
   return (
     <div className='my-catches-page'>
+      <div className="transistion-bar">aa</div>
+        <div className="section-title">My Catches:</div>
       <NavLink to='/share' exact={true} activeClassName='active'>
       <div><button className='button salmon'>Share a New Catch</button></div>
       </NavLink>

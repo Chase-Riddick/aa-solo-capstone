@@ -145,24 +145,28 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         onChange={updateFish} />
     </div>
 
-      {/* <div className='table-row'>
+      <div className='table-row'>
       <div className='table-row-label-block'>
       <h5 className='table-row-label'>Picture </h5>
       <p className='required'>*</p>
       </div>
-      <label className='grab-file-wrapper'>{img === null ? 'Choose an Image File to Upload' : 'File Chosen'}
+      {/* <label className='grab-file-wrapper'>{img === null ? 'Choose an Image File to Upload' : 'File Chosen'} */}
+      <div className='image-input-line'>
      <input
         type="file"
         placeholder="Fish Picture"
-        required
         accept='image/*'
-        className='input hide'
+        className='input'
         name='image'
         onChange={(e) => setImage(e.target.files[0])} />
-        </label>
-        </div> */}
+        {/* </label> */}
+        {img &&
+        <i className="fa-solid fa-circle-check"></i>
+        }
+        </div>
+        </div>
 
-      {/* <input
+      {/* {/ <input
         type="text"
         placeholder="What did you catch?"
         className='input'
@@ -201,7 +205,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         onChange={updateWeight} />
         </div>
 
-    {/* length */}
+
     <div className='table-row'>
       <div className='table-row-label-block'>
       <h5 className='table-row-label'>Length </h5>
