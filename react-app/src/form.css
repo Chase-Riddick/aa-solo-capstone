@@ -52,6 +52,9 @@ input.hide {
 
 
 .errors {
+    margin-left: 10px;
+    margin-right: 5px;
+    margin-top: 5px;
     border: 2px solid #D03341;
     border-radius: 5px;
     width: 100%;
@@ -143,4 +146,26 @@ input.hide {
     flex-direction: row;
     align-items: flex-end;
     justify-content: end;
+}
+
+.image-input-line {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: 15px;
+}
+
+
+.fa-circle-check {
+    color: rgb(1, 138, 153);
+    font-size: 22px;
+}
+
+.form-note {
+    padding-left: 40px;
+    padding-right: 40px;
+    color: #083b37;
+    text-align: center;
 }

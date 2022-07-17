@@ -13,7 +13,7 @@ import {
 import "@reach/combobox/styles.css";
 import './map.css'
 
-export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
+export default function ChooseLocations ({ searchLocation, setSearchLocation, setPlaceName }) {
     const {
         ready,
         value,
@@ -40,6 +40,7 @@ export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
       <h5 className='table-row-label location'>Location </h5>
       <p className='required'>*</p>
       </div>
+                <div className='image-input-line'>
                 <ComboboxInput
                     value={value}
                     onChange={e => setValue(e.target.value)}
@@ -47,6 +48,10 @@ export default function ChooseLocations ({ setSearchLocation, setPlaceName }) {
                     className='combobox-search-input'
                     placeholder='Choose a Location'
                 />
+                {searchLocation &&
+                <i className="fa-solid fa-circle-check"></i>
+                }
+                </div>
                 </div>
                 <ComboboxPopover>
                     <ComboboxList>

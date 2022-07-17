@@ -78,6 +78,10 @@ body {
 }
 
 .catch-card {
+    /* overflow-y: scroll; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 95%;
     border-radius: 5px;
     border: 2px solid black;
@@ -92,8 +96,8 @@ body {
 .card-image {
     width: 100%;
     height: fit-content;
-    object-fit: fill;
-    max-height: 280px;
+    /* object-fit: fill; */
+    max-height: 220px;
 }
 
 .card-row {

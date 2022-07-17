@@ -71,6 +71,10 @@ export default function CreateCatchForm ({setShowModal}) {
       errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
     }
 
+    if (!searchLocation) {
+      errors.push("You must select a location.")
+    }
+
     if (errors.length) {
       setErrors([...errors]);
       return;
@@ -155,6 +159,7 @@ export default function CreateCatchForm ({setShowModal}) {
         placeholder="What did you catch?"
         className='input'
         value={fish}
+        maxLength={25}
         onChange={updateFish} />
     </div>
 
@@ -167,7 +172,7 @@ export default function CreateCatchForm ({setShowModal}) {
       <DateTimePicker className='datetime-picker'required minDate={oneWeekAgo} maxDate={currentDate} onChange={setCatchTime} value={catchTime} />
     </div>
     </div>
-
+    <div className='form-note'> <b>Note:</b> Catches must have happened in the past seven days. Budget contraints mean that we can only access weather conditions within the past 7 days. </div>
 
 
 
@@ -176,16 +181,21 @@ export default function CreateCatchForm ({setShowModal}) {
       <h5 className='table-row-label'>Picture </h5>
       <p className='required'>*</p>
       </div>
-      <label className='grab-file-wrapper'>{img === null ? 'Choose an Image File to Upload' : 'File Chosen'}
+      {/* <label className='grab-file-wrapper'>{img === null ? 'Choose an Image File to Upload' : 'File Chosen'} */}
+      <div className='image-input-line'>
      <input
         type="file"
         placeholder="Fish Picture"
         required
         accept='image/*'
-        className='input hide'
-        name='image'
+        className='input'
+        // name='image'
         onChange={(e) => setImage(e.target.files[0])} />
-        </label>
+        {/* </label> */}
+        {img &&
+        <i className="fa-solid fa-circle-check"></i>
+        }
+        </div>
         </div>
 
      <div className='table-row description-row'>

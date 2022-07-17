@@ -141,6 +141,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         placeholder="What did you catch?"
         className='input'
         value={fish}
+        maxLength={25}
         onChange={updateFish} />
     </div>
 

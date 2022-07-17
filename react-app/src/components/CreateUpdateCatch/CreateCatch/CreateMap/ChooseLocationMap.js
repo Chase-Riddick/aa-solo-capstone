@@ -85,7 +85,7 @@ const Map = ({
         <>
             <div>
 
-                 <ChooseLocations setPlaceName={setPlaceName} setSearchLocation={(position) => {
+                 <ChooseLocations setPlaceName={setPlaceName} searchLocation={searchLocation} setSearchLocation={(position) => {
                     setSearchLocation(position);
                     mapRef.current?.panTo(position);
                     console.log("!!!!!!!!!!!!!!!!");
