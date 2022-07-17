@@ -76,4 +76,8 @@
     #modal-content {
         width: 700px;
     }
+
+    #auth-modal-content {
+        overflow-x: scroll;
+    }
 }

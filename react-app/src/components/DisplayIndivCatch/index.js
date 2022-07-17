@@ -53,12 +53,12 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
                 <div className="details-right">
                 <div className="same-line-description">
                 <h4 className="line-header">Lure:</h4>
-                <p>{indivCatch.lure}</p>
+                <p className="card-text-info">{indivCatch.lure}</p>
                 </div>
 
                 <div className="same-line-description">
                 <h4 className="line-header">Bait:</h4>
-                <p>{indivCatch.bait}</p>
+                <p className="card-text-info">{indivCatch.bait}</p>
                 </div>
 
                 </div>
@@ -78,7 +78,7 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
                 <div className="details-left">
                 <div className="same-line-description">
                 <h4 className="line-header">Temperature:</h4>
-                <p>{indivCatch.condition.temp}℉</p>
+                <p className="condition-info-text">{indivCatch.condition.temp}℉</p>
                 </div>
 
                 <div className="same-line-description">

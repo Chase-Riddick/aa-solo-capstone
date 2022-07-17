@@ -48,6 +48,8 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = [];
+    console.log("-----------------------------------")
+    console.log("This hit!")
 
     if (errors.length) {
       setErrors([...errors]);
@@ -67,7 +69,8 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         lat,
     };
 
-
+    console.log('--------------------------------------')
+    console.log(payload)
 
     let data = await dispatch(updateCatch(payload));
     if (data && data.errors) {
@@ -141,7 +144,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         onChange={updateFish} />
     </div>
 
-      <div className='table-row'>
+      {/* <div className='table-row'>
       <div className='table-row-label-block'>
       <h5 className='table-row-label'>Picture </h5>
       <p className='required'>*</p>
@@ -156,7 +159,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         name='image'
         onChange={(e) => setImage(e.target.files[0])} />
         </label>
-        </div>
+        </div> */}
 
       {/* <input
         type="text"
