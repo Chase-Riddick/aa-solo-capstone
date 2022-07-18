@@ -62,9 +62,6 @@ function App() {
         <Route path='/' exact={true} >
           <SplashPage/>
         </Route>
-        <Route path='/catches' exact={true} >
-          <DisplayCatchesCollection />
-        </Route>
         <Route path='/about' exact={true} >
           <About/>
         </Route>

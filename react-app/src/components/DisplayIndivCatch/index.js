@@ -115,7 +115,7 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
 
                 {/* <p>{indivCatch.long}</p>
                 <p>{indivCatch.lat}</p> */}
-
+                {/* <div className="filler-div">aa</div> */}
 
             </div>
             <div className="display-catch-right">

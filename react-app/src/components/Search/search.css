@@ -1,7 +1,7 @@
 .search-page {
     width: 100%;
     height: 80%;
-    padding-bottom: 200px;
+    /* padding-bottom: 300px; */
     display: flex;
     flex-direction: row;
 }
@@ -16,22 +16,26 @@
 .map-element{
     /* padding: 15px; */
     /* justify-content: center; */
+    margin-left: 25px;
+    /* margin-bottom: 300px; */
     width: 100%;
     height: 100%;
+    padding-bottom: 250px;
+    /* overflow-y: hidden; */
 }
+
 
 .map-container {
-	height: 100%;
-    padding-bottom: 200px;
+	/* height: 100%; */
+    /* padding-bottom: 250px; */
 	width: 50vw;
     padding-right: 10px;
-    /* background-color: black; */
+    height: 90vh;
 }
 
-.map-element {
-    /* background-color: black; */
+/* .map-element {
     height: 100%;
-}
+} */
 
 .search-page-right {
     display: flex;

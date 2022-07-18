@@ -95,6 +95,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
           name='email'
           onChange={updateEmail}
           value={email}
+          maxLength={50}
         ></input>
       </div>
 

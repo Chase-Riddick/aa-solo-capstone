@@ -13,7 +13,7 @@ def user_exists(form, field):
 
 def validate_email(form, field):
     email = field.data
-    if len(email) < 5 or len(email) > 20:
+    if len(email) < 5 or len(email) > 50:
         raise ValidationError('The email address must be between 5 and 20 characters long.')
     if not '@' in email:
         raise ValidationError("The email address must contain an '@' symbol.")

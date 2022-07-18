@@ -47,7 +47,17 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const errors = [];
+    let splitImg = img.name.split('.');
+    let fileKind = splitImg[splitImg.length - 1];
+    console.log(fileKind)
+    if (!['png', 'jpeg', 'gif', 'jpg'].includes(fileKind)) {
+      errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
+    }
+
+
+
     console.log("-----------------------------------")
     console.log("This hit!")
 
@@ -90,8 +100,8 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         setWeight("");
         setBait("");
         setLure("");
-        setLong(-122.2751);
-        setLat(46.5583);
+        // setLong(-122.2751);
+        // setLat(46.5583);
         setShowModal(false);
     }
   }
