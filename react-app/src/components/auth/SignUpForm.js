@@ -74,7 +74,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
       <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Name </h5>
+      <h5 className='table-row-label'>Username </h5>
       <p className='required'>*</p>
       </div>
         <input
