@@ -50,13 +50,14 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
     const errors = [];
 
-    if (img) {
-    let splitImg = img.name.split('.');
-    let fileKind = splitImg[splitImg.length - 1]
-    if (!['png', 'jpeg', 'gif', 'jpg'].includes(fileKind)) {
-      errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
-    }
-    }
+    // if (img) {
+
+    // let splitImg = img.name.split('.');
+    // let fileKind = splitImg[splitImg.length - 1]
+    // if (!['png', 'jpeg', 'gif', 'jpg'].includes(fileKind)) {
+    //   errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
+    // }
+    // }
 
 
 
@@ -148,17 +149,16 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         placeholder="What did you catch?"
         className='input'
         value={fish}
-        maxLength={25}
+        maxLength={20}
         required
         onChange={updateFish} />
     </div>
 
-      <div className='table-row'>
+      {/* <div className='table-row'>
       <div className='table-row-label-block'>
       <h5 className='table-row-label'>Picture </h5>
       <p className='required'>*</p>
       </div>
-      {/* <label className='grab-file-wrapper'>{img === null ? 'Choose an Image File to Upload' : 'File Chosen'} */}
       <div className='image-input-line'>
      <input
         type="file"
@@ -167,12 +167,11 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         className='input'
         name='image'
         onChange={(e) => setImage(e.target.files[0])} />
-        {/* </label> */}
         {img &&
         <i className="fa-solid fa-circle-check"></i>
         }
         </div>
-        </div>
+        </div> */}
 
       {/* {/ <input
         type="text"
