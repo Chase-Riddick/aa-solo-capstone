@@ -259,6 +259,7 @@ export default function CreateCatchForm ({setShowModal}) {
         placeholder="What bait did you use?"
         className='input'
         value={bait}
+        maxLength={80}
         onChange={updateBait} />
         </div>
 
@@ -272,6 +273,7 @@ export default function CreateCatchForm ({setShowModal}) {
         placeholder="What lure did you use?"
         className='input'
         value={lure}
+        maxLength={80}
         onChange={updateLure} />
         </div>
       <div className='form-button-row'>

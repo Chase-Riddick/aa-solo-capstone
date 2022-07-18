@@ -243,6 +243,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         placeholder="What bait did you use?"
         className='input'
         value={bait}
+        maxLength={80}
         onChange={updateBait} />
         </div>
 
@@ -255,6 +256,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         type="text"
         placeholder="What lure did you use?"
         className='input'
+        maxLength={80}
         value={lure}
         onChange={updateLure} />
         </div>
