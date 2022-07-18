@@ -24,14 +24,14 @@ export default function SplashLocations ({ setSearchLocation }) {
     } = usePlacesAutocomplete()
 
     const handleSelect = async (address) => {
-        console.log(address)
+
         setValue(address, false)
         clearSuggestions()
 
         const results = await getGeocode({ address })
-        console.log(results )
+
         const { lat, lng } = await getLatLng(results[0])
-        console.log({ lat, lng })
+
         setSearchLocation({ lat, lng })
         const zoom = 10
     }

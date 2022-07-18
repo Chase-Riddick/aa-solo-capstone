@@ -88,15 +88,14 @@ const Map = ({
                  <ChooseLocations setPlaceName={setPlaceName} searchLocation={searchLocation} setSearchLocation={(position) => {
                     setSearchLocation(position);
                     mapRef.current?.panTo(position);
-                    console.log("!!!!!!!!!!!!!!!!");
-                    console.log(searchLocation)
+
 
                     let ne = mapRef.current?.getBounds().getNorthEast();
                     let sw = mapRef.current?.getBounds().getSouthWest();
                     let zoom = mapRef.current?.getZoom();
 
                     setAreaParam(`neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}&zoom=${zoom}`);
-                    console.log(areaParam);
+
 
                 }} />
             </div>

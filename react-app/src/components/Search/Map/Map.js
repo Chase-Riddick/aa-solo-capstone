@@ -94,8 +94,7 @@ const Map = ({
                  <Locations setSearchLocation={(position) => {
                     setSearchLocation(position);
                     mapRef.current?.panTo(position);
-                    console.log("!!!!!!!!!!!!!!!!");
-                    console.log(searchLocation)
+
 
                     let ne = mapRef.current?.getBounds().getNorthEast();
                     let sw = mapRef.current?.getBounds().getSouthWest();

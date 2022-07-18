@@ -14,7 +14,6 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      console.log(data)
       let modified_error_messages = []
             data.forEach(error => {
                 let splitError = error.split(": ")
@@ -30,7 +29,7 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
     e.preventDefault();
     const data = await dispatch(login('demo@aa.io','password'));
     if (data) {
-      console.log(data)
+
       let modified_error_messages = []
             data.forEach(error => {
                 let splitError = error.split(": ")

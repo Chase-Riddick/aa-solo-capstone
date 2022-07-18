@@ -69,13 +69,12 @@ const Map = ({
                  <SplashLocations setSearchLocation={(position) => {
                     setSearchLocation(position);
                     mapRef.current?.panTo(position);
-                    console.log("!!!!!!!!!!!!!!!!");
-                    console.log(searchLocation)
+
 
                     let ne = mapRef.current?.getBounds().getNorthEast();
-                    console.log(ne)
+
                     let sw = mapRef.current?.getBounds().getSouthWest();
-                    console.log(sw)
+
                     let zoom = mapRef.current?.getZoom();
 
                     history.push(`search/neLat=${ne.lat()}&neLng=${ne.lng()}&swLat=${sw.lat()}&swLng=${sw.lng()}`)

@@ -17,7 +17,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username, email, password));
       if (data) {
-        console.log(data)
+
         let modified_error_messages = []
           data.forEach(error => {
               let splitError = error.split(": ")
@@ -28,7 +28,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
         setShowSignUpModal(false)
       }
     } else {
-      setErrors(["You password and repeat password must match"])
+      setErrors(["Your password and repeat password must match"])
     }
   };
 
@@ -81,6 +81,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
           name='username'
           onChange={updateUsername}
           value={username}
+          maxLength={20}
         ></input>
       </div>
 

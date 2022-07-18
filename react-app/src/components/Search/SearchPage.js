@@ -15,22 +15,22 @@ export default function SearchPage () {
 
     const calcSearchLatLng = (location) => {
         if (!location.includes('neLat=')) {
-            console.log('---------1---------')
+
             return false
         }
 
         if (!location.includes('&neLng=')) {
-            console.log('---------2---------')
+
             return false
         }
 
         if (!location.includes('&swLat=')) {
-            console.log('---------3---------')
+
             return false
         }
 
         if (!location.includes('&swLng=')) {
-            console.log('---------4---------')
+
             return false
         }
         let locationSplit;
@@ -38,7 +38,7 @@ export default function SearchPage () {
         try {
         locationSplit = location.split("&");
         } catch {
-            console.log('---------5---------')
+
             return false
         }
 
@@ -46,7 +46,7 @@ export default function SearchPage () {
         try {
         neLat = parseFloat(locationSplit[0].split('=')[1])
         } catch {
-            console.log('---------6---------')
+
             return false
         }
 
@@ -54,14 +54,12 @@ export default function SearchPage () {
         try {
         neLng = parseFloat(locationSplit[1].split('=')[1])
         } catch {
-            console.log('---------7---------')
             return false
         }
         let swLat;
         try {
         swLat = parseFloat(locationSplit[2].split('=')[1])
         } catch {
-            console.log('---------8---------')
             return false
         }
 
@@ -69,7 +67,6 @@ export default function SearchPage () {
         try {
         swLng = parseFloat(locationSplit[3].split('=')[1])
         } catch {
-            console.log('---------9---------')
             return false
         }
 
@@ -81,7 +78,6 @@ export default function SearchPage () {
     if (calcSearchLatLng(searchParam)) {
         paramCheckRes = true;
     } else {
-        console.log('this happened')
         history.push('/notfound')
 
     }
@@ -90,15 +86,15 @@ export default function SearchPage () {
     const catches = Object.values(useSelector(state => state.catches));
     const [ searchLocation, setSearchLocation ] = useState(paramCheckRes? calcSearchLatLng(searchParam) : {lat: 46.53764570767742, lng: -122.26653010444315});
     const [ areaParam, setAreaParam ] = useState(searchParam);
-    console.log(areaParam)
+
     const [ catchArr, setCatchArr ] = useState([]);
     const [ catchLatLngArr, setCatchLatLngArr ] = useState();
 
 
     useEffect(() => {
-        console.log('^^^^^^^^^^^^^^^^^')
+
         if (areaParam) {
-            console.log(areaParam);
+
             let res;
             try {
             res = getAreaCatches(areaParam, catches);
@@ -117,8 +113,7 @@ export default function SearchPage () {
         };
     }, [areaParam, searchParam])
 
-    console.log('--------------------------------------------------------------------------------')
-    console.log(catchArr)
+
 
     if (!key) return null
 

@@ -66,7 +66,7 @@ export default function CreateCatchForm ({setShowModal}) {
     const errors = [];
     let splitImg = img.name.split('.');
     let fileKind = splitImg[splitImg.length - 1];
-    console.log(fileKind)
+
     if (!['png', 'jpeg', 'gif', 'jpg'].includes(fileKind)) {
       errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
     }
@@ -79,9 +79,7 @@ export default function CreateCatchForm ({setShowModal}) {
       setErrors([...errors]);
       return;
     }
-    console.log('-----------------')
-    console.log(img.name)
-    console.log('-----------------')
+
 
     //Formatting Catch Time
 

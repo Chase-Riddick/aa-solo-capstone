@@ -51,15 +51,14 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
     const errors = [];
     let splitImg = img.name.split('.');
     let fileKind = splitImg[splitImg.length - 1];
-    console.log(fileKind)
+
     if (!['png', 'jpeg', 'gif', 'jpg'].includes(fileKind)) {
       errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
     }
 
 
 
-    console.log("-----------------------------------")
-    console.log("This hit!")
+
 
     if (errors.length) {
       setErrors([...errors]);
@@ -79,8 +78,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         lat,
     };
 
-    console.log('--------------------------------------')
-    console.log(payload)
+
 
     let data = await dispatch(updateCatch(payload));
     if (data && data.errors) {
@@ -111,8 +109,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
     setErrors([]);
 
     let data = await dispatch(deleteCatch(indivCatch.id));
-    console.log("this hit!!!!!!aa")
-    console.log(data)
+
     if (data && data.errors) {
         let modified_error_messages = []
         data.errors.forEach(error => {

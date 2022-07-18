@@ -39,8 +39,7 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
                 modified_error_messages.push(splitError[1])
             });
             setErrors(modified_error_messages)
-            console.log('**********************');
-            console.log(errors);
+
         } else {
             e.preventDefault();
             setContent("")

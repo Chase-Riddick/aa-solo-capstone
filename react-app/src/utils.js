@@ -58,36 +58,30 @@ export function getAreaCatches (param, items) {
     let coordArr = []
     let catchArr = []
     let paramSplit = param.split("&");
-    console.log(paramSplit)
     let neLat = parseFloat(paramSplit[0].split('=')[1])
 
-    console.log(neLat)
     let neLng = parseFloat(paramSplit[1].split('=')[1])
 
-    console.log(neLng)
     let swLat = parseFloat(paramSplit[2].split('=')[1])
 
-    console.log(swLat)
+
     let swLng = parseFloat(paramSplit[3].split('=')[1])
 
 
 
     let itemValues = Object.values(items);
 
-    console.log('*********!!!***********')
-    console.log(itemValues)
+
 
     itemValues.forEach((item, idx) => {
         if (Math.ceil(item.lat) <= Math.ceil(neLat)) {
-            console.log(`${Math.ceil(item.lat)} is less than or equal to ${Math.ceil(neLat)}`)
-            console.log(`${idx} hit 1`)
+
             if (Math.ceil(item.long) <= Math.ceil(neLng)) {
-                console.log(`${idx} hit 2`)
+
                 if (Math.floor(item.lat) >= Math.floor(swLat)) {
-                    console.log(`${Math.ceil(item.lat)} is greater than or equal to ${Math.ceil(swLat)}`)
-                    console.log(`${idx} hit 3`)
+
                     if (Math.floor(item.long) >= Math.floor(swLng)) {
-                        console.log(`${idx} hit 5`)
+
                         let itemLatLong = {
                             lat: item.lat,
                             lng: item.long,
