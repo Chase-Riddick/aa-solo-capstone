@@ -149,6 +149,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         className='input'
         value={fish}
         maxLength={25}
+        required
         onChange={updateFish} />
     </div>
 
@@ -207,6 +208,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         value={weight}
         min="0.0"
         max="500"
+        required
         onWheel={e => e.currentTarget.blur()}
         className='input'
         onChange={updateWeight} />
@@ -225,6 +227,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         value={length}
         min="2.0"
         max="240"
+        required
         onWheel={e => e.currentTarget.blur()}
         className='input'
         onChange={updateLength} />
