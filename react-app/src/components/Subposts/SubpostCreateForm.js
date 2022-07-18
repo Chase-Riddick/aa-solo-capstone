@@ -63,7 +63,7 @@ export default function SubpostCreateForm ({catch_id, setShowCreateField}) {
                 onChange={updateContent} />
 
                 <button className='button teal' type="submit">Submit</button>
-                <button className='button teal' type="button" onClick={handleCancelClick}>Cancel</button>
+                <button className='button cancel' type="button" onClick={handleCancelClick}>Cancel</button>
             </form>
 
         </div>
