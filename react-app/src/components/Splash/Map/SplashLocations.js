@@ -39,13 +39,14 @@ export default function SplashLocations ({ setSearchLocation }) {
     return (
         <>
             <Combobox onSelect={handleSelect}>
+                <div className='search-div'><div className='search-icon'><i class="fa-solid fa-magnifying-glass-location"></i></div>
                 <ComboboxInput
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     disabled={!ready}
-                    className='search-input'
+                    className='search-input splash-item'
                     placeholder='Search for catches in your area...'
-                />
+                /></div>
                 <ComboboxPopover>
                     <ComboboxList>
                         <div className='list-item-row result-item'>

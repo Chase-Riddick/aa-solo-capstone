@@ -298,6 +298,21 @@ body {
     width: 100%;
 }
 
+.search-div {
+    border: black solid 3px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 50px;
+    background-color: white;
+    padding-right: 15px;
+}
+
+.fa-magnifying-glass-location {
+    padding-left: 15px;
+    font-size: 52px;
+}
+
 @media screen and (max-width: 1000px) {
 
     .catches-container {

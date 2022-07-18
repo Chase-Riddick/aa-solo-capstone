@@ -15,7 +15,7 @@ function Footer() {
                 <a href="https://www.linkedin.com/in/chase-riddick-a14596237/" className='footerlink cardo' target="_blank"><i class="fa-brands fa-linkedin-in footer-icon"></i></a>
             </div>
 
-            <div className='col'>
+            <div className='col hideable'>
                 <p className='col-header'> Backend Stack </p>
                 <a href="https://docs.python.org/3/index.html" className='footerlink cardo' target="_blank">Python</a>
                 <a href="https://flask.palletsprojects.com/en/1.1.x/" className='footerlink cardo' target="_blank">Flask</a>
@@ -24,7 +24,7 @@ function Footer() {
                 <a href="https://alembic.sqlalchemy.org/en/latest/" className='footerlink cardo' target="_blank">Alembic</a>
             </div>
 
-            <div className='col'>
+            <div className='col hideable'>
             <p className='col-header'> Frontend Stack </p>
                 <a href="https://www.javascript.com/" className='footerlink cardo' target="_blank">Javascript</a>
                 <a href="https://reactjs.org/docs/getting-started.html" className='footerlink cardo' target="_blank">React.js</a>

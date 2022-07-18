@@ -15,7 +15,7 @@
     padding-top: 20px;
     padding-bottom: 40px;
     justify-content: center;
-    gap: 150px;
+    gap: 100px;
     background-color: rgb(25, 35, 35);
     align-items: center;
     padding: 15px 0px;
@@ -74,4 +74,22 @@
     font-size: 36px;
     color: #ffffff;
     padding: 10px;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .footer-main {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .col-header .col-item {
+        font-size: 12px;
+        border-bottom: rgb(25, 35, 35) 1px solid;
+    }
+
+    .hideable {
+        display: none;
+    }
 }

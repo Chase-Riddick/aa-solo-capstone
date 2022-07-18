@@ -17,11 +17,11 @@ export default function SplashPage () {
     return (
         <div className='splash-page-container'>
             <div className='title-heading'>
-            <div><h1 className='title'>Local Catch</h1></div>
-            <div><h3 className='subtitle'>Share your catches,  find fishes, be a part of a community.</h3></div>
+            <div><h1 className='title'>Fishing is about much more than fish.</h1></div>
+            <div><h3 className='subtitle-1'>It's about the simplicity, the community, and yes, <b>the boasting</b>.</h3></div>
+            <div className='subtitle-line-2'><h3 className='subtitle-2'><b>See where</b> the whoppers are bitin', and find your next trophy catch.</h3></div>
             <div className='splash-actions'>
             <Map apiKey={key}/>
-            <div className='subtitle'>or</div>
             {sessionUser &&
             <NavLink to='/share' exact={true} activeClassName='active'>
             <div className='add-icon-div'>

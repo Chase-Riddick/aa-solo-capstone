@@ -11,13 +11,15 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   return (
     <nav className='navbar'>
+      <div className='showable'>a</div>
+
       <div>
       <NavLink to='/about' exact={true} activeClassName='active'>
         <button className='button teal'>About</button>
         </NavLink>
       </div>
 
-      <NavLink to='/' exact={true} activeClassName='active'>
+      <NavLink to='/' exact={true} activeClassName='active' className='hideable'>
         <div className='logo-box'>
           <div className='logo' />
           <div className='logo-text-box'>
