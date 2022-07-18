@@ -42,6 +42,11 @@
     letter-spacing: -1px;
 }
 
+.all-right-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
 /* .logo-text-box {
 
 } */

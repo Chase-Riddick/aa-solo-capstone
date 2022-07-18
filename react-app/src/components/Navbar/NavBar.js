@@ -27,6 +27,12 @@ const NavBar = () => {
         </div>
         </NavLink>
 
+        <div className='all-right-buttons'>
+
+        <NavLink to={'/global'} exact={true} activeClassName='active'>
+        <button className='button teal'>Global Feed</button>
+        </NavLink>
+
         {!sessionUser &&
         <>
         <div className='entry-buttons'>
@@ -40,6 +46,7 @@ const NavBar = () => {
          </>
         }
 
+
         {sessionUser &&
         <>
         <div className='entry-buttons'>
@@ -50,6 +57,9 @@ const NavBar = () => {
         </div>
         </>
         }
+
+
+        </div>
 
     </nav>
   );

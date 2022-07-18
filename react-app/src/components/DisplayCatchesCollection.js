@@ -9,7 +9,8 @@ export default function DisplayCatchesCollection({catches, page}){
     const sessionUser = useSelector(state => state.session.user);
 
     return (
-            <div className={page === 'mycatches'? 'mycatches-container' : 'catches-container'}>
+            <div className={page === 'mycatches' || page === 'global' ? 'catches-container full-page' : 'catches-container'}>
+                {/* // <div className='catches-container'> */}
                 {catches.map((indivCatch) => {
                 return (
                     <div key={indivCatch.id} className='catch-card'>

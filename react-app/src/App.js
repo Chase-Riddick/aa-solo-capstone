@@ -12,6 +12,7 @@ import SplashPage from './components/Splash';
 import CreateCatchForm from './components/CreateUpdateCatch/CreateCatch';
 import SearchPage from './components/Search/SearchPage';
 import NotFound from './components/NotFound/NotFound';
+import GlobalCatches from './components/Global/GlobalCatches';
 // import MapContainer from './components/Map';
 
 import { authenticate } from './store/session';
@@ -70,6 +71,9 @@ function App() {
         </Route>
         <Route path='/share' exact={true} >
           <CreateCatchForm />
+        </Route>
+        <Route path='/global' exact={true} >
+          <GlobalCatches />
         </Route>
         <Route path='/notfound' exact={true} >
           <NotFound/>
