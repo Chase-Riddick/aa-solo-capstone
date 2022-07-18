@@ -35,7 +35,7 @@
     padding: 0px;
     margin: 0;
     color: rgb(255, 243, 243);
-    border-bottom: black 1px solid;
+    border-bottom: rgb(255, 243, 243) 1px solid;
 }
 
 .col-item {
@@ -54,6 +54,24 @@
 }
 
 .footerlink:hover {
-    text-decoration-color: black;
+    text-decoration-color: rgb(247, 246, 246);
     font-weight: bolder;
+}
+
+/* .fa-brands.fa-github {
+    font-size: 36px;
+    color: #ffffff;
+    padding: 10px;
+} */
+
+.fa-brands.footer-icon {
+    font-size: 36px;
+    color: #ffffff;
+    padding: 10px;
+}
+
+.fa-brands.footer-icon {
+    font-size: 36px;
+    color: #ffffff;
+    padding: 10px;
 }

@@ -9,10 +9,10 @@ function Footer() {
         <div className='purple-extension'></div>
         <div className='footer-main'>
             <div className='col'>
-                <p className='col-header'> About </p>
-                <Link to='/about' className='footerlink cardo'>About</Link>
-                <a href='https://github.com/Chase-Riddick/aa-solo-capstone' className='footerlink cardo' target="_blank">Project Repo - Github</a>
-                <a href="https://www.linkedin.com/in/chase-riddick-a14596237/" className='footerlink cardo' target="_blank">Chase Riddick - LinkedIn</a>
+                <Link to='/about'><p className='col-header'> About </p></Link>
+                {/* <Link to='/about' className='footerlink cardo'>About */}
+                <a href='https://github.com/Chase-Riddick/aa-solo-capstone' className='footerlink cardo' target="_blank"><i class="fa-brands fa-github footer-icon"></i></a>
+                <a href="https://www.linkedin.com/in/chase-riddick-a14596237/" className='footerlink cardo' target="_blank"><i class="fa-brands fa-linkedin-in footer-icon"></i></a>
             </div>
 
             <div className='col'>

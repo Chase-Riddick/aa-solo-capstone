@@ -6,7 +6,11 @@ export default function About () {
         <div className='about-page-container'>
             <div className='about-container'>
                 <img className='developer-img' src='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-14+at+14.42.43.png' />
-                <div className='personal-slogan'>Chase Riddick</div>
+                <div>
+                <div className='personal-name'>Chase Riddick</div>
+                <div className='personal-slogan'>Magnaminous, Unrelenting, Delight</div>
+                </div>
+
                 <div className='icons'>
 
                         <a href="https://github.com/Chase-Riddick/aa-solo-capstone" target="_blank">
