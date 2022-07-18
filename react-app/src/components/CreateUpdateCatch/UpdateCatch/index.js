@@ -49,14 +49,14 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
     e.preventDefault();
 
     const errors = [];
-    let splitImg = img.name.split('.');
-    let fileKind = splitImg[splitImg.length - 1];
 
+    if (img) {
+    let splitImg = img.name.split('.');
+    let fileKind = splitImg[splitImg.length - 1]
     if (!['png', 'jpeg', 'gif', 'jpg'].includes(fileKind)) {
       errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
     }
-
-
+    }
 
 
 

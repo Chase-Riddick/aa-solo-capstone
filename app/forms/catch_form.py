@@ -6,7 +6,7 @@ import re
 
 class CreateCatch(FlaskForm):
     # img_url = StringField('img_url', validators=[DataRequired()])
-    fish = StringField('fish', validators=[DataRequired(message="You must say what you caught."), Length(min=3, max=25, message="The name of the fish must be 25 characters or less.")])
+    fish = StringField('fish', validators=[DataRequired(message="You must say what you caught."), Length(min=3, max=25, message="The name of the fish must be 3 to 25 characters or less.")])
     description = StringField('description', validators=[Length(max=255, message="The description of the catch must be 255 characters or less")])
     length = FloatField('length', validators=[DataRequired(message="You must input the approximate length (inches)).")])
     weight = FloatField('weight', validators=[DataRequired(message="You must input the approximate weight (lbs).")])
@@ -20,7 +20,7 @@ class CreateCatch(FlaskForm):
 
 class UpdateCatch(FlaskForm):
     id = IntegerField("id", validators=[DataRequired()])
-    fish = StringField('fish', validators=[DataRequired(message="You must say what you caught."), Length(min=3, max=25, message="The name of the fish must be 25 characters or less.")])
+    fish = StringField('fish', validators=[DataRequired(message="You must say what you caught."), Length(min=3, max=25, message="The name of the fishmust be 3 to 25 characters or less.")])
     description = StringField('description', validators=[Length(max=255, message="The description of the catch must be 255 characters or less")])
     length = FloatField('length', validators=[DataRequired(message="You must input the approximate length (inches)).")])
     weight = FloatField('weight', validators=[DataRequired(message="You must input the approximate weight (lbs).")])
