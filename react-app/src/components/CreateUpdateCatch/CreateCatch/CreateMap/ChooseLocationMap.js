@@ -60,6 +60,27 @@ const Map = ({
         // setCatchLatLngArr,
 }) => {
 
+    const onMarkerDragEnd = (res) => {
+        console.log("This hit")
+        let lat;
+        let lng;
+        if (res) {
+            lat = res.latLng.lat()
+            lng = res.latLng.lng()
+        }
+        setSearchLocation({ lat, lng })
+        // if (two) {console.log(two)}
+        // if (three) {console.log(three)}
+        // const results = await getGeocode({ address })
+        // const { lat, lng } = await getLatLng(results[0])
+
+        // const { latLng } = three;
+        // console.log(latLng)
+        // const lat = latLng.lat();
+        // console.log(lat)
+        // const lng = latLng.lng();
+        // console.log(lng)
+}
 
     const center = useMemo(() => ({lat: 46.5, lng: -122.5}), []);
 
@@ -112,7 +133,10 @@ const Map = ({
             >
                 {searchLocation &&  (
 
-                    <Marker position={searchLocation} />
+                    <Marker position={searchLocation}
+                    draggable={true}
+                    onDragEnd={onMarkerDragEnd}
+                    />
                     )};
 
 
