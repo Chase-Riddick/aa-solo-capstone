@@ -14,12 +14,12 @@ function User() {
 
   return (
     <div className='my-catches-page'>
-      <div className="transistion-bar">aa</div>
+      <div className="transistion-bar"></div>
       <div className='my-catches-header'>
       <div></div>
-        <div className="section-title">My Catches:</div>
+        <div className="section-title my-catches">My Catches:</div>
         <NavLink to='/share' exact={true} activeClassName='active'>
-      <div><button className='button salmon'>Share a New Catch</button></div>
+      <div><button className='button salmon share-catch'>Share a New Catch</button></div>
       </NavLink>
         </div>
 

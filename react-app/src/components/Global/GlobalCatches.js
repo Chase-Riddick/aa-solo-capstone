@@ -14,7 +14,7 @@ export default function GlobalCatches () {
     <div className='my-catches-page'>
       <div className="transistion-bar">aa</div>
       <div className='my-catches-header'>
-        <div className="section-title">Recent Catches Across World:</div>
+        <div className="section-title my-catches">Recent Catches Across World:</div>
         </div>
 
     <DisplayCatchesCollection page={'global'} catches={catches} />
