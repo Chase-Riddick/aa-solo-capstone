@@ -4,11 +4,19 @@ import { useParams, useHistory } from "react-router-dom";
 
 import Maps from "./Map/Map"
 import DisplayCatchesCollection from "../DisplayCatchesCollection"
+import Filter from "./Filter";
 import './search.css'
 import { getAreaCatches } from "../../utils";
 
 export default function SearchPage () {
     const history = useHistory();
+    const [catchArr, setCatchArr ] = useState([]);
+    const [catchLatLngArr, setCatchLatLngArr ] = useState();
+    const [fishQuery, setFishQuery] = useState("");
+    const [minWeight, setWeightMin] = useState('0');
+    const [maxWeight, setWeightMax] = useState('500');
+    const [minLength, setLengthMin] = useState('2');
+    const [maxLength, setLengthMax ] = useState('240');
 
     const { searchParam}  = useParams();
     let paramCheckRes;
@@ -87,9 +95,6 @@ export default function SearchPage () {
     const [ searchLocation, setSearchLocation ] = useState(paramCheckRes? calcSearchLatLng(searchParam) : {lat: 46.53764570767742, lng: -122.26653010444315});
     const [ areaParam, setAreaParam ] = useState(searchParam);
 
-    const [ catchArr, setCatchArr ] = useState([]);
-    const [ catchLatLngArr, setCatchLatLngArr ] = useState();
-
 
     useEffect(() => {
 
@@ -99,7 +104,14 @@ export default function SearchPage () {
             try {
             res = getAreaCatches(areaParam, catches);
             setCatchLatLngArr(res[0]);
-            setCatchArr(res[1]);
+            console.log(minWeight)
+            setCatchArr(res[1].filter(indivCatch => indivCatch.fish.toLowerCase().includes(fishQuery.toLowerCase()))
+            .filter(indivCatch => indivCatch.weight >= minWeight.toString() && indivCatch.weight <= maxWeight.toString())
+            .filter(indivCatch => indivCatch.length >= minLength.toString() && indivCatch.length <= maxLength.toString())
+            );
+            // } else {
+            //     setCatchArr(res[1]);
+            // }
             } catch (e) {
                 history.push('/notfound')
             }
@@ -111,7 +123,7 @@ export default function SearchPage () {
             // // setCatchLatLngArr(res[0]);
             // setCatchArr(res[1]);
         };
-    }, [areaParam, searchParam])
+    }, [areaParam, searchParam, fishQuery, minWeight, maxWeight, minLength, maxLength])
 
 
 
@@ -134,6 +146,17 @@ export default function SearchPage () {
         <div className="search-page-right">
         <div className="transistion-bar">aa</div>
         <div className="section-title">Recent Catches in Locality:</div>
+        <Filter
+        fishQuery={fishQuery}
+        setFishQuery={setFishQuery}
+        minWeight={minWeight}
+        setWeightMin={setWeightMin}
+        maxWeight={maxWeight}
+        setWeightMax={setWeightMax}
+        minLength={minLength}
+        setLengthMin={setLengthMin}
+        maxLength={maxLength}
+        setLengthMax={setLengthMax} />
         {catchArr.length >= 1 &&
         <DisplayCatchesCollection catches={catchArr} page={'search'} className="search-results" />
         }
