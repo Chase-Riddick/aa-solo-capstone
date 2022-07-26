@@ -16,14 +16,13 @@ export default function Filter ({
 
     return (
         <div className="filter-bar">
-        <div className="filters">Filters</div>
+        <div className="filters-heading">Filters</div>
         <div className="wrap">
-        <input value={fishQuery} onChange={updateFishQuery} placeholder={"Text"}></input>
-
+        <input className="filter-search-bar" value={fishQuery} onChange={updateFishQuery} placeholder={"Text"}></input>
         </div>
         <div className="filter-param-container">
-            Weight
-            <label className="sh-label">
+            <div className='filter-container-heading'>Weight</div>
+            <label className="filterbar-label">
                 Min
                 <select
                     value={minWeight}
@@ -41,8 +40,8 @@ export default function Filter ({
                     <option value="200">200+</option>
                 </select>
             </label>
-            <label className="sh-label">
-                Max
+            <label className="filterbar-label">
+                <div>Max</div>
                 <select
                     value={maxWeight}
                     onChange={(e) => setWeightMax(parseInt(e.target.value, 10))}
@@ -63,9 +62,9 @@ export default function Filter ({
             </label>
         </div>
         <div className="filter-param-container">
-            Length
-            <label className="sh-label">
-                Min
+            <div className='filter-container-heading'>Length</div>
+            <label className="filterbar-label">
+               <div> Min</div>
                 <select
                     value={minLength}
                     onChange={(e) => setLengthMin(parseInt(e.target.value, 10))}
@@ -81,8 +80,8 @@ export default function Filter ({
 
                 </select>
             </label>
-            <label className="sh-label">
-                Max
+            <label className="filterbar-label">
+                <div>Max</div>
                 <select
                     value={maxLength}
                     onChange={(e) => setLengthMax(parseInt(e.target.value, 10))}
