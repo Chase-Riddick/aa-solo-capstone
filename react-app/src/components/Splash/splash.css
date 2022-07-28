@@ -159,11 +159,11 @@
 @media screen and (max-width: 1099px) {
 
     .title-heading {
-        gap: 15px;
+        gap: 10px;
     }
 
     .title {
-        font-size: 2em;
+        font-size: 1.8em;
     }
 
     .subtitle-1 {

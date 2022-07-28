@@ -57,8 +57,7 @@ export default function CreateCatchForm ({setShowModal}) {
     setLure("")
     setLong(-122.2751)
     setLat(46.5583)
-    setShowModal(false)
-
+    history.push(`/`)
   };
 
   const handleSubmit = async (e) => {
