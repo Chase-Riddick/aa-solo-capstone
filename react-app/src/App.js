@@ -53,7 +53,7 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <div className='body'> */}
+    <div className='body'>
       <NavBar />
       <div className='main-content'>
       <Switch>
@@ -85,7 +85,7 @@ function App() {
       </Switch>
       </div>
       <Footer />
-      {/* </div> */}
+      </div>
     </BrowserRouter>
   );
 }

@@ -4,7 +4,7 @@
     flex-direction: column;
     /* justify-content: center; */
     width: 100%;
-    height: 100vh;
+    height: 100%;
     align-items: center;
     background-image: url("../../images/preview16.jpeg");
     /* background-size: 100px 100px; */
@@ -25,7 +25,9 @@
 }
 
 .title {
-    font-size: 60px;
+    font-size: 2.5em;
+    white-space: nowrap;
+    overflow-x: visible;
 }
 
 
@@ -34,23 +36,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 800px;
-    margin-bottom: 20px;
+    width: 75%;
+    margin-bottom: 40px;
 }
 
 .subtitle-1 {
     text-align: right;
-    font-size: 28px;
+    font-size: 1.7em;
     font-weight: 400;
     width: 110%;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .subtitle-2 {
     text-align: start;
-    font-size: 30px;
+    font-size: 1.7em;
     font-weight: 400;
     width: 100%;
+    margin-bottom: 25px;
+    white-space: nowrap;
+    overflow-x: visible;
 }
 
 .subtitle-line-2 {
@@ -59,6 +64,7 @@
 }
 
 .splash-action {
+    margin-top: 50px;
     font-size: 30px;
     width: 45%;
 
@@ -98,7 +104,75 @@
 @media screen and (max-height: 800px) and (max-width: 1200px) {
 
     .splash-page-container {
-        background-size: 1100px 1400px;
+        background-size: 1200px 1600px;
      }
+
+
+}
+
+
+@media screen and (min-width: 1450px) {
+
+    .title-heading {
+        gap: 20px;
+    }
+
+    .title {
+        font-size: 4em;
+    }
+
+    .subtitle-1 {
+        font-size: 2.2em;
+        /* font-weight: 400;
+        width: 110%; */
+        /* margin-bottom: 10px; */
+    }
+
+    .subtitle-2 {
+        font-size: 2.2em;
+    }
+
+
+}
+
+@media screen and (max-width: 1449px) and (min-width: 1100px) {
+
+    .title-heading {
+        gap: 15px;
+    }
+
+    .title {
+        font-size: 3.4em;
+    }
+
+    .subtitle-1 {
+        font-size: 1.7em;
+    }
+
+    .subtitle-2 {
+        font-size: 1.7em;
+    }
+
+
+}
+
+@media screen and (max-width: 1099px) {
+
+    .title-heading {
+        gap: 15px;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .subtitle-1 {
+        font-size: 1.4em;
+    }
+
+    .subtitle-2 {
+        font-size: 1.4em;
+    }
+
 
 }

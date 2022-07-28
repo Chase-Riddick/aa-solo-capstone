@@ -26,7 +26,8 @@
 }
 
 .filter-param-container {
-
+    display: flex;
+    flex-direction: column;
 }
 
 .filter-container-heading {
@@ -40,4 +41,9 @@
 .filterbar-label {
     display: flex;
     flex-direction: column;
+}
+
+.min-max-container {
+    display: flex;
+    flex-direction: row;
 }

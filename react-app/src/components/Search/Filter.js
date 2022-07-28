@@ -22,8 +22,9 @@ export default function Filter ({
         </div>
         <div className="filter-param-container">
             <div className='filter-container-heading'>Weight</div>
-            <label className="filterbar-label">
-                Min
+            <div className='min-max-container'>
+            <div className="filterbar-label">
+                <div>Min</div>
                 <select
                     value={minWeight}
                     onChange={(e) => setWeightMin(parseInt(e.target.value, 10))}
@@ -39,8 +40,8 @@ export default function Filter ({
                     <option value="150">150+</option>
                     <option value="200">200+</option>
                 </select>
-            </label>
-            <label className="filterbar-label">
+            </div>
+            <div className="filterbar-label">
                 <div>Max</div>
                 <select
                     value={maxWeight}
@@ -59,11 +60,13 @@ export default function Filter ({
                     <option value="200">500</option>
                     <option value="99999999999">Any Weight</option>
                 </select>
-            </label>
+            </div>
+            </div>
         </div>
         <div className="filter-param-container">
             <div className='filter-container-heading'>Length</div>
-            <label className="filterbar-label">
+            <div className='min-max-container'>
+            <div className="filterbar-label">
                <div> Min</div>
                 <select
                     value={minLength}
@@ -79,8 +82,8 @@ export default function Filter ({
                     <option value="1500000">150+</option>
 
                 </select>
-            </label>
-            <label className="filterbar-label">
+            </div>
+            <div className="filterbar-label">
                 <div>Max</div>
                 <select
                     value={maxLength}
@@ -95,7 +98,8 @@ export default function Filter ({
                     <option value="1500000">200</option>
                     <option value="99999999999">Any Length</option>
                 </select>
-            </label>
+            </div>
+            </div>
         </div>
     </div>
 

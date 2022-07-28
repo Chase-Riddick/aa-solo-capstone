@@ -18,6 +18,8 @@
     width: 100%;
     padding-left: 40px;
     padding-right: 40px;
+    padding-top: 15px;
+    padding-bottom: 10px;
 }
 
 .logo {
@@ -55,7 +57,7 @@
 } */
 
 
-@media screen and (max-width: 910px) {
+@media screen and (max-width: 1050px) {
 
     .navbar {
         justify-content: flex-start;

@@ -8,7 +8,7 @@ export default function About () {
                 <img className='developer-img' src='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-14+at+14.42.43.png' />
                 <div>
                 <div className='personal-name'>Chase Riddick</div>
-                <div className='personal-slogan'>Magnaminous, Unrelenting, Delight</div>
+                {/* <div className='personal-slogan'>Magnaminous, Unrelenting, Delight</div> */}
                 </div>
 
                 <div className='icons'>

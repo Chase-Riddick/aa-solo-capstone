@@ -22,17 +22,6 @@ export default function SplashPage () {
             <div className='subtitle-line-2'><h3 className='subtitle-2'><b>See where</b> the whoppers are bitin', and find your next trophy catch.</h3></div>
             <div className='splash-actions'>
             <Map apiKey={key}/>
-            {sessionUser &&
-            <NavLink to='/share' exact={true} activeClassName='active'>
-            <div className='add-icon-div'>
-              <i className="fa-solid fa-circle-plus create-catch-icon"></i>
-              </div>
-            </NavLink>}
-            {!sessionUser &&
-            <div className='add-icon-div'>
-                <AuthModal authType={'not-logged-in'} />
-            </div>
-            }
             </div>
             </div>
         </div>

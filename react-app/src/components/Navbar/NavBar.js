@@ -17,20 +17,6 @@ const NavBar = () => {
       <NavLink to='/about' exact={true} activeClassName='active'>
         <button className='button teal'>About</button>
         </NavLink>
-      </div>
-
-      <NavLink to='/' exact={true} activeClassName='active' className='hideable'>
-        <div className='logo-box'>
-          <div className='logo' />
-          <div className='logo-text-box'>
-            <h4 className='logo-text-main'>LocalCatch</h4>
-            <h4 className='logo-text-sub'>Catch, Share, Catch, Enjoy.</h4>
-          </div>
-        </div>
-        </NavLink>
-
-        <div className='all-right-buttons'>
-
         <NavLink to={'/global'} exact={true} activeClassName='active'>
         <button className='button teal'>Global Feed</button>
         </NavLink>
@@ -47,6 +33,31 @@ const NavBar = () => {
          </div>
          </>
         }
+      </div>
+
+      <NavLink to='/' exact={true} activeClassName='active' className='hideable'>
+        <div className='logo-box'>
+          <div className='logo' />
+          <div className='logo-text-box'>
+            <h4 className='logo-text-main'>LocalCatch</h4>
+            <h4 className='logo-text-sub'>Catch, Share, Catch, Enjoy.</h4>
+          </div>
+        </div>
+        </NavLink>
+
+        <div className='all-right-buttons'>
+
+
+
+        {sessionUser &&
+            <NavLink to='/share' exact={true} activeClassName='active'>
+            <button className='button salmon'>Share a Catch</button>
+            </NavLink>}
+            {!sessionUser &&
+            <div className='add-icon-div'>
+                <AuthModal authType={'not-logged-in'} />
+            </div>
+            }
 
 
         {sessionUser &&
