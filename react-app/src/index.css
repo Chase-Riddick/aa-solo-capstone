@@ -30,6 +30,8 @@ body {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    min-width: 800px;
+    overflow-x: scroll;
 }
 .hidden {
 	display: none;
@@ -291,7 +293,7 @@ body {
     height: 100vh;
     border-left: black solid 2px;
     border-right: black solid 2px;
-    width: 900px;;
+    width: 900px;
 
     /* overflow-y: scroll; */
     /* border: 2px solid black; */
@@ -371,6 +373,7 @@ body {
 
 .catches-container.full-page {
     grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
 }
 
 /* .full-page {
@@ -389,6 +392,14 @@ body {
         height: 100vh;
         overflow-x: scroll;
         padding-bottom: 200px;
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+
+    .button {
+        font-size: 11px;
     }
 
 }

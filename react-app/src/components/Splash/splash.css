@@ -160,18 +160,21 @@
 
     .title-heading {
         gap: 10px;
+        width: 90%;
     }
 
     .title {
-        font-size: 1.8em;
+        font-size: 2.4em;
     }
 
     .subtitle-1 {
         font-size: 1.4em;
+        white-space: wrap;
     }
 
     .subtitle-2 {
         font-size: 1.4em;
+        white-space: wrap;
     }
 
 

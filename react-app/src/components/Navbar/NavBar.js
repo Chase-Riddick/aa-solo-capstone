@@ -11,7 +11,9 @@ const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   return (
     <nav className='navbar'>
+      <NavLink to='/' exact={true} activeClassName='active' className='showable'>
       <div className='showable'></div>
+      </NavLink>
 
       <div>
       <NavLink to='/about' exact={true} activeClassName='active'>
