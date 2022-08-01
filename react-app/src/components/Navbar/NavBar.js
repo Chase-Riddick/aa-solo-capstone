@@ -22,19 +22,6 @@ const NavBar = () => {
         <NavLink to={'/global'} exact={true} activeClassName='active'>
         <button className='button teal'>Global Feed</button>
         </NavLink>
-
-        {!sessionUser &&
-        <>
-        <div className='entry-buttons'>
-        <div>
-         <AuthModal authType={'login'} />
-         </div>
-         <div>
-         <AuthModal authType={'signup'} />
-         </div>
-         </div>
-         </>
-        }
       </div>
 
       <NavLink to='/' exact={true} activeClassName='active' className='hideable'>
@@ -53,10 +40,10 @@ const NavBar = () => {
 
         {sessionUser &&
             <NavLink to='/share' exact={true} activeClassName='active'>
-            <button className='button salmon'>Share a Catch</button>
+            <button className='button salmon'>Share a Catch <i class="fa-solid fa-circle-plus"></i></button>
             </NavLink>}
             {!sessionUser &&
-            <div className='add-icon-div'>
+            <div>
                 <AuthModal authType={'not-logged-in'} />
             </div>
             }
@@ -71,6 +58,19 @@ const NavBar = () => {
         <LogoutButton />
         </div>
         </>
+        }
+
+        {!sessionUser &&
+        <>
+        <div className='entry-buttons'>
+        <div>
+         <AuthModal authType={'login'} />
+         </div>
+         <div>
+         <AuthModal authType={'signup'} />
+         </div>
+         </div>
+         </>
         }
 
 

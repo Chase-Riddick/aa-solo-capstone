@@ -11,11 +11,12 @@ export default function AuthModal ({ authType }) {
     return (
         <div>
         {authType && authType === 'not-logged-in' &&
-        <button className='button-splash-create' onClick={() => setShowLoginModal(true)}><i class="fa-solid fa-circle-plus create-catch-icon"></i></button>}
+        <button className='button salmon' onClick={() => setShowLoginModal(true)}>Share a Catch <i class="fa-solid fa-circle-plus"></i></button>}
             {showLoginModal && (<AthModal  className='auth-modal' onClose={() => setShowLoginModal(false)}>
                 <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
             </AthModal >
         )}
+
 
         {authType && authType === 'login' &&
         <button className='button teal' onClick={() => setShowLoginModal(true)}>Login</button>}
