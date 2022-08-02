@@ -1,17 +1,19 @@
 import { useSelector } from "react-redux";
-import SubpostsSection from "../Subposts/SubpostsSection"
-import './indivCatch.css'
+import SubpostsSection from "../Subposts/SubpostsSection";
+import './indivCatch.css';
+import { useLanguageContext } from "../../context/LanguageContext";
 
 export default function DisplayIndivCatch ({ targetCatch, user }) {
+    const { language, setLanguage, English, Chinese } = useLanguageContext();
     const indivCatch = Object.values(useSelector(state => state.catches)).filter(ele => ele['id'] === targetCatch['id'])[0];
 
     return (
         <>
-        {indivCatch && (
+        {indivCatch && language && (
         <div className="display-catch-container">
             <div className="display-catch-left">
             <div className="sub-section-block">
-            <h1 className="section-header">The Catch</h1>
+            <h1 className="section-header">{language === 'English' ? English.TheCatch : Chinese.TheCatch}</h1>
                 <div >
                 <div className='user-line'>
                             <img className='user-img-token' src={user.image_url}></img>
@@ -23,14 +25,14 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
                 </div>
 
                 <div className="same-line-description" >
-                <h4 className="line-header">Fish:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Fish : Chinese.Fish}:</h4>
                 <h3 className="fish-name">{indivCatch.fish}</h3>
                 </div>
                 </div>
                 <div className=" sub-section-block">
                 {/* <div className="description-container"> */}
                 <div className="same-line-description">
-                <h4 className="line-header">Description:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Description : Chinese.Description}:</h4>
                 <p>{indivCatch.description}</p></div>
 
                 <div className="details-container">
@@ -38,13 +40,13 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
                 <div className="details-left">
 
                 <div className="same-line-description">
-                <h4 className="line-header">Weight:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Weight : Chinese.Weight}:</h4>
                 <p>{indivCatch.weight}</p>
                 </div>
 
 
                 <div className="same-line-description">
-                <h4 className="line-header">Length:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Length : Chinese.Length}:</h4>
                 <p>{indivCatch.length}</p>
                 </div>
 
@@ -52,12 +54,12 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
 
                 <div className="details-right">
                 <div className="same-line-description">
-                <h4 className="line-header">Lure:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Lure : Chinese.Lure}:</h4>
                 <p className="card-text-info">{indivCatch.lure}</p>
                 </div>
 
                 <div className="same-line-description">
-                <h4 className="line-header">Bait:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Bait : Chinese.Bait}:</h4>
                 <p className="card-text-info">{indivCatch.bait}</p>
                 </div>
 
@@ -67,7 +69,7 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
 
                 <div className=" sub-section-block">
                 <div className="same-line-description">
-                <h4 className="line-header">Conditions:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Conditions : Chinese.Conditions}:</h4>
                 <p>{indivCatch.condition.condition_text}</p>
                 <img className='weather-img' src={indivCatch.condition.condition_icon}></img>
                 </div>
@@ -77,34 +79,34 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
 
                 <div className="details-left">
                 <div className="same-line-description">
-                <h4 className="line-header">Temperature:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Temperature : Chinese.Temperature}:</h4>
                 <p className="condition-info-text">{indivCatch.condition.temp}℉</p>
                 </div>
 
                 <div className="same-line-description">
-                <h4 className="line-header">Cloud:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Cloud : Chinese.Cloud}:</h4>
                 <p>{indivCatch.condition.cloud}%</p>
                 </div>
 
                 <div className="same-line-description">
-                <h4 className="line-header">Humidity:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Humidity : Chinese.Humidity}:</h4>
                 <p>{indivCatch.condition.humdity}%</p>
                 </div>
                 </div>
 
                 <div className="details-right">
                 <div className="same-line-description">
-                <h4 className="line-header">Precipitation:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Precipitation : Chinese.Precipitation}:</h4>
                 <p>{indivCatch.condition.precip} (in)</p>
                 </div>
 
                 <div className="same-line-description">
-                <h4 className="line-header">Pressure:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Pressure : Chinese.Pressure}:</h4>
                 <p>{indivCatch.condition.pressure} (in)</p>
                 </div>
 
                 <div className="same-line-description">
-                <h4 className="line-header">Wind:</h4>
+                <h4 className="line-header">{language === 'English' ? English.Wind : Chinese.Wind}:</h4>
                 <p>{indivCatch.condition.wind} (mph)</p>
                 </div>
                 </div>

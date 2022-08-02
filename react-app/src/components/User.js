@@ -4,9 +4,10 @@ import { useParams } from 'react-router-dom';
 import DisplayCatchesCollection from './DisplayCatchesCollection';
 import '../index.css'
 import { NavLink } from 'react-router-dom';
-
+import { useLanguageContext } from '../context/LanguageContext'
 
 function User() {
+  const { language, setLanguage, English, Chinese } = useLanguageContext();
   const sessionUser = useSelector(state => state.session.user);
 
 
@@ -17,9 +18,9 @@ function User() {
       <div className="transistion-bar"></div>
       <div className='my-catches-header'>
       <div></div>
-        <div className="section-title my-catches">My Catches:</div>
+        <div className="section-title my-catches">{language && language === 'English' ? English.MyCatches : Chinese.MyCatches}:</div>
         <NavLink to='/share' exact={true} activeClassName='active'>
-      <div><button className='button salmon share-catch'>Share a New Catch</button></div>
+      <div><button className='button salmon share-catch'>{language && language === 'English' ? English.ShareNewCatch : Chinese.ShareNewCatch}</button></div>
       </NavLink>
         </div>
 

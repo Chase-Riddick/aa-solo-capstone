@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
-
+import { useLanguageContext } from '../../context/LanguageContext';
 import { AthModal } from '../../context/AthModal';
 import './auth.css';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
 
 export default function AuthModal ({ authType }) {
+    const { language, setLanguage, English, Chinese } = useLanguageContext();
     const [showSignUpModal, setShowSignUpModal] = useState(false)
     const [showLoginModal, setShowLoginModal] = useState(false)
     return (
         <div>
-        {authType && authType === 'not-logged-in' &&
-        <button className='button salmon' onClick={() => setShowLoginModal(true)}>Share a Catch <i class="fa-solid fa-circle-plus"></i></button>}
+        {authType && authType === 'not-logged-in' && language &&
+        <button className='button salmon' onClick={() => setShowLoginModal(true)}>{language === 'English' ? English.ShareCatch : Chinese.ShareCatch} <i class="fa-solid fa-circle-plus"></i></button>}
             {showLoginModal && (<AthModal  className='auth-modal' onClose={() => setShowLoginModal(false)}>
                 <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
             </AthModal >
         )}
 
 
-        {authType && authType === 'login' &&
-        <button className='button teal' onClick={() => setShowLoginModal(true)}>Login</button>}
+        {authType && authType === 'login' && language &&
+        <button className='button teal' onClick={() => setShowLoginModal(true)}>{language === 'English' ? English.Login : Chinese.Login}</button>}
         {showLoginModal && (
             <AthModal  className='auth-modal' onClose={() => setShowLoginModal(false)}>
                 <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
             </AthModal >
         )}
 
-        {authType && authType === 'signup' &&
-        <button className='button teal' onClick={() => setShowSignUpModal(true)}>Sign Up</button>}
+        {authType && authType === 'signup' && language &&
+        <button className='button teal' onClick={() => setShowSignUpModal(true)}>{language === 'English' ? English.SignUp : Chinese.SignUp}</button>}
         {showSignUpModal && (
             <AthModal className='auth-modal' onClose={() => setShowSignUpModal(false)}>
                 <SignUpForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>

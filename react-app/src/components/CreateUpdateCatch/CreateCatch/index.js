@@ -4,12 +4,14 @@ import { useHistory } from 'react-router-dom';
 import { useState} from 'react'
 import DateTimePicker from 'react-datetime-picker';
 
+import { useLanguageContext } from '../../../context/LanguageContext';
 import ChooseLocationMap from './CreateMap/ChooseLocationMap';
 import { createCatch } from '../../../store/catch';
 import '../../../form.css';
 import './createCatch.css';
 
-export default function CreateCatchForm ({setShowModal}) {
+export default function CreateCatchForm () {
+  const { language, setLanguage, English, Chinese } = useLanguageContext();
   const history = useHistory();
   const dispatch = useDispatch();
   const key = useSelector(state => state.map.mapAPIKey)
@@ -134,7 +136,7 @@ export default function CreateCatchForm ({setShowModal}) {
     <div className='create-catch-page'>
     <div className="create form create-form">
     <div className="transistion-bar">aa</div>
-    <h1 className='section-title'>Share Your Catch</h1>
+    <h1 className='section-title'>{language && language === 'English' ? English.ShareYourCatch : Chinese.ShareYourCatch}</h1>
     <form className='form' onSubmit={handleSubmit}>
 
       {errors.length > 0 && <ul className='errors'>
@@ -142,13 +144,13 @@ export default function CreateCatchForm ({setShowModal}) {
         </ul>}
 
     <div className='table-row-required'>
-      <h5>Required *</h5>
+      <h5>{language && language === 'English' ? English.Required : Chinese.Required} *</h5>
     </div>
 
 
     <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Fish </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Fish : Chinese.Fish} </h5>
       <p className='required'>*</p>
       </div>
     <input
@@ -162,7 +164,7 @@ export default function CreateCatchForm ({setShowModal}) {
 
     <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Catch Time</h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Time : Chinese.Time}</h5>
       <p className='required'>*</p>
       </div>
       <div>
@@ -175,7 +177,7 @@ export default function CreateCatchForm ({setShowModal}) {
 
      <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Picture </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Picture : Chinese.Picture}</h5>
       <p className='required'>*</p>
       </div>
       {/* <label className='grab-file-wrapper'>{img === null ? 'Choose an Image File to Upload' : 'File Chosen'} */}
@@ -197,7 +199,7 @@ export default function CreateCatchForm ({setShowModal}) {
 
      <div className='table-row description-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Description </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Description : Chinese.Description }</h5>
       <p className='not-required'>*</p>
       </div>
 
@@ -213,7 +215,7 @@ export default function CreateCatchForm ({setShowModal}) {
     {/* weight */}
     <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Weight</h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Weight : Chinese.Weight }</h5>
       <p className='required'>*</p>
       </div>
       <input
@@ -231,7 +233,7 @@ export default function CreateCatchForm ({setShowModal}) {
     {/* length */}
     <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Length </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Length : Chinese.Length } </h5>
       <p className='required'>*</p>
       </div>
     <input
@@ -248,7 +250,7 @@ export default function CreateCatchForm ({setShowModal}) {
 
 <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Bait </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Bait : Chinese.Bait } </h5>
       <p className='not-required'>*</p>
       </div>
     <input
@@ -262,7 +264,7 @@ export default function CreateCatchForm ({setShowModal}) {
 
 <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Lure </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Lure : Chinese.Lure} </h5>
       <p className='not-required'>*</p>
       </div>
     <input
@@ -274,8 +276,8 @@ export default function CreateCatchForm ({setShowModal}) {
         onChange={updateLure} />
         </div>
       <div className='form-button-row'>
-      <button className='button salmon' type="submit">Submit Post</button>
-      <button className='button cancel' type="button" onClick={handleCancelClick}>Cancel</button>
+      <button className='button salmon' type="submit">{language && language === 'English' ? English.SubmitPost: Chinese.SubmitPost}</button>
+      <button className='button cancel' type="button" onClick={handleCancelClick}>{language && language === 'English' ? English.Cancel: Chinese.Cancel}</button>
       </div>
     </form>
   </div>

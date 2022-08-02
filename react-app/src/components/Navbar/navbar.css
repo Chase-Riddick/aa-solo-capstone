@@ -52,6 +52,22 @@
     flex-direction: row;
 }
 
+.lang-options {
+    display: flex;
+    align-items: center;
+
+}
+
+.lang-options.teal {
+    cursor: default;
+    border: none;
+}
+
+.lang:hover {
+    font-size: 20px;
+    cursor: pointer;
+}
+
 /* .logo-text-box {
 
 } */

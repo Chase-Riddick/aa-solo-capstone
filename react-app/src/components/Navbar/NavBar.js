@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useLanguageContext } from '../../context/LanguageContext';
 
 import LogoutButton from '../auth/LogoutButton';
 import AuthModal from '../auth/AuthModal';
@@ -9,18 +10,22 @@ import './navbar.css'
 
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
+  const { language, setLanguage, English, Chinese } = useLanguageContext();
+  if (language) {
+    console.log(language)
   return (
     <nav className='navbar'>
+
       <NavLink to='/' exact={true} activeClassName='active' className='showable'>
       <div className='showable'></div>
       </NavLink>
 
       <div>
       <NavLink to='/about' exact={true} activeClassName='active'>
-        <button className='button teal'>About</button>
+        <button className='button teal'>{language === 'English' ? English.About : Chinese.About}</button>
         </NavLink>
         <NavLink to={'/global'} exact={true} activeClassName='active'>
-        <button className='button teal'>Global Feed</button>
+        <button className='button teal'>{language === 'English' ? English.GlobalFeed : Chinese.GlobalFeed}</button>
         </NavLink>
       </div>
 
@@ -40,7 +45,7 @@ const NavBar = () => {
 
         {sessionUser &&
             <NavLink to='/share' exact={true} activeClassName='active'>
-            <button className='button salmon'>Share a Catch <i class="fa-solid fa-circle-plus"></i></button>
+            <button className='button salmon'>{language === 'English' ? English.ShareCatch : Chinese.ShareCatch} <i class="fa-solid fa-circle-plus"></i></button>
             </NavLink>}
             {!sessionUser &&
             <div>
@@ -53,7 +58,7 @@ const NavBar = () => {
         <>
         <div className='entry-buttons'>
         <NavLink to={'/mycatches'} exact={true} activeClassName='active'>
-        <button className='button teal'>My Catches</button>
+        <button className='button teal'>{language === 'English' ? English.MyCatches: Chinese.MyCatches}</button>
         </NavLink>
         <LogoutButton />
         </div>
@@ -72,12 +77,15 @@ const NavBar = () => {
          </div>
          </>
         }
-
-
+        <div className='lang-options teal'>
+        <a className='lang' onClick={()=>setLanguage('English')}>EN</a>
+        /
+        <a className='lang' onClick={()=>setLanguage('Chinese')}>中文</a>
+        </div>
         </div>
 
     </nav>
-  );
+  )}
 }
 
 export default NavBar;

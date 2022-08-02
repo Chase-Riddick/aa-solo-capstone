@@ -3,8 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState} from 'react'
 import { updateCatch, deleteCatch } from '../../../store/catch';
 import '../../../form.css'
+import { useLanguageContext } from '../../../context/LanguageContext';
 
 export default function UpdateCatchForm ({indivCatch, setShowModal}) {
+  const { language, setLanguage, English, Chinese } = useLanguageContext();
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
@@ -127,7 +129,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
   return (
 
     <div className="create form">
-    <h1 className='section-title'>Edit Your Catch</h1>
+    <h1 className='section-title'>{language && language === 'English' ? English.EditYourCatch : Chinese.EditYourCatch}</h1>
     <form className='form' onSubmit={handleSubmit}>
 
       {errors.length > 0 && <ul className='errors'>
@@ -135,13 +137,13 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         </ul>}
 
         <div className='table-row-required'>
-      <h5>Required *</h5>
+      <h5>{language && language === 'English' ? English.Required : Chinese.Required} *</h5>
     </div>
 
 
       <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Fish </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Fish : Chinese.Fish} </h5>
       <p className='required'>*</p>
       </div>
     <input
@@ -182,7 +184,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
 <div className='table-row description-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Description </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Description : Chinese.Description} </h5>
       <p className='not-required'>*</p>
       </div>
 
@@ -197,7 +199,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
     <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Weight</h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Weight : Chinese.Weight}</h5>
       <p className='required'>*</p>
       </div>
       <input
@@ -216,7 +218,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
     <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Length </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Length : Chinese.Length} </h5>
       <p className='required'>*</p>
       </div>
     <input
@@ -234,7 +236,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
         <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Bait </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Bait: Chinese.Bait} </h5>
       <p className='not-required'>*</p>
       </div>
     <input
@@ -248,7 +250,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
 
       <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Lure </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Lure : Chinese.Lure}</h5>
       <p className='not-required'>*</p>
       </div>
     <input
@@ -261,9 +263,9 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         </div>
 
         <div className='form-button-row'>
-      <button className='button salmon' type="submit">Submit Post</button>
-      <button className='button cancel' type="button" onClick={handleCancelClick}>Cancel</button>
-      <button className='button red' type="button" onClick={(e) => {handleDelete(e)}}>Delete Catch Post</button>
+      <button className='button salmon' type="submit">{language && language === 'English' ? English.SubmitUpdate : Chinese.SubmitUpdate}</button>
+      <button className='button cancel' type="button" onClick={handleCancelClick}>{language && language === 'English' ? English.Cancel : Chinese.Cancel}</button>
+      <button className='button red' type="button" onClick={(e) => {handleDelete(e)}}>{language && language === 'English' ? English.DeleteCatchPost : Chinese.DeleteCatchPost}</button>
       </div>
 
     </form>
