@@ -69,11 +69,11 @@ export default function CreateCatchForm () {
     let fileKind = splitImg[splitImg.length - 1];
 
     if (!['png', 'jpeg', 'gif', 'jpg'].includes(fileKind)) {
-      errors.push("Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again.")
+      errors.push("EN::Image files must end in one of the following: 'png', 'jpeg', 'gif', 'jpg'. Please reupload an image with the appropriate extension and try again. ||| ZH::图像文件必须以下列之一结尾：'png'、'jpeg'、'gif'、'jpg'。请重新上传具有适当扩展名的图像，然后重试。")
     }
 
     if (!searchLocation) {
-      errors.push("You must select a location.")
+      errors.push("EN::You must select a location ||| ZH::你必须选择一个位置。")
     }
 
     if (errors.length) {
@@ -111,6 +111,7 @@ export default function CreateCatchForm () {
     let data= await dispatch(createCatch(payload));
     if (data && data.errors) {
         let modified_error_messages = []
+        console.log(data.errors);
         data.errors.forEach(error => {
             let splitError = error.split(": ")
             modified_error_messages.push(splitError[1])
@@ -125,8 +126,6 @@ export default function CreateCatchForm () {
         setWeight("")
         setBait("")
         setLure("")
-        // setLong(-122.2751)
-        // setLat(46.5583)
         history.push(`/mycatches`)
     }
   }
@@ -139,8 +138,16 @@ export default function CreateCatchForm () {
     <h1 className='section-title'>{language && language === 'English' ? English.ShareYourCatch : Chinese.ShareYourCatch}</h1>
     <form className='form' onSubmit={handleSubmit}>
 
-      {errors.length > 0 && <ul className='errors'>
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+      {language && errors.length > 0 && <ul className='errors'>
+            {errors.map((error, idx) => {
+              let splitError = error.split(" ||| ")
+              if (language === "English") {
+                return (<li key={idx}>{splitError[0].split('::')[1]}</li>)
+              }
+              if (language === "Chinese") {
+                return(<li key={idx}>{splitError[1].split('::')[1]}</li>)
+                }
+            })}
         </ul>}
 
     <div className='table-row-required'>
