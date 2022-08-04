@@ -23,6 +23,7 @@
     width: 50%;
     overflow-y: scroll;
     padding: 10px;
+    border-right: 1px solid gray;
 }
 
 .display-catch-left > * {
@@ -62,6 +63,7 @@
     letter-spacing: .08em;
     text-align: center;
     width: 100%;
+    word-break: keep-all;
 }
 
 .indivCatch-picture {
@@ -173,5 +175,24 @@
 
     .line-header.description {
         text-align: left;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .display-catch-container {
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+
+    .display-catch-left {
+        width: 100%;
+        height: fit-content;
+        overflow-y:visible;
+        border: none;
+    }
+
+
+    .display-catch-right {
+        width: 100%;
     }
 }
