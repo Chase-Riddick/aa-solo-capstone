@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { useLanguageContext } from "../../context/LanguageContext";
+import AuthModal from "../auth/AuthModal";
 import './subposts.css'
 import '../DisplayIndivCatch/indivCatch.css'
 import SubpostCard from "./SubpostCard";
@@ -22,9 +23,17 @@ export default function SubpostsSection ({ catch_id, subposts }) {
             <h3 className="line-header">{language && language === 'English' ? English.CommentsQuestions : Chinese.CommentsQuestions}</h3>
                 <div>{language && language === 'English' ? English.Posts : Chinese.Posts}: { subposts.length }</div>
             </div>
+
+
+
             {sessionUser  &&
                 <button className='button salmon' onClick={() => setShowCreateField(!showCreateSubpostield)}>{language && language === 'English' ? English.AddToTheDiscussion : Chinese.AddToTheDiscussion}</button>
                 }
+                {!sessionUser &&
+            <div>
+                <AuthModal authType={'not-logged-in-add-subpost'} />
+            </div>
+            }
             </div>
             {showCreateSubpostield &&
             <SubpostCreateForm setShowCreateField={setShowCreateField} catch_id={catch_id}/>

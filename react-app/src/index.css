@@ -70,6 +70,20 @@ body {
     /* overflow-y: scroll; */
 }
 
+.card-arc {
+    display: flex;
+    align-items: center;
+    color: #191923;
+    font-family: "Eina-bold";
+    font-weight: 900;
+    width: 5em;
+    height: 5em;
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    z-index: 2;
+  }
+
 .catches-container {
     display: grid;
 	grid-template-columns: repeat(2, 1fr);
@@ -94,25 +108,32 @@ body {
 
 .catch-card {
     /* overflow-y: scroll; */
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     /* width: 95%; */
     width: 250px;
     border-radius: 5px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin: 10px;
     background-color: white;
     box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.2);
     max-height: 400px;
     max-width: 300px;
+    border-bottom: rgb(1, 138, 153) solid 5px;
+}
+
+.catch-card:hover {
+    cursor: pointer;
 }
 
 .card-image {
     width: 100%;
     height: fit-content;
     /* object-fit: fill; */
-    max-height: 220px;
+    min-height: 150px;
+    max-height: 150px;
 }
 
 .card-row {
@@ -225,6 +246,10 @@ body {
     color: rgb(206, 63, 47);
     font-weight: 900;
     /* padding: 5px; */
+}
+
+.button.salmon.add-subpost {
+    width: 100%;
 }
 
 
@@ -347,6 +372,7 @@ body {
 
     .catches-container {
         display: grid;
+        align-items: center;
         grid-template-columns: repeat(1, 1fr);
         gap: 0px;
         background-color: rgb(245, 245, 245);
@@ -388,6 +414,7 @@ body {
 
     .catches-container {
         display: grid;
+        align-items: center;
         grid-template-columns: repeat(3, 1fr);
         gap: 0px;
         background-color: rgb(245, 245, 245);

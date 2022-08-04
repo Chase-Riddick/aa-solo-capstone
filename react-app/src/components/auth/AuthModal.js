@@ -11,8 +11,15 @@ export default function AuthModal ({ authType }) {
     const [showLoginModal, setShowLoginModal] = useState(false)
     return (
         <div>
-        {authType && authType === 'not-logged-in' && language &&
+        {authType && authType === 'not-logged-in-share-catch' && language &&
         <button className='button salmon' onClick={() => setShowLoginModal(true)}>{language === 'English' ? English.ShareCatch : Chinese.ShareCatch} <i class="fa-solid fa-circle-plus"></i></button>}
+            {showLoginModal && (<AthModal  className='auth-modal' onClose={() => setShowLoginModal(false)}>
+                <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
+            </AthModal >
+        )}
+
+        {authType && authType === 'not-logged-in-add-subpost' && language &&
+        <button className='button salmon add-subpost' onClick={() => setShowLoginModal(true)}>{language === 'English' ? English.AddToTheDiscussion : Chinese.AddToTheDiscussion}</button>}
             {showLoginModal && (<AthModal  className='auth-modal' onClose={() => setShowLoginModal(false)}>
                 <LoginForm setShowSignUpModal={setShowSignUpModal} setShowLoginModal={setShowLoginModal}/>
             </AthModal >

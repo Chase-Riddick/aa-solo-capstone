@@ -49,7 +49,7 @@ const NavBar = () => {
             </NavLink>}
             {!sessionUser &&
             <div>
-                <AuthModal authType={'not-logged-in'} />
+                <AuthModal authType={'not-logged-in-share-catch'} />
             </div>
             }
 
