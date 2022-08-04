@@ -62,6 +62,7 @@ const LoginForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
   return (
     <form onSubmit={onLogin}>
+      <div className='top-x-space'><i onClick={() => {setShowLoginModal(false)}} className="fa-solid fa-xmark"></i></div>
       <h1 className='section-title'>{language && language === 'English' ? English.Login : Chinese.Login}</h1>
       <div>
 

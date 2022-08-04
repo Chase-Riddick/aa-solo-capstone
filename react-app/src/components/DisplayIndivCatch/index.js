@@ -3,12 +3,13 @@ import SubpostsSection from "../Subposts/SubpostsSection";
 import './indivCatch.css';
 import { useLanguageContext } from "../../context/LanguageContext";
 
-export default function DisplayIndivCatch ({ targetCatch, user }) {
+export default function DisplayIndivCatch ({ targetCatch, user, setShowModal }) {
     const { language, setLanguage, English, Chinese } = useLanguageContext();
     const indivCatch = Object.values(useSelector(state => state.catches)).filter(ele => ele['id'] === targetCatch['id'])[0];
 
     return (
         <>
+        <div className='top-x-space'><i onClick={() => {setShowModal(false)}} className="fa-solid fa-xmark"></i></div>
         {indivCatch && language && (
         <div className="display-catch-container">
             <div className="display-catch-left">
@@ -31,8 +32,8 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
                 </div>
                 <div className=" sub-section-block">
                 {/* <div className="description-container"> */}
-                <div className="same-line-description">
-                <h4 className="line-header">{language === 'English' ? English.Description : Chinese.Description}:</h4>
+                <div className="same-line-description description">
+                <h4 className="line-header description">{language === 'English' ? English.Description : Chinese.Description}:</h4>
                 <p>{indivCatch.description}</p></div>
 
                 <div className="details-container">
@@ -68,7 +69,7 @@ export default function DisplayIndivCatch ({ targetCatch, user }) {
                 </div>
 
                 <div className=" sub-section-block">
-                <div className="same-line-description">
+                <div className="same-line-description general-conditions">
                 <h4 className="line-header">{language === 'English' ? English.Conditions : Chinese.Conditions}:</h4>
                 <p>{indivCatch.condition.condition_text}</p>
                 <img className='weather-img' src={indivCatch.condition.condition_icon}></img>

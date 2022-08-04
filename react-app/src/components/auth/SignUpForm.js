@@ -62,6 +62,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
   return (
     <form className='auth-modal' onSubmit={onSignUp}>
+      <div className='top-x-space'><i onClick={() => {setShowSignUpModal(false)}} className="fa-solid fa-xmark"></i></div>
       <h1 className='section-title'>{language && language === 'English' ? English.SignUp : Chinese.SignUp}</h1>
       <div>
        {errors.length > 0 && <ul className='errors'>

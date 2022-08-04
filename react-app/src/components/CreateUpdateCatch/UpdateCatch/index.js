@@ -129,6 +129,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
   return (
 
     <div className="create form">
+      <div className='top-x-space'><i onClick={() => {setShowModal(false)}} className="fa-solid fa-xmark"></i></div>
     <h1 className='section-title'>{language && language === 'English' ? English.EditYourCatch : Chinese.EditYourCatch}</h1>
     <form className='form' onSubmit={handleSubmit}>
 

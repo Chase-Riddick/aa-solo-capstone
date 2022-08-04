@@ -14,7 +14,7 @@ export default function DisplayIndivCatchModal ({ indivCatch, user }) {
         <button className='button teal' onClick={() => setShowModal(true)}>{language && language === 'English' ? English.ShowDetails : Chinese.ShowDetails}</button>
         {showModal && (
             <Modal onClose={() => setShowModal(false)}>
-                <DisplayIndivCatch targetCatch={indivCatch} user={user}/>
+                <DisplayIndivCatch setShowModal={setShowModal} targetCatch={indivCatch} user={user}/>
             </Modal>
         )}
         </>
