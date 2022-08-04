@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
+import { useLanguageContext } from '../../context/LanguageContext';
 
 const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
+  const { language, setLanguage, English, Chinese } = useLanguageContext();
   const [errors, setErrors] = useState([]);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -60,7 +62,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
   return (
     <form className='auth-modal' onSubmit={onSignUp}>
-      <h1 className='section-title'>Sign Up</h1>
+      <h1 className='section-title'>{language && language === 'English' ? English.SignUp : Chinese.SignUp}</h1>
       <div>
        {errors.length > 0 && <ul className='errors'>
             {errors.map((error, idx) => <li key={idx}>{error}</li>)}
@@ -68,13 +70,13 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
       </div>
 
       <div className='table-row-required'>
-      <h5>Required *</h5>
+      <h5>{language && language === 'English' ? English.Required : Chinese.Required}  *</h5>
       </div>
 
 
       <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Username </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Username : Chinese.Username} </h5>
       <p className='required'>*</p>
       </div>
         <input
@@ -89,7 +91,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
       <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Email </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Email : Chinese.Email} </h5>
       <p className='required'>*</p>
       </div>
         <input
@@ -104,7 +106,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
       <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'>Password </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.Password : Chinese.Password}</h5>
       <p className='required'>*</p>
       </div>
         <input
@@ -118,7 +120,7 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
       <div className='table-row'>
       <div className='table-row-label-block'>
-      <h5 className='table-row-label'> Repeat Password </h5>
+      <h5 className='table-row-label'>{language && language === 'English' ? English.RepeatPassword : Chinese.RepeatPassword} </h5>
       <p className='required'>*</p>
       </div>
         <input
@@ -132,10 +134,10 @@ const SignUpForm = ({setShowLoginModal, setShowSignUpModal}) => {
 
       <div className='buttom-row-buttons'>
       <div className='buttom-row-buttons-main' >
-      <button className='button teal' type='submit'> Submit Sign Up</button>
-      <button className='button teal' onClick={handleSwitch}>Already have an account? Login</button>
+      <button className='button teal' type='submit'>{language && language === 'English' ? English.Submit : Chinese.Submit}</button>
+      <button className='button teal' onClick={handleSwitch}>{language && language === 'English' ? English.AlreadyHaveAccount : Chinese.AlreadyHaveAccount} {language && language === 'English' ? English.Login : Chinese.Login}</button>
       </div>
-      <div className='close-link' onClick={() => setShowSignUpModal(false)}><a>No Thanks</a></div>
+      <div className='close-link' onClick={() => setShowSignUpModal(false)}><a>{language && language === 'English' ? English.NoThanks : Chinese.NoThanks}</a></div>
       </div>
     </form>
   );

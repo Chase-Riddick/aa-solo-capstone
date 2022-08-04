@@ -33,7 +33,7 @@ const NavBar = () => {
         <div className='logo-box'>
           <div className='logo' />
           <div className='logo-text-box'>
-            <h4 className='logo-text-main'>LocalCatch</h4>
+            <h4 className='logo-text-main'>LocalCatch<span className='logo-chinese'>鱼钩</span></h4>
             <h4 className='logo-text-sub'>Catch, Share, Catch, Enjoy.</h4>
           </div>
         </div>

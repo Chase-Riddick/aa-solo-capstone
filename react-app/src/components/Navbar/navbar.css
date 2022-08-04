@@ -68,6 +68,12 @@
     cursor: pointer;
 }
 
+.logo-chinese {
+    color: salmon;
+    letter-spacing: -4px;
+    /* text-shadow: 1px 1px 5px black; */
+}
+
 /* .logo-text-box {
 
 } */

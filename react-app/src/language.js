@@ -50,6 +50,17 @@ export const English = {
     SplashLine3: " the whoppers are bitin', and find your next trophy catch.",
     SplashLine2Emphasis: "the boasting",
     SplashLine3Emphasis: "See where",
+    Email: "Email",
+    Password:  "Password",
+    DemoUser: "Demo User",
+    DontHaveAccount: "Don’t have an account?",
+    AlreadyHaveAccount: "Already have an account?",
+    NoThanks: "No Thanks",
+    Username: "Username",
+    RepeatPassword: "Repeat Password",
+    Submit: "Submit",
+    SignUp: "Sign Up"
+
 }
 
 export const Chinese = {
@@ -104,4 +115,14 @@ export const Chinese = {
     SplashLine2Emphasis: "吹嘘",
     SplashLine3: "巨无霸在哪里咬，然后找到你的下一个奖杯.",
     SplashLine3Emphasis: "看看",
+    Email: "电子邮件",
+    Password:  "密码",
+    DemoUser: "演示用户",
+    DontHaveAccount: "没有帐户？",
+    AlreadyHaveAccount: "已经有一个帐户?",
+    NoThanks: "不要，谢谢",
+    Username: "用户名",
+    RepeatPassword: "重复输入密码",
+    Submit: "提交",
+    SignUp: "报名"
 }
