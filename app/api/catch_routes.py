@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request, json
-from sqlalchemy import null
+from sqlalchemy import null, desc, asc
 from app.models import catch, db, User, Catch, Subpost, Condition
 from app.forms.catch_form import CreateCatch, UpdateCatch
 from app.utils import upload, format_errors
@@ -13,7 +13,7 @@ catch_routes = Blueprint('catches', __name__)
 
 @catch_routes.route("", methods=["GET"])
 def get_catches():
-    catches = Catch.query.options(joinedload('condition'), joinedload('subposts')).all()
+    catches = Catch.query.options(joinedload('condition'), joinedload('subposts'))
     print('******************A************')
     print(catches)
     return {catch.id: catch.to_dict(condition = catch.condition, subposts = catch.subposts) for catch in catches}
