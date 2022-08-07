@@ -9,6 +9,7 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
 
       const [content, setContent] = useState(subpost?.content);
       const [errors, setErrors] = useState([]);
+      const [enableDelete, setEnableDelete] = useState(false);
 
 
       const updateContent = (e) => setContent(e.target.value);
@@ -84,8 +85,13 @@ export default function SubpostUpdate ({subpost, setShowSubpostUpdate}) {
           </div>
           <div className='button-row'>
             <button className="button teal" type="submit">Submit Edit</button>
-            <button className="button red" type="button" onClick={handleDelete}>Delete Post</button>
+            <button className={!enableDelete ? "button red": "button cancel"} type="button" onClick={() => setEnableDelete(!enableDelete)}>{!enableDelete ? 'Delete Post' : 'Cancel Delete'}</button>
           </div>
+          {enableDelete &&
+          <div className='button-row'>
+          <button className="button red" type="button" onClick={handleDelete}>Delete Post</button>
+          </div>
+          }
       </form>
     </div>
     )

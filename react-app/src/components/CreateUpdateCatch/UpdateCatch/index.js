@@ -21,6 +21,9 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
   const [long, setLong] = useState(indivCatch?.long)
   const [lat, setLat] = useState(indivCatch?.lat)
 
+  const [enableDelete, setEnableDelete] = useState(false);
+
+
   const updateFish = (e) => setFish(e.target.value);
   const updateDescription = (e) => setDescription(e.target.value);
   const updateLength = (e) => setLength(e.target.value);
@@ -263,12 +266,16 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
         onChange={updateLure} />
         </div>
 
-        <div className='form-button-row'>
+      <div className='form-button-row'>
       <button className='button salmon' type="submit">{language && language === 'English' ? English.SubmitUpdate : Chinese.SubmitUpdate}</button>
       <button className='button cancel' type="button" onClick={handleCancelClick}>{language && language === 'English' ? English.Cancel : Chinese.Cancel}</button>
+      <button className={!enableDelete ? "button red": "button cancel"} type="button" onClick={() => setEnableDelete(!enableDelete)}>{!enableDelete ? (language === 'English' ? English.DeleteCatchPost : Chinese.DeleteCatchPost) : (language === 'English' ? English.CancelDelete : Chinese.CancelDelete)}</button>
+      </div>
+      {enableDelete &&
+      <div className='form-button-row'>
       <button className='button red' type="button" onClick={(e) => {handleDelete(e)}}>{language && language === 'English' ? English.DeleteCatchPost : Chinese.DeleteCatchPost}</button>
       </div>
-
+      }
     </form>
   </div>
   )

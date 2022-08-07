@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import './filter.css'
 
 export default function Filter ({
@@ -12,11 +14,27 @@ export default function Filter ({
     maxLength,
     setLengthMax }) {
 
+        const [arrowTurned, setArrowTurned] = useState(false);
         const updateFishQuery = (e) => setFishQuery(e.target.value);
 
+
+        // FUNCTION THAT TURNS AN ARROW 90 DEGREES OnClick
+        const turnArrow = () => {
+        if (arrowTurned) {
+           return setArrowTurned(false);
+        } else {
+           return setArrowTurned(true);
+        }
+    }
+
     return (
+        <>
+        <div className="filters-heading">Filters
+        <i className={arrowTurned ? "fa-solid fa-caret-right nb-th-arrow-right arrow-right-turned" : "fa-solid fa-caret-right nb-th-arrow-right"} onClick={() => turnArrow()}></i>
+        </div>
+        {arrowTurned &&
         <div className="filter-bar">
-        <div className="filters-heading">Filters</div>
+
         <div className="wrap">
         <input className="filter-search-bar" value={fishQuery} onChange={updateFishQuery} placeholder={"Text"}></input>
         </div>
@@ -102,6 +120,7 @@ export default function Filter ({
             </div>
         </div>
     </div>
-
+    }
+    </>
     )
 }
