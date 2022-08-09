@@ -6,13 +6,22 @@ def seed_conditions():
 
     def get_catch_times():
         catch_times = []
-        catchesA = Catch.query.all()
+        catchesA = Catch.query.filter(Catch.id < 10).all()
+        catchesAObj = [catch.to_dict() for catch in catchesA]
+        for single_catch in catchesAObj:
+            catch_times.append(single_catch['catch_time'])
+        return catch_times
+
+    def get_catch_times_china():
+        catch_times = []
+        catchesA = Catch.query.filter(Catch.id > 9).all()
         catchesAObj = [catch.to_dict() for catch in catchesA]
         for single_catch in catchesAObj:
             catch_times.append(single_catch['catch_time'])
         return catch_times
 
     catch_times_gen = get_catch_times()
+    catch_times_china = get_catch_times_china()
 
     def get_weather(catch_times):
         conditions = []
@@ -38,8 +47,34 @@ def seed_conditions():
             print('*******************')
         return(conditions)
 
+    def get_weather_china(catch_times):
+        conditions = []
+        for catch_time in catch_times:
+            catch_time_split = catch_time.split("-")
+            catch_year = catch_time_split[0]
+            catch_month = catch_time_split[1]
+            catch_date = catch_time_split[2]
+            catch_hour = catch_time_split[3]
+            condition = {}
+            res = requests.get(f"https://api.weatherapi.com/v1/history.json?key=9724b547848d4baf884180226220907&q=38.951,121.169&dt={catch_year}-{catch_month}-{catch_date}")
+            json_data = json.loads(res.text)
+            condition_json_data = json_data['forecast']['forecastday'][0]['hour'][int(catch_hour)]
+            condition['condition_text'] = condition_json_data['condition']['text']
+            condition['condition_icon'] = condition_json_data['condition']['icon']
+            condition['temp'] = condition_json_data['temp_f']
+            condition['wind'] = f"{condition_json_data['wind_mph']} {condition_json_data['wind_dir']}"
+            condition['precip'] = condition_json_data['precip_in']
+            condition['cloud'] = condition_json_data['cloud']
+            condition['humdity'] = condition_json_data['humidity']
+            condition['pressure'] = condition_json_data['pressure_in']
+            conditions.append(condition)
+            print('*******************')
+        return(conditions)
+
     condtions_arr = get_weather(catch_times_gen)
+    condtions_arr_china = get_weather_china(catch_times_china)
     print(condtions_arr)
+    print(condtions_arr_china)
 
     db.session.add_all(
         [

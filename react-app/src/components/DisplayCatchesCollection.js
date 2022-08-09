@@ -3,7 +3,7 @@ import DisplayIndivCatchModal from './DisplayIndivCatch/IndivCatchModal'
 import CreateCatchModal from './CreateUpdateCatch/CreateCatch/CreateCatchModal';
 import UpdateCatchModal from './CreateUpdateCatch/UpdateCatch/UpdateCatchModal';
 
-export default function DisplayCatchesCollection({catches, page, selectedMarker}){
+export default function DisplayCatchesCollection({catches, page, selectedMarker, setSelectedMarker}){
     const users = useSelector(state => state.user);
     // const catches = Object.values(useSelector(state => state.catches));
     const sessionUser = useSelector(state => state.session.user);
@@ -45,9 +45,9 @@ console.log("-----------------")
                 </DisplayIndivCatchModal>
                 }
                 {[...updateDateValue(catches)].reverse().map((indivCatch) => {
-                    if (selectedMarker && indivCatch.id !== selectedMarker)
+                    if (indivCatch.id !== selectedMarker)
                 return (
-                    <DisplayIndivCatchModal key={indivCatch.id} page={page} sessionUser={sessionUser} users={users} indivCatch={indivCatch} user={users[indivCatch.user_id]}>
+                    <DisplayIndivCatchModal setSelectedMarker={setSelectedMarker} key={indivCatch.id} page={page} sessionUser={sessionUser} users={users} indivCatch={indivCatch} user={users[indivCatch.user_id]}>
                         </DisplayIndivCatchModal>
                 );
             })}

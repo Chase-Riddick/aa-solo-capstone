@@ -59,6 +59,62 @@ def seed_users():
         password='password',
         img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
         ),
+
+        User(
+        username='杨海洋',
+        email='10@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        ),
+
+        User(
+        username='王秋月',
+        email='11@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        ),
+
+        User(
+        username='张秀英',
+        email='12@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        ),
+
+        User(
+        username='李伟',
+        email='13@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        ),
+
+        User(
+        username='刘强',
+        email='14@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        ),
+
+        User(
+        username='李平',
+        email='15@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        ),
+
+        User(
+        username='王放',
+        email='16@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        ),
+
+        User(
+        username='小张',
+        email='17@aa.io',
+        password='password',
+        img_url='https://localcatches.s3.us-west-2.amazonaws.com/Screen+Shot+2022-07-06+at+08.46.10.png',
+        )
         ]
     )
     db.session.commit()

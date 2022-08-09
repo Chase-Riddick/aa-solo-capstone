@@ -5,9 +5,14 @@ import { Modal } from '../../context/Modal';
 import { useLanguageContext } from '../../context/LanguageContext';
 import DisplayIndivCatch from '.';
 
-export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessionUser, page, selectedMarker }) {
+export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessionUser, page, selectedMarker, setSelectedMarker }) {
     const { language, setLanguage, English, Chinese } = useLanguageContext();
     const [showModal, setShowModal] = useState(false)
+
+    const handleClick = (id) => {
+      // setSelectedMarker(id);
+      setShowModal(true);
+    }
 
     return (
         <>
@@ -37,7 +42,7 @@ export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessi
         </div>
       </div>
 
-                        <div className='catch-card-upper' onClick={() => setShowModal(true)}>
+                        <div className='catch-card-upper' onClick={() => {handleClick(indivCatch.id)}}>
 
                         <img className="card-image" src={indivCatch?.img_url} alt="" />
                         <div className='user-line'>

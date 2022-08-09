@@ -23,6 +23,7 @@ function Maps ({
          setCatchArr,
          catchLatLngArr,
          setCatchLatLngArr,
+         selectedMarker,
          setSelectedMarker,
 }) {
 
@@ -45,6 +46,7 @@ function Maps ({
                 setCatchArr={setCatchArr}
                 catchLatLngArr={catchLatLngArr}
                 setCatchLatLngArr={setCatchLatLngArr}
+                selectedMarker={selectedMarker}
                 setSelectedMarker={setSelectedMarker}
                 />
 
@@ -68,6 +70,7 @@ const Map = ({
         catchLatLngArr,
         setCatchLatLngArr,
         setSelectedMarker,
+        selectedMarker,
 }) => {
     const history = useHistory();
     const center = useMemo(() => (searchLocation), []);
@@ -124,6 +127,14 @@ const Map = ({
                         catchArr.map((indivCatch, idx) => (
                             <Marker
                             // label={{fontFamily: 'Work', backgroundColor: 'white', border: '1px solid black', fontWeight: 'bold', fontSize: '18px', text: `${indivCatch.fish} - ${indivCatch.weight}(lbs)` }}
+                            className={indivCatch.id === selectedMarker ? "chosen-marker" : ""}
+                            // icon={{
+                            //     backgroundColor: "#0000ff",
+                            //     fillColor: "#0000ff",
+                            //     strokeColor: "0000ff",
+                            // }}
+                            // color={"orange"}
+                            icon={indivCatch.id === selectedMarker ? {url: "http://maps.google.com/mapfiles/ms/micons/red-dot.png"} : {url: "http://maps.google.com/mapfiles/ms/micons/ltblue-dot.png"}}
                             key={idx} position={{lat: indivCatch.lat, lng: indivCatch.long}} clusterer={clusterer} onClick={() => setSelectedMarker(indivCatch.id)}>
                                 {/* {(selectedMarker && indivCatch.id === selectedMarker.id) ? (
                                         <InfoWindow>

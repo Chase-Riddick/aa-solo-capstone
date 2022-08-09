@@ -147,6 +147,103 @@ def seed_catches():
             bait = 'Earthworm',
             long = -122.2749,
             lat = 46.5585),
+
+        Catch(
+            user_id = 10,
+            catch_time = '2022-07-12-6',
+            img_url = 'xxxxxx',
+            fish = "渤海刀鱼",
+            description = "一条特别肥的渤海刀鱼，不太愿意咬钩",
+            length = 30.0,
+            weight = 14,
+            bait = '串钩虾粉团',
+            long = 121.169454,
+            lat = 38.951938),
+
+        Catch(
+            user_id = 11,
+            catch_time = '2022-07-10-5',
+            img_url = 'xxxxxx',
+            fish = "奇怪的鱼",
+            description = "好险！在它长出腿之前抓住它了！钓到了个怪物，这他妈是啥？？？？",
+            length = 25.0,
+            weight = 12,
+            bait = '蚯蚓',
+            long = 121.034547,
+            lat = 38.869511),
+
+        Catch(
+            user_id = 12,
+            catch_time = '2022-07-11-5',
+            img_url = 'xxxxxx',
+            fish = "金龙鱼",
+            description = "做饭就得用金龙鱼牌花生油味道好极了",
+            length = 43.0,
+            weight = 20,
+            bait = '蜂蜜沙土虾粉',
+            long = 121.498182,
+            lat = 38.928048),
+
+        Catch(
+            user_id = 13,
+            catch_time = '2022-07-11-18',
+            img_url = 'xxxxxx',
+            fish = "胖头宝",
+            description = "4个小时钓到它，我要把它带回家做油炸胖头宝，肯定很好吃。",
+            length = 38.0,
+            weight = 19,
+            bait = '假饵',
+            long = 121.575023,
+            lat = 38.868206),
+
+        Catch(
+            user_id = 14,
+            catch_time = '2022-07-12-21',
+            img_url = 'xxxxxx',
+            fish = "鲢鱼",
+            description = "今年的第一钓",
+            length = 38.0,
+            weight = 19,
+            lure = '5号挪威钩玉米面粉团',
+            long = 121.702262,
+            lat = 38.872147),
+
+        Catch(
+            user_id = 15,
+            catch_time = '2022-07-12-22',
+            img_url = 'xxxxxx',
+            fish = "鲤鱼",
+            description = "这条鱼真大！",
+            length = 25.0,
+            weight = 12,
+            lure = '蜂蜜沙土虾粉',
+            long = 121.610072,
+            lat = 38.888145),
+
+        Catch(
+            user_id = 16,
+            catch_time = '2022-07-10-6',
+            img_url = 'xxxxxx',
+            fish = "龙王鱼",
+            description = "看我钓到了一条龙王鱼宝宝，很久以前人们以为这是真的龙。我把它马上放回水里了，希望它能长得更大带给我好运。",
+            length = 72.0,
+            weight = 44,
+            lure = '假饵',
+            long = 121.832512,
+            lat = 38.884083),
+
+        Catch(
+            user_id = 17,
+            catch_time = '2022-07-9-7',
+            img_url = 'xxxxxx',
+            fish = "草鱼",
+            description = "我儿子第一次钓鱼",
+            length = 20.0,
+            weight = 9,
+            lure = '沙蟹',
+            long = 121.5491452,
+            lat = 38.865508),
+
         ]
     )
     db.session.commit()

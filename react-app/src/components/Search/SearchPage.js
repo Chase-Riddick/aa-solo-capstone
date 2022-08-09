@@ -145,6 +145,7 @@ export default function SearchPage () {
                 catchLatLngArr={catchLatLngArr}
                 setCatchLatLngArr={setCatchLatLngArr}
                 setSelectedMarker={setSelectedMarker}
+                selectedMarker={selectedMarker}
                 />
         </div>
         <div className="search-page-right">
@@ -162,7 +163,7 @@ export default function SearchPage () {
         maxLength={maxLength}
         setLengthMax={setLengthMax} />
         {catchArr.length >= 1 &&
-        <DisplayCatchesCollection selectedMarker={selectedMarker} catches={catchArr} page={'search'} className="search-results" />
+        <DisplayCatchesCollection setSelectedMarker={setSelectedMarker} selectedMarker={selectedMarker} catches={catchArr} page={'search'} className="search-results" />
         }
         {catchArr.length < 1 &&
         <div className="no-results">{language && language === 'English' ? English.NoResults : Chinese.NoResults}</div>
