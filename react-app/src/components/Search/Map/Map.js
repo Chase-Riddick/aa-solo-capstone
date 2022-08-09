@@ -23,6 +23,7 @@ function Maps ({
          setCatchArr,
          catchLatLngArr,
          setCatchLatLngArr,
+         setSelectedMarker,
 }) {
 
     const { isLoaded } = useLoadScript({
@@ -44,6 +45,7 @@ function Maps ({
                 setCatchArr={setCatchArr}
                 catchLatLngArr={catchLatLngArr}
                 setCatchLatLngArr={setCatchLatLngArr}
+                setSelectedMarker={setSelectedMarker}
                 />
 
             )}
@@ -65,6 +67,7 @@ const Map = ({
         setCatchArr,
         catchLatLngArr,
         setCatchLatLngArr,
+        setSelectedMarker,
 }) => {
     const history = useHistory();
     const center = useMemo(() => (searchLocation), []);
@@ -75,7 +78,7 @@ const Map = ({
     }), []);
 
 
-    const [selectedMarker, setSelectedMarker] = useState(null)
+    // const [selectedMarker, setSelectedMarker] = useState(null)
     const mapRef = useRef();
     const onLoad = useCallback(map => (mapRef.current = map), [])
 
@@ -121,12 +124,12 @@ const Map = ({
                         catchArr.map((indivCatch, idx) => (
                             <Marker
                             // label={{fontFamily: 'Work', backgroundColor: 'white', border: '1px solid black', fontWeight: 'bold', fontSize: '18px', text: `${indivCatch.fish} - ${indivCatch.weight}(lbs)` }}
-                            key={idx} position={{lat: indivCatch.lat, lng: indivCatch.long}} clusterer={clusterer} onClick={() => setSelectedMarker(indivCatch)}>
-                                {(selectedMarker && indivCatch.id === selectedMarker.id) ? (
+                            key={idx} position={{lat: indivCatch.lat, lng: indivCatch.long}} clusterer={clusterer} onClick={() => setSelectedMarker(indivCatch.id)}>
+                                {/* {(selectedMarker && indivCatch.id === selectedMarker.id) ? (
                                         <InfoWindow>
                                             <MapDisplayCard indivCatch={indivCatch}/>
                                         </InfoWindow>
-                                    ) : null}
+                                    ) : null} */}
                             </Marker>
                         ))
                         }

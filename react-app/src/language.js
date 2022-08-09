@@ -61,8 +61,18 @@ export const English = {
     Username: "Username",
     RepeatPassword: "Repeat Password",
     Submit: "Submit",
-    SignUp: "Sign Up"
-
+    SignUp: "Sign Up",
+    SearchCatchesArea: "Search for catches in your area...",
+    SearchAnArea: "Search for catches in another area...",
+    RecentCatchesLocality: "Recent Catches in Locality",
+    Filters: "Filters",
+    FishQuery: "Search Text in Name",
+    Min: "Min",
+    Max: "Max",
+    NoResults: "Sadly, no one is sharing their catches here. Why not be the first?",
+    TypeOfFish: "Type of Fish",
+    pounds: "lbs",
+    inches: "inches",
 }
 
 export const Chinese = {
@@ -128,5 +138,16 @@ export const Chinese = {
     Username: "用户名",
     RepeatPassword: "重复输入密码",
     Submit: "提交",
-    SignUp: "报名"
+    SignUp: "报名",
+    SearchCatchesArea: "搜索您所在地区的渔获物...",
+    SearchAnArea: "搜索其他区域的渔获物...",
+    RecentCatchesLocality: "当地最近的渔获物",
+    Filters: "过滤器",
+    FishQuery: "在名称中搜索文本",
+    Min: "最小",
+    Max: "最大",
+    NoResults: "可悲的是，没有人在这里分享他们的渔获。为什么不成为第一？",
+    TypeOfFish: "鱼的种类",
+    pounds: "英磅",
+    inches: "英寸",
 }

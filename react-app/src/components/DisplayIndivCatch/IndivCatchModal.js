@@ -5,14 +5,14 @@ import { Modal } from '../../context/Modal';
 import { useLanguageContext } from '../../context/LanguageContext';
 import DisplayIndivCatch from '.';
 
-export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessionUser, page }) {
+export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessionUser, page, selectedMarker }) {
     const { language, setLanguage, English, Chinese } = useLanguageContext();
     const [showModal, setShowModal] = useState(false)
 
     return (
         <>
 
-                <div key={indivCatch.id} className='catch-card' >
+                <div key={indivCatch.id} className={selectedMarker === indivCatch.id ? 'catch-card selected' : 'catch-card'} >
                 <div
         className="card-arc"
         style={{

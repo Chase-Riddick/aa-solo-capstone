@@ -18,7 +18,7 @@ function Maps ({apiKey}) {
         libraries,
     });
 
-    if (!isLoaded) return <div>Map is loading...</div>
+    if (!isLoaded) return <div></div>
 
     return (
         <>

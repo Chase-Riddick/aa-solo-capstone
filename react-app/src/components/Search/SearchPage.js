@@ -7,9 +7,12 @@ import DisplayCatchesCollection from "../DisplayCatchesCollection"
 import Filter from "./Filter";
 import './search.css'
 import { getAreaCatches } from "../../utils";
+import { useLanguageContext } from "../../context/LanguageContext";
 
 export default function SearchPage () {
     const history = useHistory();
+    const { language, setLanguage, English, Chinese } = useLanguageContext();
+    const [selectedMarker, setSelectedMarker ] = useState(null);
     const [catchArr, setCatchArr ] = useState([]);
     const [catchLatLngArr, setCatchLatLngArr ] = useState();
     const [fishQuery, setFishQuery] = useState("");
@@ -141,6 +144,7 @@ export default function SearchPage () {
                 setCatchArr={setCatchArr}
                 catchLatLngArr={catchLatLngArr}
                 setCatchLatLngArr={setCatchLatLngArr}
+                setSelectedMarker={setSelectedMarker}
                 />
         </div>
         <div className="search-page-right">
@@ -158,10 +162,10 @@ export default function SearchPage () {
         maxLength={maxLength}
         setLengthMax={setLengthMax} />
         {catchArr.length >= 1 &&
-        <DisplayCatchesCollection catches={catchArr} page={'search'} className="search-results" />
+        <DisplayCatchesCollection selectedMarker={selectedMarker} catches={catchArr} page={'search'} className="search-results" />
         }
         {catchArr.length < 1 &&
-        <div className="no-results">Sadly, no one is sharing their catches here. Why not be the first?</div>
+        <div className="no-results">{language && language === 'English' ? English.NoResults : Chinese.NoResults}</div>
         }
         </div>
         </div>

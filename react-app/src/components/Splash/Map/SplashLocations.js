@@ -10,6 +10,9 @@ import {
     ComboboxList,
     ComboboxOption,
 } from "@reach/combobox";
+
+import { useLanguageContext } from '../../../context/LanguageContext';
+
 import "@reach/combobox/styles.css";
 import './map.css'
 import './searchbar.css'
@@ -22,6 +25,9 @@ export default function SplashLocations ({ setSearchLocation }) {
         suggestions: { status, data },
         clearSuggestions
     } = usePlacesAutocomplete()
+
+    const { language, setLanguage, English, Chinese } = useLanguageContext();
+
 
     const handleSelect = async (address) => {
 
@@ -45,7 +51,7 @@ export default function SplashLocations ({ setSearchLocation }) {
                     onChange={e => setValue(e.target.value)}
                     disabled={!ready}
                     className='search-input splash-item'
-                    placeholder='Search for catches in your area...'
+                    placeholder={language && language === 'English' ? English.SearchCatchesArea : Chinese.SearchCatchesArea}
                 /></div>
                 <ComboboxPopover>
                     <ComboboxList>
