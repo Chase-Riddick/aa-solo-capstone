@@ -38,7 +38,7 @@ export default function Filter ({
 
         <div className="filter-param-container">
         <div className='filter-container-heading'>{language && language === 'English' ? English.TypeOfFish : Chinese.TypeOfFish}</div>
-        <input className="filter-search-bar" value={fishQuery} onChange={updateFishQuery} placeholder={language && language === 'English' ? English.FishQuery : Chinese.FishQuery}></input>
+        <div className='search-bar-line'><i className="fa-solid fa-magnifying-glass" /><input className="filter-search-bar" value={fishQuery} onChange={updateFishQuery} placeholder={language && language === 'English' ? English.FishQuery : Chinese.FishQuery}></input></div>
         </div>
         <div className="filter-param-container">
             <div className='filter-container-heading'>{language && language === 'English' ? English.Weight : Chinese.Weight}</div>

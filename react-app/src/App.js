@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { useLanguageContext } from './context/LanguageContext';
+
 import NavBar from './components/Navbar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import User from './components/User';
@@ -22,6 +24,7 @@ import { getAllUsers } from './store/user';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
+  const { setLanguage } = useLanguageContext();
   const dispatch = useDispatch();
 
   //Clarify utility of below.
@@ -35,6 +38,8 @@ function App() {
       await dispatch(getAllCatches());
       await dispatch(getMapAPIKey());
       await dispatch(getAllUsers());
+      if (localStorage.getItem('lang')) {
+      setLanguage(localStorage.getItem('lang'));}
       setLoaded(true);
     })();
   }, [dispatch]);

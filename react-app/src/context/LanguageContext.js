@@ -7,6 +7,10 @@ export const useLanguageContext = () => useContext(LanguageContext);
 export default function LanguageContextProvider(props) {
   const [language, setLanguage] = useState('English');
 
+  useEffect(()=>{
+    localStorage.setItem('lang1', `${language}`);
+}, [language]);
+
   return (
     <LanguageContext.Provider
       value={{

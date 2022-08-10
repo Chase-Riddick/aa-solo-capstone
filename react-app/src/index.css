@@ -76,12 +76,24 @@ body {
     color: white;
     font-family: "Eina-bold";
     font-weight: 900;
+    font-size: 18px;
     width: 5em;
     height: 2em;
     position: absolute;
     bottom: 100%;
     left: 0;
     z-index: 2;
+    padding-right: 0px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-right: 0px;
+  }
+
+  .card-arc-text {
+    padding: 0px;
+    text-align: center;
+    margin-right: 0px;
   }
 
 .catches-container {
@@ -127,7 +139,7 @@ body {
     /* border: 2px solid black; */
     margin: 10px;
     background-color: white;
-    box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2); */
     max-height: 400px;
     min-width: 250px;
     max-width: 300px;
@@ -271,6 +283,7 @@ body {
     display: flex;
     justify-content: center;
     font-size: 18px;
+    margin-bottom: 3px;
     word-break: break-all;
     word-wrap: break-word;
     text-align: center;
@@ -287,6 +300,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: 8px;
     margin-top: 2px;
     margin-bottom: 3px;
 }
@@ -363,6 +377,7 @@ body {
 
 .section-title.my-catches {
     border: none;
+    text-align: center;
 }
 
 .share-catch {
@@ -381,6 +396,7 @@ body {
 }
 
 .search-div.search-page {
+
     border: none;
 }
 

@@ -1,9 +1,9 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useLanguageContext } from '../../context/LanguageContext';
 
+import { useLanguageContext } from '../../context/LanguageContext';
 import LogoutButton from '../auth/LogoutButton';
 import AuthModal from '../auth/AuthModal';
 import './navbar.css'
@@ -11,8 +11,17 @@ import './navbar.css'
 const NavBar = () => {
   const sessionUser = useSelector(state => state.session.user);
   const { language, setLanguage, English, Chinese } = useLanguageContext();
+
+  const updateLanguage = (lang) => {
+    localStorage.setItem('lang', lang);
+    setLanguage(lang);
+  }
+
+//   useEffect(()=>{
+//     localStorage.setItem('lang1', language);
+// }, [language]);
+
   if (language) {
-    console.log(language)
   return (
     <nav className='navbar'>
 
@@ -45,7 +54,7 @@ const NavBar = () => {
 
         {sessionUser &&
             <NavLink to='/share' exact={true} activeClassName='active'>
-            <button className='button salmon'>{language === 'English' ? English.ShareCatch : Chinese.ShareCatch} <i class="fa-solid fa-circle-plus"></i></button>
+            <button className='button salmon'>{language === 'English' ? English.ShareCatch : Chinese.ShareCatch} <i className="fa-solid fa-circle-plus"></i></button>
             </NavLink>}
             {!sessionUser &&
             <div>
@@ -78,9 +87,9 @@ const NavBar = () => {
          </>
         }
         <div className='lang-options teal'>
-        <a className='lang' onClick={()=>setLanguage('English')}>EN</a>
+        <a className='lang' onClick={()=>updateLanguage('English')}>EN</a>
         /
-        <a className='lang' onClick={()=>setLanguage('Chinese')}>中文</a>
+        <a className='lang' onClick={()=>updateLanguage('Chinese')}>中文</a>
         </div>
         </div>
 

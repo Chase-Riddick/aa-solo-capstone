@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import UpdateCatchModal from '../CreateUpdateCatch/UpdateCatch/UpdateCatchModal';
 import { Modal } from '../../context/Modal';
 import { useLanguageContext } from '../../context/LanguageContext';
+import { months } from '../../language';
 import DisplayIndivCatch from '.';
 
 export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessionUser, page, selectedMarker, setSelectedMarker }) {
@@ -13,6 +14,36 @@ export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessi
       // setSelectedMarker(id);
       setShowModal(true);
     }
+
+    const upateDateValue = (timeStr) => {
+      return `${timeStr.split('-')[2]} ${language === 'English' ? English[months[timeStr.split('-')[1]]] : Chinese[months[timeStr.split('-')[1]]]}`
+      // let timeStrSplit = timeStr.split('-');
+      // console.log(timeStrSplit);
+
+      // return months.timeStrSplit[1] + timeStrSplit[2];
+
+
+    // let newArr = arr.map((ele) => {
+    //     let strSplitCatchTime = ele.catch_time.toString().split('-');
+    //     console.log(strSplitCatchTime);
+    //     let str = strSplitCatchTime.slice(0, 3).join('-');
+    //     console.log(strSplitCatchTime[3]);
+    //     if (strSplitCatchTime[3] && strSplitCatchTime[3].length === 1) {
+    //         strSplitCatchTime[3] = '0' + strSplitCatchTime[3];
+    //     }
+    //     strSplitCatchTime[3] += ':00'
+    //     console.log(strSplitCatchTime[3]);
+    //     let dTrial = str + 't' + strSplitCatchTime[3];
+    //     console.log(dTrial);
+    //     let d = new Date(str + 't' + strSplitCatchTime[3])
+    //     console.log(d)
+    //     ele.catch_time = d;
+    //     console.log(ele.catch_time)
+    //     return ele
+    // })
+    // console.log(newArr)
+    // return newArr.sort((a,b)=>b.catch_time.getTime() - a.catch_time.getTime())
+    };
 
     return (
         <>
@@ -35,7 +66,7 @@ export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessi
             paddingTop: "5px",
           }}
         >
-          <div className="">Aug 12</div>
+          <div className="card-arc-text">{upateDateValue(indivCatch.catch_time)}</div>
         </div>
       </div>
 

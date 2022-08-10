@@ -30,11 +30,11 @@ function Maps ({
          selectedMarker,
          setSelectedMarker,
 }) {
-    const { language} = useLanguageContext();
-    const languageAbr = language === 'Chinese' ? 'zh' : 'en';
+    // const { language} = useLanguageContext();
+    // const languageAbr = language === 'Chinese' ? 'zh' : 'en';
 
     const { isLoaded } = useLoadScript({
-        language: languageAbr,
+        // language: languageAbr,
         id: 'google-map-script',
         googleMapsApiKey: apiKey,
         libraries,
