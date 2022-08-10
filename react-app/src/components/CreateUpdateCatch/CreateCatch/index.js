@@ -134,7 +134,7 @@ export default function CreateCatchForm () {
   return (
     <div className='create-catch-page'>
     <div className="create form create-form">
-    <div className="transistion-bar">aa</div>
+    <div className="transistion-bar"></div>
     <h1 className='section-title'>{language && language === 'English' ? English.ShareYourCatch : Chinese.ShareYourCatch}</h1>
     <form className='form' onSubmit={handleSubmit}>
 

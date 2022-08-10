@@ -112,7 +112,7 @@ const Map = ({
             </div>
 
             <div className='map-container'>
-                <div className='map'>
+                {/* <div className='map'> */}
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={center}
@@ -150,7 +150,7 @@ const Map = ({
 
 
             </GoogleMap>
-            </div>
+            {/* </div> */}
             </div>
         </>
     )

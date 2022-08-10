@@ -41,7 +41,7 @@ export default function Locations ({ setSearchLocation }) {
     return (
         <>
             <Combobox onSelect={handleSelect}>
-            <div className='search-div'><div className='search-icon'><i class="fa-solid fa-magnifying-glass-location"></i></div>
+            <div className='search-div search-page'><div className='search-icon'><i class="fa-solid fa-magnifying-glass-location"></i></div>
                 <ComboboxInput
                     value={value}
                     onChange={e => setValue(e.target.value)}

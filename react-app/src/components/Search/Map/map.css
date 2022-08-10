@@ -1,13 +1,13 @@
-.map-container {
+/* .map-container {
     display: flex;
-    height: 80vh;
+    height: 100%;
     width: 100%;
-}
+} */
 
-.map {
+/* .map {
     width: 100%;
     height: 100%;
-}
+} */
 
 /* .chosen-marker {
     background-color: salmon;

@@ -36,10 +36,12 @@
     height: 60px;
     /* margin-top: 5px; */
     align-self: center;
+    border-radius: 25px;
 }
 
 .search-input.expanded-width {
     width: 99%;
+    ;
 }
 
 .search-button {

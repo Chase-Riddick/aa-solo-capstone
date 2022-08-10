@@ -380,6 +380,10 @@ body {
     margin-top: 3px;
 }
 
+.search-div.search-page {
+    border: none;
+}
+
 .fa-magnifying-glass-location {
     padding-left: 15px;
     font-size: 52px;
