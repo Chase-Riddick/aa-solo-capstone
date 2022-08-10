@@ -290,9 +290,10 @@ body {
 }
 
 .my-catches-page {
-    background-color: whitesmoke;
+    background-color: white;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     width: 100vw;
@@ -322,6 +323,7 @@ body {
 
 .mycatches-container {
     grid-template-columns: repeat(2, 1fr);
+    /* justify-content: start; */
     gap: 0px;
     background-color: rgb(245, 245, 245);
     height: 100vh;
@@ -334,6 +336,7 @@ body {
     /* overflow-x: scroll; */
     /* box-shadow: 0px 0px 8px 3px rgba(0, 0, 0, 0.2); */
     padding-bottom: 200px;
+    margin-bottom: 300px;
     /* width: 500px; */
     /* height: 1000px; */
 }
@@ -410,6 +413,7 @@ body {
 .catches-container.full-page {
     grid-template-columns: repeat(3, 1fr);
     max-width: 900px;
+    height: fit-content;
 }
 
 /* .full-page {

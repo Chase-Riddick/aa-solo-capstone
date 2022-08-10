@@ -54,7 +54,7 @@ export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessi
                         </div>
                         <div className='catch-card-lower'>
                         <div className='card-buttons'>
-                        {sessionUser && sessionUser?.id == indivCatch.user_id && page !== 'search' &&
+                        {sessionUser && sessionUser?.id == indivCatch.user_id && page === 'mycatches' &&
                         <UpdateCatchModal indivCatch={indivCatch}/>
                         }
                         </div>

@@ -6,7 +6,7 @@ def seed_conditions():
 
     def get_catch_times():
         catch_times = []
-        catchesA = Catch.query.filter(Catch.id < 10).all()
+        catchesA = Catch.query.filter(Catch.id < 13).all()
         catchesAObj = [catch.to_dict() for catch in catchesA]
         for single_catch in catchesAObj:
             catch_times.append(single_catch['catch_time'])
@@ -14,7 +14,7 @@ def seed_conditions():
 
     def get_catch_times_china():
         catch_times = []
-        catchesA = Catch.query.filter(Catch.id > 9).all()
+        catchesA = Catch.query.filter(Catch.id > 12).all()
         catchesAObj = [catch.to_dict() for catch in catchesA]
         for single_catch in catchesAObj:
             catch_times.append(single_catch['catch_time'])
@@ -73,9 +73,12 @@ def seed_conditions():
 
     condtions_arr = get_weather(catch_times_gen)
     condtions_arr_china = get_weather_china(catch_times_china)
-    print(condtions_arr)
-    print(condtions_arr_china)
-
+    print('***********************************************************************************************')
+    # print(condtions_arr)
+    # print(condtions_arr.length)
+    # print(condtions_arr_china)
+    # print(condtions_arr_china.length)
+    print('***********************************************************************************************')
     db.session.add_all(
         [
         Condition(
@@ -209,6 +212,94 @@ def seed_conditions():
             cloud = condtions_arr[11]['cloud'],
             humdity = condtions_arr[11]['humdity'],
             pressure = condtions_arr[11]['pressure'],
+            ),
+        Condition(
+            catch_id = 13,
+            condition_text = condtions_arr_china[0]['condition_text'],
+            condition_icon = condtions_arr_china[0]['condition_icon'],
+            temp = condtions_arr_china[0]['temp'],
+            wind = condtions_arr_china[0]['wind'],
+            precip = condtions_arr_china[0]['precip'],
+            cloud = condtions_arr_china[0]['cloud'],
+            humdity = condtions_arr_china[0]['humdity'],
+            pressure = condtions_arr_china[0]['pressure'],
+            ),
+        Condition(
+            catch_id = 14,
+            condition_text = condtions_arr_china[1]['condition_text'],
+            condition_icon = condtions_arr_china[1]['condition_icon'],
+            temp = condtions_arr_china[1]['temp'],
+            wind = condtions_arr_china[1]['wind'],
+            precip = condtions_arr_china[1]['precip'],
+            cloud = condtions_arr_china[1]['cloud'],
+            humdity = condtions_arr_china[1]['humdity'],
+            pressure = condtions_arr_china[1]['pressure'],
+            ),
+        Condition(
+            catch_id = 15,
+            condition_text = condtions_arr_china[2]['condition_text'],
+            condition_icon = condtions_arr_china[2]['condition_icon'],
+            temp = condtions_arr_china[2]['temp'],
+            wind = condtions_arr_china[2]['wind'],
+            precip = condtions_arr_china[2]['precip'],
+            cloud = condtions_arr_china[2]['cloud'],
+            humdity = condtions_arr_china[2]['humdity'],
+            pressure = condtions_arr_china[2]['pressure'],
+            ),
+        Condition(
+            catch_id = 16,
+            condition_text = condtions_arr_china[3]['condition_text'],
+            condition_icon = condtions_arr_china[3]['condition_icon'],
+            temp = condtions_arr_china[3]['temp'],
+            wind = condtions_arr_china[3]['wind'],
+            precip = condtions_arr_china[3]['precip'],
+            cloud = condtions_arr_china[3]['cloud'],
+            humdity = condtions_arr_china[3]['humdity'],
+            pressure = condtions_arr_china[3]['pressure'],
+            ),
+        Condition(
+            catch_id = 17,
+            condition_text = condtions_arr_china[4]['condition_text'],
+            condition_icon = condtions_arr_china[4]['condition_icon'],
+            temp = condtions_arr_china[4]['temp'],
+            wind = condtions_arr_china[4]['wind'],
+            precip = condtions_arr_china[4]['precip'],
+            cloud = condtions_arr_china[4]['cloud'],
+            humdity = condtions_arr_china[4]['humdity'],
+            pressure = condtions_arr_china[4]['pressure'],
+            ),
+        Condition(
+            catch_id = 18,
+            condition_text = condtions_arr_china[5]['condition_text'],
+            condition_icon = condtions_arr_china[5]['condition_icon'],
+            temp = condtions_arr_china[5]['temp'],
+            wind = condtions_arr_china[5]['wind'],
+            precip = condtions_arr_china[5]['precip'],
+            cloud = condtions_arr_china[5]['cloud'],
+            humdity = condtions_arr_china[5]['humdity'],
+            pressure = condtions_arr_china[5]['pressure'],
+            ),
+        Condition(
+            catch_id = 19,
+            condition_text = condtions_arr_china[6]['condition_text'],
+            condition_icon = condtions_arr_china[6]['condition_icon'],
+            temp = condtions_arr_china[6]['temp'],
+            wind = condtions_arr_china[6]['wind'],
+            precip = condtions_arr_china[6]['precip'],
+            cloud = condtions_arr_china[6]['cloud'],
+            humdity = condtions_arr_china[6]['humdity'],
+            pressure = condtions_arr_china[6]['pressure'],
+            ),
+        Condition(
+            catch_id = 20,
+            condition_text = condtions_arr_china[7]['condition_text'],
+            condition_icon = condtions_arr_china[7]['condition_icon'],
+            temp = condtions_arr_china[7]['temp'],
+            wind = condtions_arr_china[7]['wind'],
+            precip = condtions_arr_china[7]['precip'],
+            cloud = condtions_arr_china[7]['cloud'],
+            humdity = condtions_arr_china[7]['humdity'],
+            pressure = condtions_arr_china[7]['pressure'],
             ),
         ]
     )
