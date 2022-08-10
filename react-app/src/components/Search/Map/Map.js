@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useCallback  } from 'react'
+import React, { useState, useMemo, useRef, useCallback, useEffect  } from 'react'
 import { useHistory } from 'react-router-dom';
 
 import { GoogleMap, useLoadScript, Marker, MarkerClusterer, InfoWindow } from '@react-google-maps/api';
@@ -7,6 +7,10 @@ import DisplayIndivCatchModal from '../../DisplayIndivCatch/IndivCatchModal';
 import MapDisplayCard from '../../CreateUpdateCatch/CreateCatch/CreateMap/MapDisplayCard';
 import Locations from './Locations';
 import './map.css'
+
+import { useLanguageContext } from '../../../context/LanguageContext';
+
+
 
 
 
@@ -26,12 +30,27 @@ function Maps ({
          selectedMarker,
          setSelectedMarker,
 }) {
+    const { language} = useLanguageContext();
+    const languageAbr = language === 'Chinese' ? 'zh' : 'en';
 
     const { isLoaded } = useLoadScript({
+        language: languageAbr,
         id: 'google-map-script',
         googleMapsApiKey: apiKey,
         libraries,
     });
+
+    // useEffect(() => {
+    //     const rerenderOnLangChange = () => {
+    //     let newLoad = useLoadScript({
+    //         language: languageAbr,
+    //         id: 'google-map-script',
+    //         googleMapsApiKey: apiKey,
+    //         libraries,
+    //     })
+    //     isLoaded = {newLoad};}
+    //     rerenderOnLangChange();
+    // }, [language])
 
     if (!isLoaded) return <div>Map is loading...</div>
 
