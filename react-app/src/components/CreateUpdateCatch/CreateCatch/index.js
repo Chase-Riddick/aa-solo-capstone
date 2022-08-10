@@ -111,7 +111,6 @@ export default function CreateCatchForm () {
     let data= await dispatch(createCatch(payload));
     if (data && data.errors) {
         let modified_error_messages = []
-        console.log(data.errors);
         data.errors.forEach(error => {
             let splitError = error.split(": ")
             modified_error_messages.push(splitError[1])

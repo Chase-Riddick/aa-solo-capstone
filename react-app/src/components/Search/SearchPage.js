@@ -107,7 +107,6 @@ export default function SearchPage () {
             try {
             res = getAreaCatches(areaParam, catches);
             setCatchLatLngArr(res[0]);
-            console.log(minWeight)
             setCatchArr(res[1].filter(indivCatch => indivCatch.fish.toLowerCase().includes(fishQuery.toLowerCase()))
             .filter(indivCatch => indivCatch.weight >= minWeight.toString() && indivCatch.weight <= maxWeight.toString())
             .filter(indivCatch => indivCatch.length >= minLength.toString() && indivCatch.length <= maxLength.toString())

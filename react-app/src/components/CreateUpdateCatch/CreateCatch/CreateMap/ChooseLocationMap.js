@@ -61,7 +61,6 @@ const Map = ({
 }) => {
 
     const onMarkerDragEnd = (res) => {
-        console.log("This hit")
         let lat;
         let lng;
         if (res) {
