@@ -15,6 +15,8 @@ import './map.css'
 
 import '../../Splash/Map/searchbar.css'
 
+import { useLanguageContext } from '../../../context/LanguageContext';
+
 export default function Locations ({ setSearchLocation }) {
     const {
         ready,
@@ -23,6 +25,8 @@ export default function Locations ({ setSearchLocation }) {
         suggestions: { status, data },
         clearSuggestions
     } = usePlacesAutocomplete()
+
+    const { language, setLanguage, English, Chinese } = useLanguageContext();
 
     const handleSelect = async (address) => {
         setValue(address, false)
@@ -37,19 +41,27 @@ export default function Locations ({ setSearchLocation }) {
     return (
         <>
             <Combobox onSelect={handleSelect}>
+            <div className='search-div'><div className='search-icon'><i class="fa-solid fa-magnifying-glass-location"></i></div>
                 <ComboboxInput
                     value={value}
                     onChange={e => setValue(e.target.value)}
                     disabled={!ready}
                     className='search-input expanded-width'
-                    placeholder='Search a Place'
-                />
+                    placeholder={language && language === 'English' ? English.SearchAnArea : Chinese.SearchAnArea}
+                /></div>
                 <ComboboxPopover>
                     <ComboboxList>
                     <div className='list-item-row result-item'>
                     <ComboboxOption
                         key={'ChIJ77RIbWo7kVQRydq-d9kYmBg'}
                         value={'Lewis County, WA, USA'}
+                        className='recommended-place'
+                        /><div className='active-community'>* Active community</div>
+                        </div>
+                        <div className='list-item-row result-item'>
+                    <ComboboxOption
+                        key={'ChIJ77RIbWo7kVQRydq-d9kYmCg'}
+                        value={'China, Liaoning, 大连'}
                         className='recommended-place'
                         /><div className='active-community'>* Active community</div>
                         </div>

@@ -32,13 +32,10 @@ export default function DisplayIndivCatchModal ({ indivCatch, user, users, sessi
           style={{
             height: "auto",
             backgroundColor: "rgb(1, 138, 153)",
-            paddingTop: "10px",
+            paddingTop: "5px",
           }}
         >
-          <div className="">
-            aa
-          </div>
-          <div className="">aa</div>
+          <div className="">Aug 12</div>
         </div>
       </div>
 

@@ -62,6 +62,14 @@ export default function SplashLocations ({ setSearchLocation }) {
                         className='recommended-place'
                         /><div className='active-community'>* Active community</div>
                         </div>
+                        <div className='list-item-row result-item'>
+                    <ComboboxOption
+                        key={'ChIJ77RIbWo7kVQRydq-d9kYmCg'}
+                        value={'China, Liaoning, 大连'}
+                        className='recommended-place'
+                        /><div className='active-community'>* Active community</div>
+                        </div>
+
                     {status === 'OK' && data &&
                     data?.map(({ place_id, description }) => (
                         <>

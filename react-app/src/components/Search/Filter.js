@@ -30,7 +30,7 @@ export default function Filter ({
 
     return (
         <>
-        <div className="filters-heading">Filters
+        <div className="filters-heading">{language && language === 'English' ? English.Filters : Chinese.Filters}
         <i className={arrowTurned ? "fa-solid fa-caret-right nb-th-arrow-right arrow-right-turned" : "fa-solid fa-caret-right nb-th-arrow-right"} onClick={() => turnArrow()}></i>
         </div>
         {arrowTurned &&

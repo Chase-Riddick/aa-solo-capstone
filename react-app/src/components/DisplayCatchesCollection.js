@@ -38,7 +38,7 @@ console.log("-----------------")
 
 
     return (
-            <div className={page === 'mycatches' || page === 'global' ? 'catches-container full-page' : 'catches-container'}>
+            <div className={page === 'mycatches' || page === 'global' ? 'catches-container full-page' : 'catches-container search-results'}>
                 {/* // <div className='catches-container'> */}
                 {selectedMarker && indivCatchSelected &&
                 <DisplayIndivCatchModal className='selected something' selectedMarker={selectedMarker} key={indivCatchSelected.id} page={page} sessionUser={sessionUser} users={users} indivCatch={indivCatchSelected} user={users[indivCatchSelected.user_id]}>

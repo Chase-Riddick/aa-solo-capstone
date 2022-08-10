@@ -73,11 +73,11 @@ body {
 .card-arc {
     display: flex;
     align-items: center;
-    color: #191923;
+    color: white;
     font-family: "Eina-bold";
     font-weight: 900;
     width: 5em;
-    height: 5em;
+    height: 2em;
     position: absolute;
     bottom: 100%;
     left: 0;
@@ -88,9 +88,12 @@ body {
     display: grid;
 	grid-template-columns: repeat(2, 1fr);
     gap: 0px;
-    background-color: white;
-    align-items: center;
+    background-color: rgb(245, 245, 245);
+    align-items: flex-start;
     justify-content: center;
+    border-top: solid 3px black;
+    border-left: solid 2px black;
+    border-right: solid 2px black;
     /* gap: 10px; */
     /* align-items: center; */
     /* flex-wrap: wrap; */
@@ -104,6 +107,10 @@ body {
     padding-bottom: 100px;
     /* width: 500px; */
     /* height: 1000px; */
+}
+
+.catches-container.search-results {
+    border: none;
 }
 
 .catch-card {
@@ -128,7 +135,7 @@ body {
 }
 
 .catch-card.selected {
-    border: salmon solid 5px;
+    border: salmon solid 2px;
 }
 
 .catch-card:hover {
@@ -351,7 +358,7 @@ body {
     background-color: white;
     padding-bottom: 0px;
     margin-bottom: 0px;
-    border-bottom: black 2px solid;
+    /* border-bottom: black 2px solid; */
 }
 
 .section-title.my-catches {
@@ -370,6 +377,7 @@ body {
     border-radius: 50px;
     background-color: white;
     padding-right: 15px;
+    margin-top: 3px;
 }
 
 .fa-magnifying-glass-location {
@@ -384,7 +392,7 @@ body {
         align-items: center;
         grid-template-columns: repeat(1, 1fr);
         gap: 0px;
-        background-color: white;
+        background-color: rgb(253, 253, 253);
         margin-left: 50px;
         /* justify-content: center;
         align-content: center; */
@@ -412,8 +420,9 @@ body {
 
 .catches-container.full-page {
     grid-template-columns: repeat(3, 1fr);
+    align-items: flex-start;
     max-width: 900px;
-    height: fit-content;
+    height: 100vh;
 }
 
 /* .full-page {
@@ -425,10 +434,10 @@ body {
 
     .catches-container {
         display: grid;
-        align-items: center;
+        align-items: flex-start;
         grid-template-columns: repeat(3, 1fr);
         gap: 0px;
-        background-color:white;
+        background-color:rgb(253, 253, 253);
         width: 100%;
         height: 100vh;
         overflow-x: scroll;

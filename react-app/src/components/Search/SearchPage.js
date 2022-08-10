@@ -150,7 +150,7 @@ export default function SearchPage () {
         </div>
         <div className="search-page-right">
         <div className="transistion-bar">aa</div>
-        <div className="section-title">Recent Catches in Locality:</div>
+        <div className="section-title">{language && language === 'English' ? English.RecentCatchesLocality : Chinese.RecentCatchesLocality}:</div>
         <Filter
         fishQuery={fishQuery}
         setFishQuery={setFishQuery}

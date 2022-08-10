@@ -23,16 +23,18 @@
     background-color: white;
     font-size: 20px;
     color: rgb(24, 39, 36);
-    padding: 9px 18px;
+    padding: 9px;
     margin-top: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border: 2px solid #2C2F33;
-    border-radius: 22px;
+     border-bottom: none;
+    /* border: 2px solid #2C2F33; */
+    /* border-radius: 22px; */
     width: 400px;
     height: 60px;
+    /* margin-top: 5px; */
     align-self: center;
 }
 
@@ -64,8 +66,8 @@
 }
 
 .recommended-place:hover {
-    background-color: whitesmoke;
-    border-bottom: black 1px solid;
+    background-color: white;
+    /* border-bottom: black 1px solid; */
 }
 
 
@@ -77,16 +79,16 @@
 }
 
 .active-community {
-    color: rgb(1, 138, 153);
+    color: #083b37;
     font-weight: 900;
 }
 
 .result-item {
     font-family: 'Work';
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .result-item:hover {
-    background-color: whitesmoke;
+    background-color: white;
     border-bottom: black 1px solid;
 }
