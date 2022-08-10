@@ -41,6 +41,8 @@ export default function ChooseLocations ({ searchLocation, setSearchLocation, se
       <p className='required'>*</p>
       </div>
                 <div className='image-input-line'>
+                {/* <div className='search-icon'><i className="fa-solid fa-magnifying-glass-location search-bar-icon"></i></div> */}
+
                 <ComboboxInput
                     value={value}
                     onChange={e => setValue(e.target.value)}

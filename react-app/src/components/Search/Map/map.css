@@ -16,4 +16,6 @@
 
 .fa-solid.fa-magnifying-glass-location.search-bar-icon {
     font-size: 36px;
+    margin-left: 0;
+    padding-left: 0;
 }

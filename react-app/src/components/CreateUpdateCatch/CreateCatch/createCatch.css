@@ -10,6 +10,7 @@
     width: 50%;
     margin-right: 10px;
     min-width: 400px;
+    box-shadow: 10px 0px 10px 1px #0000006c;
 }
 
 .location-select {
