@@ -53,7 +53,7 @@ export const English = {
     SplashLine2Emphasis: "the boasting",
     SplashLine3Emphasis: "See where",
     Email: "Email",
-    Password:  "Password",
+    Password: "Password",
     DemoUser: "Demo User",
     DontHaveAccount: "Don’t have an account?",
     AlreadyHaveAccount: "Already have an account?",
