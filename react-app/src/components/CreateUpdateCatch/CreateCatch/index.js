@@ -7,6 +7,7 @@ import DateTimePicker from 'react-datetime-picker';
 import { useLanguageContext } from '../../../context/LanguageContext';
 import ChooseLocationMap from './CreateMap/ChooseLocationMap';
 import { createCatch } from '../../../store/catch';
+import loadingimage from '../../../images/loadingimg.gif'
 import '../../../form.css';
 import './createCatch.css';
 
@@ -17,6 +18,8 @@ export default function CreateCatchForm () {
   const key = useSelector(state => state.map.mapAPIKey)
   const sessionUser = useSelector(state => state.session.user);
   const [errors, setErrors] = useState([]);
+  const [showLoadingImg, setShowLoadingImg] = useState(false);
+  const [showSuccessfulLoad, setShowSuccessfulLoad] = useState(false);
 
   const [ searchLocation, setSearchLocation ] = useState();
   const [ areaParam, setAreaParam ] = useState('');
@@ -64,6 +67,8 @@ export default function CreateCatchForm () {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    setShowLoadingImg(true);
     const errors = [];
     let splitImg = img.name.split('.');
     let fileKind = splitImg[splitImg.length - 1];
@@ -78,6 +83,7 @@ export default function CreateCatchForm () {
 
     if (errors.length) {
       setErrors([...errors]);
+      setShowLoadingImg(false);
       return;
     }
 
@@ -115,27 +121,32 @@ export default function CreateCatchForm () {
             let splitError = error.split(": ")
             modified_error_messages.push(splitError[1])
         });
-
+        setShowLoadingImg(false)
         setErrors(modified_error_messages)
 
     } else {
+        setShowLoadingImg(false);
+        setShowSuccessfulLoad(true);
         setFish("")
         setDescription("")
         setLength("")
         setWeight("")
         setBait("")
         setLure("")
-        history.push(`/mycatches`)
+        setTimeout(() =>{
+          history.push(`/mycatches`)
+        }, "1500")
+
     }
   }
 
 
   return (
     <div className='create-catch-page'>
-    <div className="create form create-form">
+    <div className="create-form">
     <div className="transistion-bar"></div>
     <h1 className='section-title'>{language && language === 'English' ? English.ShareYourCatch : Chinese.ShareYourCatch}</h1>
-    <form className='form' onSubmit={handleSubmit}>
+    <form className='create-form-form' onSubmit={handleSubmit}>
 
       {language && errors.length > 0 && <ul className='errors'>
             {errors.map((error, idx) => {
@@ -281,8 +292,19 @@ export default function CreateCatchForm () {
         maxLength={80}
         onChange={updateLure} />
         </div>
+
+        {(showLoadingImg || showSuccessfulLoad) &&
+    <div className='loading-img-container'>
+      {showLoadingImg &&
+      <img src={loadingimage} className='loading-img'/>
+      }
+      {
+        showSuccessfulLoad &&
+        <i className="fa-solid fa-circle-check successfulLoad"></i>
+      }
+    </div>}
       <div className='form-button-row'>
-      <button className='button salmon' type="submit">{language && language === 'English' ? English.SubmitPost: Chinese.SubmitPost}</button>
+      <button className={showLoadingImg || showSuccessfulLoad ? 'button salmon noClick' : 'button salmon'} type="submit">{language && language === 'English' ? English.SubmitPost: Chinese.SubmitPost}</button>
       <button className='button cancel' type="button" onClick={handleCancelClick}>{language && language === 'English' ? English.Cancel: Chinese.Cancel}</button>
       </div>
     </form>
