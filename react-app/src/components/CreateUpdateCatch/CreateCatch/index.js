@@ -172,7 +172,7 @@ export default function CreateCatchForm () {
       </div>
     <input
         type="text"
-        placeholder="What did you catch?"
+        placeholder={language && language === 'English' ? English.WhatDidYouCatch : Chinese.WhatDidYouCatch}
         className='input'
         value={fish}
         maxLength={25}
@@ -188,7 +188,7 @@ export default function CreateCatchForm () {
       <DateTimePicker className='datetime-picker'required minDate={oneWeekAgo} maxDate={currentDate} onChange={setCatchTime} value={catchTime} />
     </div>
     </div>
-    <div className='form-note'> <b>Note:</b> Catches must have happened in the past seven days. Budget contraints mean that we can only access weather conditions within the past 7 days. </div>
+    <div className='form-note'> <b>{language && language === 'English' ? English.Note : Chinese.Note}</b> {language && language === 'English' ? English.NoteContent : Chinese.NoteContent}</div>
 
 
 
@@ -221,7 +221,7 @@ export default function CreateCatchForm () {
       </div>
 
       <textarea
-        placeholder="Anything else you'd like to say about the catch?"
+        placeholder={language && language === 'English' ? English.AnyDescription : Chinese.AnyDescription }
         value={description}
         maxLength={254}
         // required
@@ -238,7 +238,7 @@ export default function CreateCatchForm () {
       <input
         type="number"
         step="0.5"
-        placeholder="Weight (lbs)"
+        placeholder={language && language === 'English' ? `${English.Weight} (${English.pounds})` : `${Chinese.Weight} (${Chinese.pounds})`}
         value={weight}
         min="0.0"
         max="500"
@@ -256,7 +256,7 @@ export default function CreateCatchForm () {
     <input
         type="number"
         step="1.0"
-        placeholder="Length (inches)"
+        placeholder={language && language === 'English' ? `${English.Length} (${English.inches})` : `${Chinese.Length} (${Chinese.inches})`}
         value={length}
         min="2.0"
         max="240"
@@ -272,7 +272,7 @@ export default function CreateCatchForm () {
       </div>
     <input
         type="text"
-        placeholder="What bait did you use?"
+        placeholder={language && language === 'English' ? English.WhatBait : Chinese.WhatBait}
         className='input'
         value={bait}
         maxLength={80}
@@ -286,7 +286,7 @@ export default function CreateCatchForm () {
       </div>
     <input
         type="text"
-        placeholder="What lure did you use?"
+        placeholder={language && language === 'English' ? English.WhatLure : Chinese.WhatLure}
         className='input'
         value={lure}
         maxLength={80}
