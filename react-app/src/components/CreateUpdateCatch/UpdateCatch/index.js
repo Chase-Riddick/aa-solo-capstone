@@ -152,7 +152,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
       </div>
     <input
         type="text"
-        placeholder="What did you catch?"
+        placeholder={language && language === 'English' ? English.WhatDidYouCatch : Chinese.WhatDidYouCatch}
         className='input'
         value={fish}
         maxLength={20}
@@ -245,7 +245,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
       </div>
     <input
         type="text"
-        placeholder="What bait did you use?"
+        placeholder={language && language === 'English' ? English.WhatBait : Chinese.WhatBait}
         className='input'
         value={bait}
         maxLength={80}
@@ -259,7 +259,7 @@ export default function UpdateCatchForm ({indivCatch, setShowModal}) {
       </div>
     <input
         type="text"
-        placeholder="What lure did you use?"
+        placeholder={language && language === 'English' ? English.WhatLure : Chinese.WhatLure}
         className='input'
         maxLength={80}
         value={lure}
